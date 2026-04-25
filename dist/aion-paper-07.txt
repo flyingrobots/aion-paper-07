@@ -40,7 +40,7 @@ the slice boundary; it does not change the downstream law.
 
                                                     3
 Contents
-1 Introduction                                                                                        5
+1 Introduction                                                                                         5
 
 2 Causal Lanes, Strands, and Braids                                                                    7
 
@@ -64,26 +64,26 @@ Contents
   6.2 Example: An Authored Hot-Text Optic . . . . . . . . . . . . . . . . . . . . . . . . .           24
   6.3 The Three-Tier Thinking Room . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .        26
 
-7 Privacy, Provenance, and Revelation                                                                 28
-  7.1 Property Library . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    28
-  7.2 Reliance Status . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   28
-  7.3 Observer Rights . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   28
+7 Privacy, Provenance, and Revelation                                                                 27
+  7.1 Property Library . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    27
+  7.2 Reliance Status . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   27
+  7.3 Observer Rights . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   27
 
-8 Open Frontier Questions                                                                             30
+8 Open Frontier Questions                                                                             29
 
-9 Conclusion                                                                                          31
+9 Conclusion                                                                                          30
 
-A Adversarial Transport (Sketch)                                                                      32
-  A.1 Threat model . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    32
-  A.2 Transport obligations . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   32
-  A.3 Failure modes and lawful outcomes . . . . . . . . . . . . . . . . . . . . . . . . . . . .       33
-  A.4 Architectural consequence . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .     33
+A Adversarial Transport (Sketch)                                                                    31
+  A.1 Threat model . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 31
+  A.2 Transport obligations . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 31
+  A.3 Failure modes and lawful outcomes . . . . . . . . . . . . . . . . . . . . . . . . . . . . 32
+  A.4 Architectural consequence . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 32
 
-B WARP Glossary                                                                                       34
-  B.1 Symbolic Vocabulary . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .     34
-  B.2 History And Lane Nouns . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .      34
-  B.3 Admission And Replay Nouns . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .        35
-  B.4 Commitment, Revelation, And Governance Nouns . . . . . . . . . . . . . . . . . . .              36
+B WARP Glossary                                                                                       33
+  B.1 Symbolic Vocabulary . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .     33
+  B.2 History And Lane Nouns . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .      33
+  B.3 Admission And Replay Nouns . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .        34
+  B.4 Commitment, Revelation, And Governance Nouns . . . . . . . . . . . . . . . . . . .              35
 
 
 
@@ -922,67 +922,59 @@ compiler boundary here. The architecture developed here places it at a clear eng
 
 
                                                   22
-                             Generic lowering kernel
-                                    LowerΨ
+                                   Generic lowering kernel
+                                          LowerΨ
 
-         enforce + present                                  pack / retain
-
-
-
-Compiled plans
-                                                                    Retained shell
-   ρ, Π, Λ, Ω
-                                                                 θ (hologram carrier)
-+ host bindings
-
-                                          observe
-
-       compile
-                                                                         serve
+            enforce + present                                    pack / retain
 
 
 
+   Compiled plans
+                                                                        Retained shell
+      ρ, Π, Λ, Ω
+                                                                     θ (hologram carrier)
+   + host bindings
 
-       Authored optic boundary                          Hosted read
-               (SDL)                                  (bounded reveal)
+                                                   observe
 
-
-Figure 4: Authored optic boundaries compile into generic admission and observer machinery.
+           compile
+                                                                              serve
 
 
 
 
-                                           23
- «requirement» REQ-SDL-1                               «requirement» REQ-COMP-1
- Determinism surface.                                  Compile-time enforcement.
- The authored boundary must not depend on              The compiler rejects boundaries whose de-
- ambient non-determinism (wallclock, random-           clared footprints and closures cannot be
- ness, hidden I/O).                                    checked.
-                                             deriveReqt
-
- «requirement» REQ-SDL-2                               «requirement» REQ-RT-1
- Footprint closure.                                    Runtime footprint gate.
-                                                    satisfy
- Each rewrite declares reads/writes/creates/-          The lowering kernel enforces the declared
- forbids and the closures needed to construct          footprint during admission.
- its bounded slice χ.
-                                                                              satisfy
-
-                                                       «requirement» REQ-RT-2
-                                                       Witness obligation.
-                                                       Admitted acts pack a receipt/shell meeting
-                                                       Λ’s replay and audit obligations.
-
-                                                                  trace
-
-      «requirement» REQ-READ-1
-      Bounded revelation.
-      Hosted reads are mediated by observer plans and rights, not by direct state access.
+          Authored optic boundary                              Hosted read
+                  (SDL)                                      (bounded reveal)
 
 
-Figure 5: A requirement view of the compiler seam: authored boundaries are constrained so that
-admission remains deterministic, checkable, and witness-bearing.
+  Figure 4: Authored optic boundaries compile into generic admission and observer machinery.
 
+
+    REQ-SDL-1 REQ-COMP-1 REQ-READ-1
+            Unchecked boundary
+  Non-determinism        Unbounded reveal
+
+
+
+                                                                              Unlawful lowering
+                                                                               across the seam
+
+
+          REQ-SDL-2     REQ-RT-1    REQ-RT-2
+      Unbounded footprint
+                    No runtime gate
+                                 Missing witness
+
+
+
+Figure 5: A cause-and-effect view of the compiler seam. The boundary is constrained so that admis-
+sion remains deterministic (REQ-SDL-1), bounded (REQ-SDL-2), checkable (REQ-COMP-1, REQ-RT-1),
+witness-bearing (REQ-RT-2), and revealable only under rights (REQ-READ-1).
+
+
+
+
+                                                   23
 6.2 Example: An Authored Hot-Text Optic
 We make that application boundary concrete by looking at a small developer-authored hot-text
 boundary. The full SDL declares the hot nouns of one text layer—BufferWorldline, RopeHead,
@@ -1003,9 +995,6 @@ surface; its use as an API and query language is standard [Gra21].
     The central rewrite in that family is replaceRangeAsTick, because it shows the optic shape
 with minimal extra machinery:
 
-
-
-                                                  24
 From surface to runtime admission. Compilation of a surface like replaceRangeAsTick
 yields a typed intent envelope (carrying arguments plus declared reads/writes/creates/forbids) and
 generated host bindings that enforce those declarations. At runtime, the generic lowering kernel
@@ -1036,50 +1025,50 @@ presented claim family, and packs the declared receipt and retention obligations
  22       ]
  23       slots: [
  24         {
- 25           slot: "worldline"
- 26           kind: "BufferWorldline"
- 27           bindFromArg: "input.worldlineId"
- 28           access: [READ, WRITE]
- 29         }
- 30         {
- 31           slot: "baseHead"
- 32           kind: "RopeHead"
- 33           bindFromArg: "input.baseHeadId"
- 34           access: [READ]
- 35         }
- 36       ]
- 37       closures: [
- 38         {
- 39           slot: "touchedRope"
- 40           fromSlot: "baseHead"
- 41           operator: "ropeRangeClosure"
- 42           argBindings: ["input.startByte", "input.endByte"]
- 43           reads: ["RopeBranch", "RopeLeaf", "TextBlob"]
- 44           cardinality: MANY
- 45         }
- 46         {
- 47           slot: "affectedAnchors"
 
 
-                                                 25
- 48           fromSlot: "worldline"
- 49           operator: "anchorsIntersectingEditWindow"
- 50           argBindings: ["baseHead", "input.startByte", "input.endByte"]
- 51           reads: ["Anchor"]
- 52           cardinality: MANY
- 53         }
- 54       ]
- 55       createSlots: [
- 56         { slot: "newBlob", kind: "TextBlob", cardinality: OPTIONAL }
- 57         { slot: "newLeaves", kind: "RopeLeaf", cardinality: MANY }
- 58         { slot: "newBranches", kind: "RopeBranch", cardinality: MANY }
- 59         { slot: "nextHead", kind: "RopeHead" }
- 60         { slot: "tick", kind: "Tick" }
- 61         { slot: "receipt", kind: "TickReceipt" }
- 62       ]
- 63       updates: [{ slot: "worldline", fields: ["canonicalHead"] }]
- 64       forbids: ["AstState", "Diagnostics", "GitWitness", "UiState"]
- 65       )
+                                                 24
+ 25            slot: "worldline"
+ 26            kind: "BufferWorldline"
+ 27            bindFromArg: "input.worldlineId"
+ 28            access: [READ, WRITE]
+ 29        }
+ 30        {
+ 31            slot: "baseHead"
+ 32            kind: "RopeHead"
+ 33            bindFromArg: "input.baseHeadId"
+ 34            access: [READ]
+ 35        }
+ 36      ]
+ 37      closures: [
+ 38        {
+ 39          slot: "touchedRope"
+ 40          fromSlot: "baseHead"
+ 41          operator: "ropeRangeClosure"
+ 42          argBindings: ["input.startByte", "input.endByte"]
+ 43          reads: ["RopeBranch", "RopeLeaf", "TextBlob"]
+ 44          cardinality: MANY
+ 45        }
+ 46        {
+ 47          slot: "affectedAnchors"
+ 48          fromSlot: "worldline"
+ 49          operator: "anchorsIntersectingEditWindow"
+ 50          argBindings: ["baseHead", "input.startByte", "input.endByte"]
+ 51          reads: ["Anchor"]
+ 52          cardinality: MANY
+ 53        }
+ 54      ]
+ 55      createSlots: [
+ 56        { slot: "newBlob", kind: "TextBlob", cardinality: OPTIONAL }
+ 57        { slot: "newLeaves", kind: "RopeLeaf", cardinality: MANY }
+ 58        { slot: "newBranches", kind: "RopeBranch", cardinality: MANY }
+ 59        { slot: "nextHead", kind: "RopeHead" }
+ 60        { slot: "tick", kind: "Tick" }
+ 61        { slot: "receipt", kind: "TickReceipt" }
+ 62      ]
+ 63      updates: [{ slot: "worldline", fields: ["canonicalHead"] }]
+ 64      forbids: ["AstState", "Diagnostics", "GitWitness", "UiState"]
+ 65      )
 
     This is exactly the developer-facing form of a warp optic. The authored surface names the
 hot nouns that matter, the closure operators that construct the optic slice, the created causal
@@ -1091,6 +1080,9 @@ the forbids clause makes the aperture explicit by ruling out silent dependence o
 diagnostics, Git witness history, or UI state.
     We omit the full SDL. Our goal here is to show the authored pattern. Even this one excerpt is
 enough to expose it: the developer declares the nouns in scope, the closures that build the local
+
+
+                                               25
 slice, the causal consequences that must be retained, the materialised reading that may change,
 and the regions that remain outside the aperture. In ordinary software a developer might declare
 methods over mutable structures. In a warp-native system, the more faithful statement is that
@@ -1109,12 +1101,9 @@ with three practical tiers:
 
 3. Shared / Admitted Lane: collaboratively admitted causal truth.
 
-   This is the privacy-preserving answer to the exposure pressure created by shared causal history.
+    This is the privacy-preserving answer to the exposure pressure created by shared causal history.
 The system may remember drafts, with revelation and retention governed by explicit policy and tier.
 Architecturally, Ephemeral Scratch is pre-admission or minimally retained local work; Author-Only
-
-
-                                                 26
 lanes are durable and replayable prior to social transport; Shared lanes mark the moment private
 speculation crosses into collaborative truth.
     This distinction matters immediately for debugger-driven counterfactual work. A reading, replay,
@@ -1128,7 +1117,7 @@ record the creating principal, tool or session origin, fork basis, and retention
 
 
 
-                                                  27
+                                                  26
 7 Privacy, Provenance, and Revelation
 
 Privacy and provenance are not mutually exclusive [Ros26b]. We do not re-derive that machinery
@@ -1177,7 +1166,7 @@ noun here is not “lens” but “reading”: an observer, equipped with a boun
 a lawful projection by decoding only the least required slice of a subject’s backward causal cone. In
 
 
-                                                   28
+                                                   27
 this ontology, that reading is a coordinate chart over causal history. Different observers may therefore
 lawfully emit different charts over the same history, and revelation law must govern which transitions
 between such charts are permitted, what witness must travel with them, and what plurality or
@@ -1193,7 +1182,7 @@ to serve every use. It lets lawful readings differ by right, scope, and witness 
 
 
 
-                                                  29
+                                                  28
 8 Open Frontier Questions
 
 The architectural centre is stable enough that the remaining work can be stated as extension rather
@@ -1233,7 +1222,7 @@ privileged runtime.
 
 
 
-                                                 30
+                                                 29
 9 Conclusion
 
 The central result of this paper is a clearer object. warp is an optic architecture in which state
@@ -1256,7 +1245,7 @@ executes, it commits, folds, and reveals truth under law.
 
 
 
-                                                  31
+                                                  30
 A Adversarial Transport (Sketch)
 
 The main text treats replica transport as a normalisation step that constructs a comparable basis
@@ -1307,7 +1296,7 @@ enough that downstream lowering remains lawful and auditable.
 
 
 
-                                                  32
+                                                  31
 A.3 Failure modes and lawful outcomes
 Hostile and failure-path behaviour should surface as witnessed outcomes instead of being absorbed
 as silent heuristics:
@@ -1339,7 +1328,7 @@ when incompatibility is surfaced, and Obstruction when preconditions fail.
 
 
 
-                                                 33
+                                                 32
 B WARP Glossary
 
 This glossary gathers the recurring nouns of this paper and the surrounding series. The entries are
@@ -1400,7 +1389,7 @@ Shared history                The admitted causal medium from which frontier-rel
 
 
 
-                                                        34
+                                                        33
 B.3 Admission And Replay Nouns
 
 Term                         Meaning
@@ -1436,7 +1425,7 @@ Optic-accurate bulk          The retained causal content, together with the requ
 
 
 
-                                                       35
+                                                       34
 B.4 Commitment, Revelation, And Governance Nouns
 
 Term                            Meaning
@@ -1477,7 +1466,7 @@ Shared / Admitted Lane       The portion of history that has crossed into collab
 
 
 
-                                                         36
+                                                         35
 References
 
 [Art47]     Emil Artin. Theory of braids. Annals of Mathematics, 48(1):101–126, 1947. doi:
@@ -1532,7 +1521,7 @@ References
             doi:10.1145/4904.4999.
 
 
-                                                  37
+                                                  36
 [FGM+ 07] J. Nathan Foster, Michael B. Greenwald, Jonathan T. Moore, Benjamin C. Pierce,
           and Alan Schmitt. Combinators for bidirectional tree transformations: A linguistic
           approach to the view-update problem. ACM Transactions on Programming Languages
@@ -1587,7 +1576,7 @@ References
 [Ros25a]   James Ross. WARP graphs: A worldline algebra for recursive provenance. AIΩN
            Foundations Series, Paper I, 2025. doi:10.5281/zenodo.17908005.
 
-                                               38
+                                               37
 [Ros25b]   James Ross. WARP graphs: Canonical state evolution and deterministic worldlines.
            AIΩN Foundations Series, Paper II, 2025. doi:10.5281/zenodo.17934512.
 
@@ -1622,4 +1611,4 @@ References
 
 
 
-                                                39
+                                                38
