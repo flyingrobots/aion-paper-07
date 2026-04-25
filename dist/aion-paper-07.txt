@@ -896,29 +896,30 @@ compiler boundary here. The architecture developed here places it at a clear eng
 
 
                                                   22
-                                                           compiler outputs               generic runtime
+                                                            compiler outputs               generic runtime
 
 
-                                                          Write-side intents           Generic lowering
-                                                                         present / enforce
-                                                          + host bindings                  LowerΨ
+                                                           Write-side intents            Generic lowering
+                                                                          present / enforce
+                                                           + host bindings                   LowerΨ
 
                                                                                                  pack / retain
 
- Authored optic boundary
-                       compile                                                            Retained shell
-                             Schema compiler
-         (SDL)                                                                                  θ
+     Authored optic
+       boundary
+                        compile                                                         Retained shell
+                                Schema compiler
+         (SDL)                                                                                θ
 
                                                                                                  serve
 
-                                                            Observer plans    govern       Hosted read
-                                                              + codecs                 (bounded revelation)
+                                                            Observer plans     govern       Hosted read
+                                                              + codecs                  (bounded revelation)
 
 
 
 Figure 4: Authored optic boundaries compile into two runtime-facing artefacts. Write-side intents
-drive generic lowering; read-side observer plans govern bounded revelation over the retained shell.
+drive generic lowering. Read-side observer plans govern bounded revelation over the retained shell.
 
 Requirement          Prevents                   Why the seam needs it
 REQ-SDL-1
