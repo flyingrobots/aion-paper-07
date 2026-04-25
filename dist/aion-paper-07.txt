@@ -927,30 +927,28 @@ Figure 4: Authored optic boundaries compile into generic admission and observer 
 
 
                                            23
-Requirement         Prevents                   Why the seam needs it
+Requirement          Prevents                   Why the seam needs it
 REQ-SDL-1
-deterministic       Ambient                    The runtime cannot replay, audit, or compare lowerings if
-authored            non-determinism            authored surfaces may depend on wall-clock reads, random
-boundary                                       sources, or hidden side effects.
+deterministic        Ambient                    The runtime cannot replay, audit, or compare lowerings if
+authored             non-determinism            authored surfaces may depend on wall-clock reads, random
+boundary                                        sources, or hidden side effects.
 REQ-SDL-2
-bounded footprint   Unbounded reachability     The seam must expose which nouns and closures are in play
-                                               so the slice χ is finite, checkable, and lawfully lowerable.
+bounded footprint    Unbounded reachability     The seam must expose which nouns and closures are in play
+                                                so the slice χ is finite, checkable, and lawfully lowerable.
 REQ-COMP-1
-checked             Unchecked                  The compiler must verify slot bindings, closure obligations,
-compilation         surface-to-runtime drift   and forbidden reachability before arbitrary host code runs.
+checked              Unchecked                  The compiler must verify slot bindings, closure obligations,
+compilation          surface-to-runtime drift   and forbidden reachability before arbitrary host code runs.
 boundary
 REQ-RT-1
-runtime gate        Bypassing admission        Runtime enforcement is required so host code cannot mutate
-                                               state outside the declared optic surface.
+runtime gate         Bypassing admission        Runtime enforcement is required so host code cannot mutate
+                                                state outside the declared optic surface.
 REQ-RT-2
-witness-bearing     Missing receipt or shell   Outcomes must produce retained evidence for replay, audit,
-retention           evidence                   transport, and later revelation.
+witness-bearing      Missing receipt or shell   Outcomes must produce retained evidence for replay, audit,
+retention            evidence                   transport, and later revelation.
 REQ-READ-1
-rights-governed     Unbounded reveal           Observer plans and authority checks must bound what a
-revelation                                     hosted read may lawfully emit from a retained shell.
-
-
-       Table 1: Compiler seam requirements at the authored-boundary/runtime interface.
+rights-governed      Unbounded reveal           Observer plans and authority checks must bound what a
+revelation                                      hosted read may lawfully emit from a retained shell.
+                  Compiler seam requirements at the authored-boundary/runtime interface.
 
 6.2 Example: An Authored Hot-Text Optic
 We make that application boundary concrete by looking at a small developer-authored hot-text
@@ -974,10 +972,10 @@ the optic shape with minimal extra machinery:
 
 From surface to runtime admission. Compilation of a surface like replaceRangeAsTick
 yields a typed intent envelope (carrying arguments plus declared reads/writes/creates/forbids) and
-
-
-                                                   24
 generated host bindings that enforce those declarations. At runtime, the generic lowering kernel
+
+
+                                                    24
 uses the declared closures to construct the bounded slice χ, applies the admissibility law Π over the
 presented claim family, and packs the declared receipt and retention obligations under Λ.
 
@@ -1030,13 +1028,12 @@ presented claim family, and packs the declared receipt and retention obligations
  47           slot: "affectedAnchors"
  48           fromSlot: "worldline"
  49           operator: "anchorsIntersectingEditWindow"
-
+ 50           argBindings: ["baseHead", "input.startByte", "input.endByte"]
+ 51           reads: ["Anchor"]
 
 
                                                  25
- 50           argBindings: ["baseHead", "input.startByte", "input.endByte"]
- 51           reads: ["Anchor"]
- 52           cardinality: MANY
+ 52             cardinality: MANY
  53         }
  54       ]
  55       createSlots: [
@@ -1077,19 +1074,16 @@ think, to speculate, and only later to promote. We therefore distinguish a prote
 with three practical tiers:
 
 1. Ephemeral Scratch: local, weakly retained, and disposable.
-
 2. Author-Only Speculative Lane: durable, replayable, sealed to the author by default.
-
 3. Shared / Admitted Lane: collaboratively admitted causal truth.
 
    This is the privacy-preserving answer to the exposure pressure created by shared causal history.
 The system may remember drafts, with revelation and retention governed by explicit policy and tier.
-
-
-                                                 26
 Architecturally, Ephemeral Scratch is pre-admission or minimally retained local work; Author-Only
 lanes are durable and replayable prior to social transport; Shared lanes mark the moment private
 speculation crosses into collaborative truth.
+
+                                                 26
     This distinction matters immediately for debugger-driven counterfactual work. A reading, replay,
 or inspection act is revelation only. It does not by itself create new causal truth. If an operator
 explicitly asks to continue from an earlier coordinate or explore a counterfactual alternative, the
