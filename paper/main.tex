@@ -1221,25 +1221,25 @@ observer plans, and shared codecs; and the runtime remains generic, admitting
 			}
 
 			\node[warp seam wide] (sdl) at (0,0) {Authored optic\\boundary\\(SDL)};
-			\node[warp seam narrow] (compiler) at (4.0,0) {Schema compiler};
+			\node[warp seam narrow] (compiler) at (4.3,0) {Schema compiler};
 
-			\node[warp seam] (intent) at (8.4,2.15) {Write-side intents\\+ host bindings};
-			\node[warp seam] (plans) at (8.4,-2.15) {Observer plans\\+ codecs};
+			\node[warp seam] (intent) at (8.9,2.15) {Write-side intents\\+ host bindings};
+			\node[warp seam] (plans) at (8.9,-2.15) {Observer plans\\+ codecs};
 
-			\node[warp seam] (kernel) at (12.8,2.15) {Generic lowering\\\(\operatorname{Lower}_\Psi\)};
-			\node[warp seam shell] (shell) at (12.4,0) {Retained shell\\\(\theta\)};
-			\node[warp seam] (read) at (12.8,-2.15) {Hosted read\\(bounded revelation)};
+			\node[warp seam] (kernel) at (13.6,2.15) {Generic lowering\\\(\operatorname{Lower}_\Psi\)};
+			\node[warp seam shell] (shell) at (13.2,0) {Retained shell\\\(\theta\)};
+			\node[warp seam] (read) at (13.6,-2.15) {Hosted read\\(bounded revelation)};
 
-			\draw[warp edge] (sdl) -- node[warp label, above] {compile} (compiler);
+			\draw[warp edge] (sdl) -- node[warp label, pos=0.52, yshift=8pt] {compile} (compiler);
 			\draw[warp edge] (compiler) -- (intent);
 			\draw[warp edge] (compiler) -- (plans);
-			\draw[warp edge] (intent) -- node[warp label, above] {present / enforce} (kernel);
+			\draw[warp edge] (intent) -- node[warp label, pos=0.54, yshift=9pt] {present / enforce} (kernel);
 			\draw[warp edge] (kernel) -- node[warp label, right] {pack / retain} (shell);
 			\draw[warp edge] (plans) -- node[warp label, above] {govern} (read);
 			\draw[warp edge] (shell) -- node[warp label, right] {serve} (read);
 
-			\node[warp label, anchor=south] at (8.4,3.15) {compiler outputs};
-			\node[warp label, anchor=south] at (12.8,3.15) {generic runtime};
+			\node[warp label, anchor=south] at (8.9,3.15) {compiler outputs};
+			\node[warp label, anchor=south] at (13.6,3.15) {generic runtime};
 		\end{tikzpicture}
 		\caption{Authored optic boundaries compile into two runtime-facing artefacts. Write-side intents drive generic lowering. Read-side observer plans govern bounded revelation over the retained shell.}
 		\label{fig:sdl-compiler-runtime}
