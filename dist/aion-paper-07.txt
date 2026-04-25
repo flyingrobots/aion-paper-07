@@ -955,18 +955,18 @@ omits the full schema. Although this boundary is written in GraphQL SDL, it does
                                                       23
 canonical graph object beneath the editor; it serves instead as a convenient authoring syntax for an
 optic boundary: a typed aperture over one hot layer and its admissible rewrite surfaces.
-    GraphQL was selected here for deliberate reasons. It gives application authors one versionable
-schema in which to declare the typed nouns of a layer—its node/edge forms and attachments—
-together with the admissible rewrite surfaces over them as mutations. That in turn allows a schema
-compiler—in the current toolchain—to check footprint obligations, slot bindings, and forbidden
-reachability at compile time, before arbitrary host code has run. That check is not merely ergonomic:
-it rejects dishonest footprint widening before execution, because a rewrite surface cannot silently
-smuggle in undeclared reads, writes, creates, or closures while still claiming a narrower optic slice.
-Just as importantly, the SDL narrows the authoring surface: the developer is declaring shapes,
-closures, and mutations, rather than introducing ambient non-determinism through random sources,
+    GraphQL was selected here for several reasons. It provides one versionable schema in which
+application authors can declare the typed nouns of a hot layer—node kinds, edge relations, attach-
+ments, and the admissible rewrite surfaces over them as mutations. That in turn allows a schema
+compiler—in the current toolchain—to check footprint obligations, slot bindings, closure require-
+ments, and forbidden reachability at compile time, before host code runs. Undeclared footprint
+widening therefore becomes a compile-time error rather than a runtime surprise: a rewrite surface
+cannot claim one optic slice while depending on a larger one. The same boundary discipline also
+excludes a large class of ambient non-determinism. At this surface the developer is declaring shapes,
+closures, and mutations rather than writing arbitrary host code with access to random sources,
 wall-clock reads, or hidden side effects. Because the host bindings are generated from the authored
-surface, they can also be checked for integrity against that surface as compiled artefacts and again
-when the runtime presents or enforces them. GraphQL is also readily versioned, so new nouns,
+surface, they can in turn be checked for integrity against that surface both as compiled artefacts
+and when the runtime presents or enforces them. GraphQL is also readily versioned, so new nouns,
 rewrites, and migrations can be staged as explicit schema evolution, avoiding silent runtime drift.
 We treat GraphQL here as an authoring surface; its use as an API and query language is standard
 [Gra21].
@@ -975,10 +975,10 @@ the optic shape with minimal extra machinery:
 
 From surface to runtime admission. Compilation of a surface like replaceRangeAsTick
 yields a typed intent envelope (carrying arguments plus declared reads/writes/creates/forbids) and
-generated host bindings that enforce those declarations and can be checked against the authored
-surface for integrity. At runtime, the generic lowering kernel uses the declared closures to construct
-the bounded slice χ, applies the admissibility law Π over the presented claim family, and packs the
-declared receipt and retention obligations under Λ.
+generated host bindings that enforce those declarations and remain accountable to the authored
+surface. At runtime, the generic lowering kernel uses the declared closures to construct the bounded
+slice χ, applies the admissibility law Π over the presented claim family, and packs the declared
+receipt and retention obligations under Λ.
 
   1   replaceRangeAsTick(
   2     input: ReplaceRangeAsTickInput!
