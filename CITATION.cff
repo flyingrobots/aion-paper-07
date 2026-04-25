@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as follows."
+title: "WARP: Optics, Holograms, and Worldlines over Shared Causal History"
+version: "v1.0.0"
+doi: "10.5281/zenodo.19751149"
+date-released: "2026-04-25"
+license: "CC-BY-4.0"
+repository-code: "https://github.com/flyingrobots/aion-paper-07"
+url: "https://github.com/flyingrobots/aion-paper-07"
+authors:
+  - family-names: "Ross"
+    given-names: "James"
+    affiliation: "Independent Researcher"
+    orcid: "https://orcid.org/0009-0006-0025-7801"
+

@@ -1,0 +1,72 @@
+{
+  "title": "WARP: Optics, Holograms, and Worldlines over Shared Causal History",
+  "upload_type": "publication",
+  "publication_type": "preprint",
+  "publication_date": "2026-04-25",
+  "description": "Paper VII in the AIΩN Foundations series. This paper defines WARP as an optic architecture over witnessed shared causal history. A WARP optic places an observer-relative aperture over a bounded slice of causal history, lowers the resulting weave under an admissibility law, and retains a holographic witness sufficient for replay, audit, transport, and bounded revelation. The paper argues that WARP is closed over its own witness-bearing outputs: receipts, shells, and certificates are first-class objects for later folding, revelation, comparison, or reliance. It further shows that distributed transport does not introduce a second admission law: transport constructs a comparable slice; once comparable, the same downstream optic applies locally and remotely.",
+  "creators": [
+    {
+      "name": "Ross, James",
+      "affiliation": "Independent Researcher",
+      "orcid": "0009-0006-0025-7801"
+    }
+  ],
+  "language": "eng",
+  "access_right": "open",
+  "license": "cc-by-4.0",
+  "version": "v1.0.0",
+  "keywords": [
+    "AIΩN Foundations",
+    "WARP",
+    "optics",
+    "profunctor optics",
+    "lenses",
+    "causal history",
+    "deterministic replay",
+    "provenance",
+    "distributed systems",
+    "replica transport",
+    "admissibility",
+    "witnesses",
+    "holograms"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "10.5281/zenodo.17908005",
+      "relation": "references",
+      "resource_type": "publication-article",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.17934512",
+      "relation": "references",
+      "resource_type": "publication-article",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.17963669",
+      "relation": "references",
+      "resource_type": "publication-article",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.18038297",
+      "relation": "references",
+      "resource_type": "publication-article",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.18146884",
+      "relation": "references",
+      "resource_type": "publication-article",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.18863648",
+      "relation": "references",
+      "resource_type": "publication-article",
+      "scheme": "doi"
+    }
+  ]
+}
+

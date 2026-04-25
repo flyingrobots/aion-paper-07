@@ -1,0 +1,1594 @@
+  WARP: Optics, Holograms, and
+Worldlines over Shared Causal History
+          AIΩN Foundations Series — Paper VII
+
+                       James Ross
+                  Independent Researcher
+                ORCID: 0009-0006-0025-7801
+
+                        April 2026
+
+               DOI: 10.5281/zenodo.19751149
+                                       © 2026 James Ross
+                            This work is licensed under the
+          Creative Commons Attribution 4.0 International License (CC BY 4.0).
+
+                                         You are free to:
+• Share — copy and redistribute the material in any medium or format
+• Adapt — remix, transform, and build upon the material for any purpose
+                                    Under the following terms:
+• Attribution — You must give appropriate credit, provide a link to the license,
+  and indicate if changes were made. You may not imply endorsement by the author.
+                             For the full legal code of the license, see:
+                        https://creativecommons.org/licenses/by/4.0/
+                                               Abstract
+   We define warp as an optic architecture over shared causal history. A warp optic places an
+observer-relative aperture over a bounded slice of causal history, lowers the resulting weave under
+an admissibility law, and retains a holographic witness sufficient for replay, audit, transport, and
+bounded revelation. Deterministic ticks, braid collapse, and replica import are thus instances of
+one recurring act: slice, lower, witness, retain.
+   We argue that warp is closed over its own witness-bearing outputs. A tick receipt, braid
+shell, import shell, or property certificate is itself a first-class object for later folding, revelation,
+comparison, or reliance, not an after-the-fact log attached to an execution.
+   The distributed consequence is direct: network distance does not introduce a second admission
+law. Transport constructs the comparable slice on which replica-scale lowering can occur; once
+that slice exists, the downstream optic is the same one already used locally. Distribution changes
+the slice boundary; it does not change the downstream law.
+
+
+
+
+                                                    3
+Contents
+1 Introduction                                                                                         5
+
+2 Causal Lanes, Strands, and Braids                                                                    7
+
+3 The WARP Optic                                                                                      11
+  3.1 Why The Optic Form Matters . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .        12
+  3.2 Residual, Witness, and Hologram . . . . . . . . . . . . . . . . . . . . . . . . . . . . .       13
+  3.3 Commitment, Folding, Revelation . . . . . . . . . . . . . . . . . . . . . . . . . . . . .       14
+
+4 Tick, Braid, and Replica                                                                            16
+  4.1 The Local Tick Optic . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .      17
+  4.2 The Braid Optic . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .     17
+  4.3 The Replica Optic . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .     17
+
+5 Illustrative Examples                                                                        20
+  5.1 Example 1: Local Overlap In One Tick . . . . . . . . . . . . . . . . . . . . . . . . . . 20
+  5.2 Example 2: A Braid That Remains Plural . . . . . . . . . . . . . . . . . . . . . . . . 20
+  5.3 Example 3: Transport Before Import . . . . . . . . . . . . . . . . . . . . . . . . . . . 21
+
+6 Continuum and the Post-Unix Horizon                                                                 23
+  6.1 Application Boundary . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .      23
+  6.2 Example: An Authored Hot-Text Optic . . . . . . . . . . . . . . . . . . . . . . . . .           23
+  6.3 The Three-Tier Thinking Room . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .        25
+
+7 Privacy, Provenance, and Revelation                                                                 27
+  7.1 Property Library . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    27
+  7.2 Reliance Status . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   27
+  7.3 Observer Rights . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   27
+
+8 Open Frontier Questions                                                                             29
+
+9 Conclusion                                                                                          30
+
+A Adversarial Transport (Sketch)                                                                    31
+  A.1 Threat model . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 31
+  A.2 Transport obligations . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 31
+  A.3 Failure modes and lawful outcomes . . . . . . . . . . . . . . . . . . . . . . . . . . . . 32
+  A.4 Architectural consequence . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 32
+
+B WARP Glossary                                                                                       33
+  B.1 Symbolic Vocabulary . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .     33
+  B.2 History And Lane Nouns . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .      33
+  B.3 Admission And Replay Nouns . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .        34
+  B.4 Commitment, Revelation, And Governance Nouns . . . . . . . . . . . . . . . . . . .              35
+
+
+
+
+                                                   4
+1 Introduction
+
+The preceding AIΩN papers [Ros25a, Ros25b, Ros25c, Ros25d, Ros26a, Ros26b] established the
+mechanisms that make warp distinctive: deterministic execution, provenance-complete boundary
+artefacts, observer-relative revelation, executable branching over shared prefixes, and the sovereignty
+pressure created by replayable shared history. This paper does not add another mechanism. It
+names the control shape that makes those mechanisms one architecture. That object is the warp
+optic (Definition 3.1).
+    The optic is a composite act. It begins with a positioned observer and a weave of plural
+claims, constructs a bounded slice on which judgement is lawful, admits a witnessed outcome under
+policy, and retains a holographic boundary for later replay, audit, transport, or bounded revelation
+(Section 3). The same act recurs at tick, braid, and replica scale (Section 4), and we ground each
+scale in a worked example (Section 5).
+    We use a direct noun map and then enforce it. A worldline carries admitted causal history. A
+weave holds basis-relative claims in suspension. An optic lowers that weave through a bounded
+aperture under policy. A hologram retains the witness-bearing boundary of the lowering. These
+nouns are not synonyms for older rewrite vocabulary; they separate responsibilities that otherwise
+blur together in implementation: basis construction, lawful judgement, and retained obligations.
+    We also state one ontology choice early, because it stabilises the rest of the paper. We treat
+witnessed causal history as primary: admitted transitions, frontiers, witnesses, and retained boundary
+artefacts are the primitive objects. “The graph” then names a frontier-relative chart over that history,
+emitted by an observer under a lawful basis and aperture. This makes warp graph-expressive
+without committing the architecture to a privileged materialised graph object underneath it.
+    Two consequences are derived and then reused throughout. First, warp is closed over its own
+witness-bearing outputs (Proposition Closure over witness-bearing outputs in Section 3): receipts,
+braid shells, import shells, and certificates are first-class objects for later folding, revelation, compari-
+son, or certification. Secondly, distribution changes what must be normalised to become comparable
+before judgement; it does not introduce a second admission law (Section 4 and Example 5.3).
+    Reducer or rewrite language explains a local transformation. The optic form explains the larger
+control law around that transformation: bounded focus, lawful judgement, retained residual, and
+reuse across execution, replay, explanation, transport, and revelation. It is also the reason we adopt
+the profunctor form in Section 3.1: the same declared optic should support multiple interpretations
+without changing its structural focus.
+
+Position in the series and neighbouring work. This paper extracts the invariant the earlier
+foundations papers approached in part. The present discussion therefore sits at the intersection
+of algebraic graph transformation [EEPT06, CEL+ 97], event structures and causal partial orders
+[Lam78, Win87], process semantics [Hoa85, Mil89, Par81], provenance systems [BKT01, CCT09],
+and distributed reconciliation [DHJ+ 07, SPBZ11, GL02]. Its contribution is the identification of
+the optic-shaped law that recurs across them and the architectural consequences of taking that law
+seriously.
+
+Contributions. The specific contributions are:
+1. An optic-centered reframing of warp around four primary nouns: worldlines, weaves, optics, and
+   holograms.
+2. A native definition of the warp optic, separating observer structure, bounded aperture, set-side
+   lowering, admissibility law, and retention contract.
+
+                                                     5
+3. A clarification of why the optic form matters: the same declared warp act may lawfully support
+   execution, footprint derivation, witness extraction, debugger explanation, translation analysis, and
+   schema compilation—that is, compilation of app-authored optic surfaces into runtime-checkable
+   intent and observer artefacts—without changing its structural focus.
+
+4. A scale-by-scale identification of the same optic-shaped lowering in three primary settings: local
+   tick execution, braid-local collapse, and distributed suffix import after transport to a common
+   basis.
+
+5. A recursive hologram result: each such lowering emits a boundary-complete shell for the bounded
+   admitted situation, so replay, audit, transport, and counterfactual examination propagate beyond
+   ticks to braid-local, replica-local, and later trust-bearing shells.
+
+6. A normalisation thesis for distributed causality: network distance relocates the hard part into
+   transport and normalisation to a comparable frontier.
+
+7. A three-way architectural decomposition into commitment, folding, and revelation, separating
+   what is true from how it is stored and who may lawfully inspect it.
+
+8. A post-Unix reframing in which processes and files are treated as materialised views over shared
+   causal history, together with a protected working interval spanning ephemeral, author-only, and
+   shared lanes.
+
+9. An architectural bridge from provenance to privacy through property certificates, reliance status,
+   and observer rights, showing how bounded revelation can coexist with replayable history.
+
+Scope. This paper is architectural, with a small amount of formal structure. Its goal is to
+extract the common optic shape that recurs across the warp stack and to show how that shape
+supports both strong provenance and bounded revelation. The remaining frontier laws opened by
+this view—including contamination calculus, collective sovereignty, export semantics, and hostile
+transport conditions—remain follow-on work. The present paper fixes the architectural centre with
+sufficient precision that those later laws can be treated as extensions. Accordingly, most formal
+statements in this paper are propositions with argument sketches about recurrent structure; only
+the replica-scale confluence result is stated as a theorem because it makes a specific behavioural
+claim about retained shells.
+
+Reading guide. Section 2 stabilises the noun map. Section 3 gives the core optic definition
+and the local laws needed to read it. Section 4 then states the recurrent scale-local claims. The
+remaining sections draw distributed, systems, and governance consequences from that control shape.
+
+
+
+
+                                                  6
+2 Causal Lanes, Strands, and Braids
+
+Before defining the optic, we need the basic ontology. The earlier papers developed deterministic
+execution, branching, and replay, but they did not need to stabilise the noun map at this level of
+explicitness. Here we do, because the same optic acts over different kinds of objects, and those
+objects must not be allowed to collapse into one another.
+
+Definition 2.1 (Causal lane). A causal lane is a replayable carrier of causal history equipped with
+a frontier-relative materialisation map. At minimum, a lane has an identity, an event or tick order,
+a causal provenance record, and a rule by which a frontier or tick determines a materialised state.
+
+    This use of lanes is intentionally close to the older language of events, causal dependence, and
+partial orders: it assumes that a computation admits multiple serialisations, with its causal structure
+captured by partial orders [Lam78, Win87].
+    The term lane is therefore the ontology-level noun for a history-bearing computational object.
+It is intentionally broader than worldline. A lane may be canonical or speculative; it may already
+be socially admitted, or it may still be a private counterfactual carrier.
+
+Definition 2.2 (Worldline). A worldline is a canonically admitted causal lane. It is the lane form
+whose history and frontier-relative materialisations count as shared causal reality for the relevant
+policy frame.
+
+Definition 2.3 (Strand). A strand is a speculative causal lane rooted at a parent worldline and a
+fork anchor. A strand carries fork provenance back to that parent anchor, together with whatever
+local history is required for the strand to diverge lawfully from the inherited base.
+
+    Two consequences should be kept explicit. First, a strand is a real lane with causal identity and
+fork provenance. Secondly, its definition is a divergence record that can be resolved at multiple
+bases. Its materialisation at a given frontier is obtained by resolving the strand’s local divergence
+against the inherited parent history at the chosen basis.
+    Operationally, this means a strand is read holographically. A bounded read of a strand
+materialises only the backward causal cone required by the strand’s local divergence and optic
+footprint at the chosen basis. The strand is real as a speculative lane; its realised state is a
+frontier-relative reading over inherited history plus local divergence, and it avoids eager copying of
+the whole parent lane.
+
+Definition 2.4 (Braid). A braid is a lane-scale weave: a plural composition over a family of lanes
+sharing a common precursor or comparison basis. It presents multiple validated lane claims over a
+common frontier so that a later collapse or admission act may judge them.
+
+Definition 2.5 (Weave). A weave is a basis-relative carrier that holds multiple candidate claims
+in suspension without yet forcing a single derived answer. Candidate rewrite bundles, braids, and
+transported import families are the three primary weaves studied in this paper.
+
+    The name is geometric: we use “braid” because lane traces literally interweave over a shared
+basis. Full braid-group machinery is outside the present scope [Art47]. This is also the first place
+where ordinary version-control language becomes misleading. A braid is not a latent merge result.
+It is the weave over which collapse may later derive a lane-level result, preserve plurality, surface
+conflict, or return obstruction. In that respect it is closer to patch-theoretic comparison objects
+than to a preordained merge target [MDG13].
+
+
+                                                  7
+Remark 2.6 (Ontology versus realisation). These nouns are ontology-level nouns. Realisation-level
+objects are frontier-relative views: a strand resolved at a particular parent frontier, or a braid
+presented over a specific common basis. This distinction is necessary because a strand may be a
+stable noun while its realised view changes with the frontier at which it is interpreted.
+   The same split also prevents admission from silently doing other jobs. Forking creates ancestry.
+Braiding constructs a weave. Collapse derives a lane-level result from that weave when policy
+and witness conditions allow it. Admission, finally, blesses a derived result as canonical when the
+governing law requires that further step. If these verbs are allowed to blur together, the rest of the
+paper becomes incoherent.
+
+Operational intuition. A worldline is the shared lane others may rely on. A strand is the
+speculative lane in which counterfactual or author-local work may proceed without immediately
+becoming shared fact. A braid is the object that appears when several such lanes must be compared
+over one basis without yet pretending they have collapsed into a single answer. The optic introduced
+next acts over all three scales, but it acts over a different weave at each scale.
+   Figure 1 summarises the nouns and how the optic acts between them.
+
+
+
+
+                                                  8
+                                            causal lane
+                                          history carrier
+
+
+
+                 worldline                                               strand
+               admitted lane                                         speculative lane
+
+
+
+                                               braid
+                                         lane-scale weave
+
+
+
+                                             weave
+                                        comparison carrier
+
+
+
+                                              optic
+                                           lowering act
+
+
+
+                                             hologram
+                                        retained boundary
+
+
+
+                                               shell
+                                     concrete retained carrier
+
+Figure 1: Nouns and roles. Lanes carry history; worldlines and strands are admitted and speculative
+lane forms. A braid is the lane-scale special case of a weave. The optic lowers a weave over a
+bounded site, the hologram names the retained boundary of that act, and the shell is its concrete
+carrier.
+
+
+Specification note. We keep the runtime interface out of line. The noun map is implementation-
+bearing, but the concrete interface depends on the host language and toolchain. In the current
+stack, authored SDL boundaries are compiled by a schema compiler into generated host bindings
+and runtime-checkable footprint, witness, and retention obligations. The present paper fixes the
+invariant control shape that those compilations implement.
+
+Terminology summary.
+
+
+
+
+                                                 9
+Terminology   Definition                                           Remarks
+Causal lane   Replayable carrier of causal history with frontier- May be canonical or speculative.
+              relative materialisation.
+Worldline     Canonically admitted causal lane.                     Counts as shared causal reality
+                                                                    under the governing policy
+                                                                    frame.
+Strand        Speculative causal lane rooted at a parent worldline Resolves divergence against a
+              and fork anchor.                                      chosen basis.
+Braid         Lane-scale weave over multiple lanes sharing a com- Comparison carrier presented for
+              mon precursor or basis.                               later collapse or admission.
+Weave         Basis-relative carrier of suspended candidate claims. Tick bundles, braids, and
+                                                                    transported import families are
+                                                                    the primary cases.
+Hologram      Retained boundary sufficient to recover the optic- Shell θ is a concrete carrier of a
+              accurate bulk under a retention contract.             hologram.
+
+
+
+
+                                            10
+3 The WARP Optic
+
+Our main object is the warp optic. It names the composite act from which local execution, braid
+collapse, replica import, replay, debugger explanation, and witness retention are all built. A warp
+optic couples a positioned observer to a bounded site, a lawful set-side lowering, and the retained
+boundary that later makes that act replayable, auditable, transportable, or revealable.
+Definition 3.1 (WARP optic). Fix an observer plan Ω = (π, β, M, U, E). A warp optic is a tuple
+
+                                             Ψ = (Ω, χ, ρ, Π, Λ)
+
+where:
+• Ω fixes the revelation-side observer discipline: projection, basis, observer state, update discipline,
+  and emission;
+• χ is the bounded aperture or optic slice within which a local judgement is lawful;
+• ρ is the set-side lowering surface that presents a comparable claim surface over χ from a frontier-
+  relative weave;
+• Π is the admissibility law governing what may be derived, preserved as plural, surfaced as conflict,
+  or obstructed at that slice;
+• Λ is the retention contract specifying which replay, audit, transport, revelation, or reliance
+  obligations the retained shell must still satisfy.
+   A warp optic acts on a basis-relative weave P. We write
+
+                                         LowerΨ (F∗ , P) = (R, W, θ)
+
+with the internal factorisation
+
+           (C, χ) = ρ(F∗ , P; Ω),        (R, W ) = AdmitΠ (F∗ , C, χ),       θ = PackΛ (R, W ).
+
+The internal names remain useful. We treat the optic as the primary object, with these helper acts
+serving as its internal factorisation.
+    Lowering names the composite optic act. Admission names the policy judgement inside that act.
+warp therefore remains an admission architecture: the optic first constructs a comparable slice,
+then admits, preserves plurality, surfaces conflict, or obstructs under policy, and finally packs the
+witnessed outcome into a retained shell.
+
+Tiny worked instance. At tick scale, one can read the factorisation almost literally. Let
+P = {c1 , c2 } be two candidate rewrites whose footprint overlaps at a node n. Then ρ presents the
+local claim surface over the footprint slice χ = footprint(n), admission returns a derived outcome
+plus a witness of the blocked coexistence, and packing retains a receipt-like shell:
+
+           (C, χ) = ρ(F∗ , {c1 , c2 }; Ω),   (R, W ) = AdmitΠ (F∗ , C, χ),   θ = PackΛ (R, W ).
+
+The point is not the toy n, but the separation of responsibilities: basis construction, lawful judgement,
+then retention.
+    This presentation also keeps the set side architectural. One runtime may realise ρ by bounded
+DPO graph rewriting; another may realise it by CRDT-style set semantics over an append-only
+history. We name the invariant role and leave the specific calculus open.
+
+                                                      11
+Three immediate specialisations. The definition is intentionally generic, but it should already
+read concretely in the three primary cases:
+• at tick scale, P = Crw is the candidate rewrite bundle and ρ returns the local footprint slice over
+  one current frontier;
+• at braid scale, P = B is the braid and ρ returns the common-basis comparison slice over the
+  participating strands;
+• at replica scale, P = Ce is the transported remote suffix family and ρ returns the imported-region
+  slice at the receiver’s comparable frontier.
+The optic law is the same in all three cases. What changes is the weave and the work needed to
+present a comparable slice for lawful judgement.
+Definition 3.2 (Optic slice). The bounded site χ is the optic slice: the least frontier-relative
+closure over which the governing law can lawfully compare the claims in the weave and judge
+their coexistence, derivation, plurality, conflict, or obstruction. The lowering surface produces
+claims over such a slice; the hologram later preserves the result slice needed for replay, audit,
+transport, or revelation. This generalises the spirit of program slicing—isolating what is relevant to
+a criterion—from program statements to witnessed causal history [Wei81].
+    We make the outcome space explicit with one typing. Let X be the scale-local carrier of derived
+results. Then
+                  O(X) := Derived(X) ⊔ Plural(X) ⊔ Conflict ⊔ Obstruction .
+Optic lowering returns a witnessed member of an outcome algebra.
+    Truth should be read operationally here. In warp, “truth” names what may be lawfully admitted
+relative to a frontier, an optic, and a witness. Lowering therefore supports more than binary accept
+or reject: lawful outcomes may also preserve plurality, surface conflict, or return obstruction.
+
+3.1 Why The Optic Form Matters
+The optic form matters because the same declared optic should support more than one interpretation.
+In profunctor form, Opt : p a b → p s t, varying the profunctor p changes how the act is interpreted
+while leaving its structural focus unchanged. For warp, we use this to reuse one declared optic for
+execution, footprint and slice derivation, witness extraction or validation, debugger explanation,
+translation analysis, and compilation.
+    The term optic is used in deliberate continuity with the lens and profunctor-optics tradition,
+in which a focused transformation can be lifted into a transformation of a larger whole [FGM+ 07,
+PGW17, BG18]. warp uses the optic discipline architecturally. We separate focus and residual from
+lawful judgement, witness, and observer-relative emission, so that execution, replay, explanation,
+and revelation can share one declared structure.
+    In profunctor notation, the core optic idea is:
+                                         Opt : p a b → p s t
+where s and t are the whole before and after the act, a and b are the focused part before and after
+the act, and p is an abstract transformation context. Read operationally: if one can transform the
+focused part from a to b inside some lawful context p, the optic lifts that into a transformation of
+the whole from s to t.
+    For warp, the important consequence is that the same declared optic can be interpreted multiple
+ways without changing its structural focus. The same act may therefore be reused to:
+
+                                                 12
+• execute the local lowering,
+
+• derive the optic slice or footprint,
+
+• derive or validate the witness,
+
+• render a debugger explanation,
+
+• estimate conflict or translation cost,
+
+• or emit a compiler-produced runtime artefact.
+
+That reuse is one of the main reasons the paper needs optic language in addition to reducer language.
+
+3.2 Residual, Witness, and Hologram
+The optic story includes a hidden residual. For a lens-like optic, one standard representation is
+[PGW17, BG18]
+                                             Z M
+                        Lens(S, T, A, B) ∼
+                                         =         C(S, M × A) × C(M × B, T ).
+
+This says that the whole S can be decomposed into a focused part A and a hidden residual M ,
+then reassembled from the updated focus B and that same residual. The coend matters because
+the optic semantics does not care about one privileged presentation of the residual. It quotients
+over equivalent presentations of the hidden context.
+    That perspective is exactly the right intuition for warp shell equivalence. Two retained shells
+may preserve the same optic-accurate bulk of a bounded admitted situation while differing in their
+concrete storage shape. The witness W is the residue explaining why the lowering was lawful; in
+the constructive tradition, it is closer to a proof-bearing object than to an after-the-fact annotation
+[ML84]. The hologram θ is the retained carrier. A Boundary Transition Record is therefore not the
+optic law itself. It is one concrete shell family carrying the law’s consequences for later use.
+    In lens language the residual M is typically hidden. In warp, the residual is made explicit and
+split: θ is the retained carrier, W is the witness-bearing residue explaining lawfulness, and Λ names
+the future obligations that equivalence must preserve.
+
+Definition 3.3 (Optic-accurate bulk). For optic Ψ and retention contract Λ, the optic-accurate bulk
+of a bounded admitted situation is the portion of that situation, together with the witness structure
+it requires, that must remain recoverable for the lawful observations and obligations named by Ψ
+and Λ. It is a bounded notion: the retained causal content sufficient for the replay, audit, transport,
+revelation, or reliance uses permitted at that aperture.
+
+Definition 3.4 (WARP hologram). For optic Ψ and lowering result
+
+                                     LowerΨ (F∗ , P) = (R, W, θ),
+
+a warp hologram is the retained shell θ, together with any referenced basis anchors, such that θ is
+sufficient to recover the optic-accurate bulk of the bounded admitted situation, as determined by Ψ,
+up to the equivalence demanded by the retention contract Λ. The contract is explicit: preserve the
+least sufficient boundary from which the admitted outcome and its witness-bearing consequences
+can be reconstructed, replayed, audited, transported, or revealed as Λ requires.
+
+
+
+
+                                                    13
+Proposition 3.5 (Closure over witness-bearing outputs). warp is closed over its own witness-
+bearing outputs. For each primary scale s ∈ {tick, braid, replica}, there exists a scale-local optic Ψs
+and a scale-local weave Ps such that
+
+                                    LowerΨs (Fs , Ps ) = (Rs , Ws , θs ),
+
+and the resulting hologram θs is itself a first-class object of later folding, revelation, certification, or
+further lawful comparison.
+
+Argument sketch. At tick scale, the weave is the local candidate rewrite bundle; the hologram
+preserves the frontier coordinate, the admitted result, and the witness explaining coexistence or
+blockage for one lawful step. At braid scale, the weave is the braid over a common basis; the
+hologram preserves the bounded comparison geometry and the lawful collapse or plural outcome.
+At replica scale, the weave is the remote suffix family as re-expressed at a comparable frontier; the
+hologram preserves the imported region, the import outcome, and the transport/import witness.
+In each case the retained shell is a first-class warp object, so later lawful acts can operate over it
+without leaving the ontology of witnessed causal history.
+
+    This closure is what makes the architecture self-similar across scale. A local tick receipt, a
+braid-collapse artefact, a transport/import shell, and a trust certificate are members of one shell
+family: retained holographic boundaries over bounded admitted situations. Because each recurrence
+emits such a hologram, deterministic replay and counterfactual examination recur with the law
+itself. Each retained slice stores the least sufficient history of its bounded local situation.
+
+3.3 Commitment, Folding, Revelation
+The optic architecture becomes easier to navigate once the stack is divided into three moments:
+
+• Commitment: a weave is lowered into frontier-relative truth under a governing optic.
+
+• Folding: already-admitted history is re-expressed in a boundary-equivalent retained shell.
+
+• Revelation: admitted or folded history is exposed to a bounded observer under an aperture
+  and authority regime.
+
+    This three-way split is one of the main architectural results. It keeps the system from conflating
+what is true, how truth is stored, and who may see it. Commitment records the witnessed outcome
+of lawful judgement: derivation, preserved plurality, conflict, or obstruction.
+    The equivalence relation is intentionally behavioural: it preserves the lawful observations and
+replay obligations promised by a retained contract. In that sense it is closer to bisimulation and
+observational equivalence than to storage equality [Par81, Mil89].
+
+Definition 3.6 (Shell equivalence). Let Λ be a retained contract specifying which replay, audit,
+transport, or revelation obligations must remain lawful. Two shells θ and θ′ satisfy
+
+                                                  θ ≃Λ θ′
+
+iff they are both sufficient to recover the same optic-accurate bulk of the same admitted local
+situation for the lawful uses demanded by Λ.
+
+
+
+
+                                                     14
+    We give one small example. A tick receipt that stores an inverse fragment inline and a folded
+shell that stores only digest-plus-pointer references may still be Λ-equivalent for replay and audit if
+both reconstruct the same local rewrite, witness anchors, and retained obligations. They cease to
+be equivalent once Λ demands a lawful use—for example immediate plaintext revelation—that only
+one of them can satisfy.
+    For later use, the three moments can be written as typed acts:
+
+                                       CommitΨ (F∗ , P) := (R, W, θ)
+
+where
+                                        (R, W, θ) = LowerΨ (F∗ , P).
+
+
+                                   FoldΛ (θ) = θ′     with         θ′ ≃Λ θ.
+
+
+                                     RevealΩ,α (m, θ) = (m′ , y, Wrev )
+where Ω = (π, β, M, U, E) is an observer plan, α is the active authority regime, m ∈ M is the current
+observer state, and y is the emitted reading. The observer plan is the revelation-side face of the
+optic: it fixes what may be projected and emitted, while commitment and holographic retention
+preserve the set-side history on which that reading depends.
+
+Proposition 3.7 (Folding preserves lawful readings). If θ′ = FoldΛ (θ) and the retained contract Λ
+is sufficient for observer plan Ω under authority regime α, then
+
+                                 RevealΩ,α (m, θ′ ) ≈Ω,α RevealΩ,α (m, θ)
+
+where ≈Ω,α identifies readings that emit the same lawful observation at that aperture, basis, and
+authority tier.
+
+Argument sketch. By shell equivalence, θ and θ′ preserve the same admitted local situation for the
+uses demanded by Λ. If Λ covers the observer/authority pair (Ω, α), then revelation over either
+shell has the same lawful reading consequences up to the observer’s own reading equivalence.
+
+   In short: commitment changes what may count as shared truth, folding changes the carrier
+while preserving an explicit contract, and revelation changes what an observer may lawfully emit
+from that carrier without changing the admitted situation itself.
+
+Minimal optic form. The runtime-facing shape is better stated language-neutrally:
+                      project / slice / normalise        lawful lowering      retain
+                   P −−−−−−−−−−−−−−−−→ (C, χ) −−−−−−−−−→ (R, W ) −−−→ θ.
+
+The key point is structural: the runtime keeps the raw weave, comparable slice, admitted out-
+come, semantic witness, and retained shell as distinct objects instead of collapsing them into one
+undifferentiated record.
+
+
+
+
+                                                    15
+4 Tick, Braid, and Replica
+
+This section turns from the core definition to the recurrent formal claims. The propositions in this
+section state the control shape shared across scale; the later sections derive distributed, systems,
+and governance consequences from that shape.
+    The optic recurs most cleanly in three primary instantiations.
+
+Proposition 4.1 (Optic-shape invariance). For each primary scale s ∈ {tick, braid, replica}, there
+exist a scale-local optic Ψs , a scale-local frontier Fs , a scale-local weave Ps , and a scale-local carrier
+Xs such that
+                           LowerΨs (Fs , Ps ) = (Rs , Ws , θs ),     Rs ∈ O(Xs ).
+
+Argument sketch. At tick scale, the weave is a candidate rewrite bundle over one current frontier.
+At braid scale, it is a braid presenting multiple valid strand claims over one common basis. At
+replica scale, it is a remote suffix family presented for import at a receiving frontier. In each case
+the same optical shape applies: a positioned observer and bounded aperture, a set-side lowering
+surface producing comparable claims, a lawful judgement under policy, and a retained hologram for
+later use.
+
+Corollary 4.2 (Basis construction and slicing). For each primary scale, the set-side lowering
+surface ρs begins by constructing a comparable bounded slice. At tick scale, ρtick is the identity
+on already local candidate rewrites. At braid scale, ρbraid presents validated strand claims over a
+common basis. At replica scale, ρreplica transports remote suffixes to a comparable frontier before
+any import judgement is attempted.
+
+Argument sketch. The optic never judges the whole world at once. It only judges the bounded,
+comparable closure required for the act at hand. At replica scale that makes transport the hard
+part, because the comparable slice must first be constructed. At tick and braid scale the relevant
+slice is already closer to hand.
+
+    This is the operational sense in which warp is a slicing architecture. At tick scale, χ is the
+footprint closure: the local neighbourhood needed to judge coexistence. At braid scale, χ is the
+refined comparison slice over a common lane basis. At replica scale, χ is the imported-region slice
+produced after transport has re-expressed the remote strand fragment at a comparable frontier. The
+optic therefore takes slices in and emits slices out: the set-side surface constructs the bounded site
+on which judgement is lawful, and the hologram retains the least sufficient boundary from which
+that judged situation can later be replayed, audited, transported, or revealed.
+    The practical consequence is that distance changes the basis construction required before the
+optic can lower the weave. It is easy to treat distribution as a distinct reconciliation regime when
+comparability, basis, and witness obligations remain implicit. warp promotes those preconditions
+into explicit structure and then reuses the same witnessed optic. Distribution shifts the slice
+boundary while leaving the downstream law unchanged. The hard part therefore receives a precise
+address: transport and ρreplica absorb the work of bringing remote claims to a comparable frontier.
+
+Scale         Weave                    Slice                Basis construction          Shell
+Tick          rewrite bundle           footprint closure    already local projection    tick receipt
+Braid         strand braid             comparison cells     common-basis refinement     braid shell
+Replica       remote suffix family     imported region      transport to comparable     import shell
+                                                            frontier
+
+
+    All three return an element of O(X) = Derived(X) ⊔ Plural(X) ⊔ Conflict ⊔ Obstruction.
+
+                                                       16
+4.1 The Local Tick Optic
+At engine scale, the frontier is the current state, the weave object is the candidate rewrite bundle, the
+optic slice is the local footprint closure, and the governing policy is the scheduler or local coexistence
+law for that tick. The set-side role is architectural; one runtime may realise it by bounded DPO
+graph rewriting, while another may realise it by CRDT-style set semantics. What matters here is
+the invariant optic contract.
+
+                  LowerΨtick (Ftick , Crw ) = (Rtick , Wtick , θtick ),   Rtick ∈ O(Xrw ).
+    The tick-local hologram θtick preserves enough boundary information to replay the lawful local
+step and its blocked alternatives without materialising the whole host history.
+
+4.2 The Braid Optic
+At lane scale, the frontier is a common parent frontier, the weave object is a braid, the optic slice is
+the refined braid-cell family, and the governing policy is the braid-scale collapse law. A braid is
+the structured weave over which the optic lowers. Its outcome algebra remains Derived, Plural,
+Conflict, or Obstruction.
+
+               LowerΨbraid (Fbraid , B) = (Rbraid , Wbraid , θbraid ),     Rbraid ∈ O(Xlane ).
+    The braid-level hologram θbraid preserves the comparison basis, the plural claim geometry relevant
+to the bounded cells, the admitted collapse outcome, and the witness that makes that outcome
+reviewable or transportable without forcing premature flattening.
+    This is one of our most important corrections to ordinary branching language. Irreducible
+plurality is not a failed merge. It is often the lawful lowered result. This is the sharp contrast
+with convergence-first replicated editing and CRDT presentations whose central obligation is to
+transform concurrent operations into one consistent visible state [EG89, SPBZ11].
+
+4.3 The Replica Optic
+At replica scale, the frontier is the common replicated prefix, the weave is the remote suffix family,
+the optic slice is the affected imported region, and the governing policy is the local transport-
+and-import law. This sits downstream of Lamport’s causal ordering insight and of the later
+replicated-state lineage, but relocates the hard work into explicit transport and witnessed import
+[Lam78, DHJ+ 07, SPBZ11]. The set-side surface ρreplica constructs the comparable basis on which
+the replica-scale weave exists:
+
+Frontier legend. We write Frep for a shared replicated prefix (the latest frontier both sides can
+still name as common ancestry), and Frecv for the receiver’s current comparable frontier at which
+the transported suffix is to be judged. Transport re-expresses remote claims at Frecv ; lowering then
+occurs at that receiving frontier, not at the shared prefix.
+                                  Cerep := Transport(Frep , Σremote , Frecv ).
+Only after that basis construction can the optic be lowered:
+                   LowerΨrep (Frecv , Cerep ) = (Rrep , Wrep , θrep ),    Rrep ∈ O(Ximp ).
+   The transport/import hologram θrep preserves the comparable basis established by transport, the
+import judgement, and the witness needed for replayable catch-up, audited settlement, or bounded
+
+                                                        17
+revelation at the receiving runtime. Transport constructs the basis on which the replica-scale optic
+can lower the imported situation using the same downstream law already trusted locally.
+     The same distributed case can be read more geometrically as strand braiding under lag. Each
+participant advances along a local strand whose frontier may be ahead of what the other participant
+can yet lawfully treat as shared. For the bounded act at hand, the common basis is therefore a
+lagging frontier: the latest frontier both sides can still treat as mutually comparable. An incoming
+network message carries a transported strand fragment from that lagging basis to the sender’s newer
+frontier. The receiver transports that fragment to the comparable basis, braids it with its own
+locally advanced strand over the bounded site, and lowers that braid under the governing optic. If
+the lowering is admitted, the mutually relied-upon basis can advance.
+     This distinction becomes especially important once imported gameplay history is separated from
+imported settlement over already-judged history. A runtime may lawfully compile a transported
+first-order intent into the same downstream tick path it uses locally, provided transport has already
+reconstructed the authored basis and attached the required provenance and witness conditions.
+But an outcome-bearing import can be treated as settlement over already-judged history. In a
+networked racing simulation, for example, a finish-line crossing authored at time Ts may be received
+only at Ts + L. The crossing must be judged at basis Ts . Receive time only determines when that
+judgement becomes mutually visible. Once lowered, the resulting imported shell asserts a settlement
+fact: the earlier crossing at Ts is now mutually relied upon. Such a settlement shell may update
+standings, UI state, or bounded present repair; it should enter the settlement path with idempotent
+semantics over already-adjudicated historical facts.
+     The theorem in this section isolates one safe confluence zone. Hostile or failure-path transport
+remains hard. The statement localises that difficulty in Transport and in the replica optic’s set-side
+lowering surface, then states the strongest behavioural claim the retained shells can support once
+those preconditions are satisfied.
+
+Theorem 4.3 (Derived independent suffix confluence up to shell equivalence). Let Cb1 and Cb2 be
+two remote suffix claim families authored at source frontiers F1src and F2src . Let F recv be a receiving
+comparable frontier. Let
+                                  Cei := Transport(Fisrc , Cbi , F recv )
+be their transports to F recv . Let χ1 and χ2 be the imported sites of Ce1 and Ce2 , and let χ12 be their
+common refinement. Assume:
+
+1. there exist individual commitments
+
+                                  (Ri , Wi , θi ) := CommitΨrep (F recv , Cei )
+
+   over sites χi , with derived outcomes Ri ∈ Derived(Ximp ), and let Fi be the derived frontier
+   exposed by θi ;
+
+2. slice independence: the imported sites χ1 and χ2 are either disjoint or satisfy the replica overlap
+   law required for lawful joint lowering over χ12 ;
+
+3. witness monotonicity: admitting either transported family preserves, up to shell equivalence, the
+   basis and witness conditions required to admit the other;
+
+4. retention stability: composing retained shells along either sequential path preserves the retained
+   replay and audit obligations for the imported region;
+
+
+
+                                                     18
+5. transport stability: re-normalising one raw suffix against the frontier produced by admitting the
+   other yields a lawful follow-on claim family equivalent on the refined site to the corresponding
+   joint transport.
+      Define the re-normalised follow-on families
+                   (1)                                         (2)
+                 Ce2 := Transport(F2src , Cb2 , F1 ),        Ce1 := Transport(F1src , Cb1 , F2 ).
+      Write
+                             (R12 , W12 , θ12 ) := CommitΨrep (F recv , Ce1 ⊔ Ce2 )
+for one-shot combined import. Write
+                                                                             (1)
+                                (R1;2 , W1;2 , ϑ1;2 ) := CommitΨrep (F1 , Ce2 )
+and
+                                                                             (2)
+                               (R2;1 , W2;1 , ϑ2;1 ) := CommitΨrep (F2 , Ce1 ).
+Let Θ1;2 and Θ2;1 denote the Λ-retained shells for the two-step paths (θ1 , ϑ1;2 ) and (θ2 , ϑ2;1 ), respec-
+tively. Then for any retained contract Λ covering replay and audit of the imported region,
+                                            θ12 ≃Λ Θ1;2 ≃Λ Θ2;1 .
+Proof sketch. The individual commitments provide the two frontier advances F1 and F2 . Slice
+independence supplies a lawful common refinement χ12 on which the combined import may be
+judged. Witness monotonicity ensures that transporting the second suffix against either derived
+frontier does not destroy the basis or witness conditions required for the follow-on import. Transport
+stability identifies the two re-normalised follow-on claim families with the jointly transported one on
+the refined site. Retention stability then ensures that the sequentially composed shells preserve the
+same replay and audit obligations as the one-shot shell under Λ. The one-shot import shell θ12 and
+the two sequential path shells Θ1;2 and Θ2;1 therefore preserve the same admitted local situation
+and the same retained obligations for the imported region. Hence they are shell-equivalent under Λ,
+even though the runtime may have reached them by different admissible paths.
+Corollary 4.4 (Non-independent suffixes). If the transported suffix families are not independent,
+we do not assert commutativity or confluence. The receiving runtime still evaluates the bounded
+imported site under the same optic law and returns a witnessed member of the outcome algebra
+O(Ximp ): derived result, preserved plurality, conflict, or obstruction.
+    This also identifies the safe availability zone more precisely than ordinary replication slogans do.
+The easy distributed case is the footprint-independent fragment of the workload: imported claim
+families whose bounded sites can be transported and admitted without destroying one another’s
+witness conditions.
+    That is why the theorem targets shell equivalence in place of naive final state agreement. Two
+import paths may agree on a terminal frontier while still differing in retained witness, replay
+obligations, or intent preservation. The architecturally relevant invariant is therefore stronger than
+state equality alone.
+    One immediate consequence is that replication state becomes a queryable temporal causal
+structure once remote suffixes are represented as witnessed transport objects. One should therefore
+expect a CTL*-like family of queries over lawful transport and lowering paths: what imports were
+possible, what conflicts were inevitable, what acknowledgements must arise under policy, and what
+an observer at a bounded aperture was entitled to see or rely on along a branch [EH86]. We do not
+formalise that logic here; the only point is that such queries depend on representing replication as
+witnessed causal structure.
+
+                                                        19
+5 Illustrative Examples
+
+The preceding three optic instantiations are easier to retain when each case is grounded in one
+concrete example. We therefore record three minimal worked examples, one for each primary scale.
+
+5.1 Example 1: Local Overlap In One Tick
+Let the current frontier F∗ materialise a local reading containing a node n with status draft.
+Suppose the candidate bundle C = {c1 , c2 } contains two local rewrites: c1 changes n to published,
+while c2 changes the same node to archived. The bounded site χ is the semantic footprint containing
+n together with whatever neighbourhood is required for the scheduler to judge the update lawfully.
+The governing policy Π requires exclusive mutation over that footprint within a single tick.
+   Figure 2 shows the overlapping-site geometry.
+
+                                                 host at F∗
+                              c1 : publish                         c2 : archive
+
+                                      u              n               v
+                                                                    shared site χ
+
+
+
+                                                   R, W
+                                             admit c1 , block c2
+
+Figure 2: DPO-style overlapping matches over a shared host site [EEPT06, CEL+ 97]. The two
+candidates overlap on n, so admission preserves the admitted rewrite together with a witness of the
+blocked alternative.
+
+    In this case admission cannot lawfully admit both candidates. A typical result is that one
+candidate is admitted, the other is blocked, and the witness W records that the candidates overlapped
+on the same semantic site under an exclusivity policy. Engineering implication. The receipt
+is not merely a log of what happened, but a replayable explanation of why the blocked candidate
+could not lawfully coexist in that tick.
+    Written in optic form, the local scheduler lowers the candidate rewrite bundle over the shared
+slice χ:
+
+             LowerΨtick (F∗ , {c1 , c2 }) = (R, W, θ),        R ∈ {Derived(c1 ), Derived(c2 )}.
+   The display says exactly that: one candidate becomes the derived result in R, while the overlap
+and blocked coexistence story are preserved in W and retained in θ, avoiding silent discard.
+
+5.2 Example 2: A Braid That Remains Plural
+Let two strands S1 and S2 share a common parent frontier F∗ . Each strand carries a valid claim
+over the same inherited object, but the claims are incompatible: S1 records one lawful update
+to the object, while S2 records another lawful update that cannot be jointly derived under the
+braid collapse policy Π. The refined braid cells χ isolate the shared site together with the local
+reintegration seams needed for comparison.
+    Figure 3 shows the braid geometry and the preserved plural outcome.
+
+
+
+
+                                                      20
+                                          F∗
+                                     shared basis
+                                S1                  S2
+
+                                                          comparison slice χ
+
+
+
+                               x 7→ a           x 7→ b
+
+
+
+                                  R = Plural(B)
+
+
+Figure 3: Two strands literally braid over a shared basis. The resulting claims remain plural when
+no lawful collapse exists under the braid policy.
+
+    The important point is that the lawful outcome may remain Plural. When collapse lacks lawful
+justification to choose between the two claims, plurality itself is the correct admitted result under
+the governing policy. The witness then preserves both the fact of divergence and the fact that
+preserved plurality was the lawful outcome. Engineering implication. Branch structure can
+remain representationally honest: disagreement can persist as plurality instead of being forced into
+a premature merge.
+    Written in optic form, collapse over the braid looks like this:
+
+                        LowerΨbraid (F∗ , B) = (R, W, θ),        R = Plural(B).
+   The display shows that R may remain plural. Plurality is itself a lawful lowered result, with
+the witness and retained hologram explaining why further collapse lacked justification over that
+bounded comparison slice.
+
+5.3 Example 3: Transport Before Import
+Let replicas RA and RB share a common prefix F∗ . Replica RA has admitted a suffix σA beyond
+that prefix, and replica RB wishes to import it. Let FB denote RB ’s present comparable frontier.
+The relevant weave is the family of transported remote claims derived from σA . The bounded site χ
+is the imported region together with the local context needed to decide whether the import remains
+lawful at RB ’s present basis.
+    Figure 4 makes the transport-before-import order explicit.
+
+
+
+
+                                                     21
+                                        F∗
+                                   shared prefix
+
+
+                               direct import forbidden
+            RA                                                          RB
+         suffix σA                 transport to                     frontier FB
+                                 comparable basis
+
+                                          re-express
+
+                                     e at FB
+                                     C                                            retained
+                                   import weave                                     shell
+
+                                                                                      retain
+
+                                   lower / admit                           witnessed outcome
+                                     under Ψrep                     Derived / Conflict / Obstruction
+
+
+Figure 4: A remote suffix cannot be judged directly at the receiver’s tip; it must first be transported
+to a comparable basis.
+
+   Transport first re-expresses the remote suffix at a comparable frontier. Once that transported
+weave exists, the replica optic can lawfully lower it. If transport or lowering fails, the result is
+conflict or obstruction with an explicit witness. Engineering implication. Replication becomes
+queryable and auditable as lawful transport and lowering.
+   Written in optic form, the order of acts matters:
+
+                                   Ce = Transport(F∗ , σA , FB ),
+                           (R, W, θ) = LowerΨrep (FB , C),
+                                                       e
+                                   R ∈ {Derived(x), Conflict, Obstruction}.
+    The first line localises the hard part in transport: the remote suffix is re-expressed at a comparable
+frontier before any import judgement is attempted. The second line then lowers the replica-scale
+weave under the same optic shape already trusted locally. The third line makes explicit that even
+after successful normalisation, the lowered outcome may still be derivation, conflict, or obstruction.
+
+
+
+
+                                                       22
+6 Continuum and the Post-Unix Horizon
+
+We use Continuum to name the protocol-shaped causal medium induced by witnessed admission.
+Continuum is not a privileged runtime standing above any participant. It is the shared medium
+formed by exchangeable witness-bearing artefacts—suffixes, shells, receipts, and certificates—together
+with the transport rules that re-express remote history at comparable bases so that the downstream
+optic can be lowered lawfully.
+    Because tick admission, braid collapse, and replica import share one optic law, it becomes
+natural to treat operating-system objects as frontier-relative materialisations over that same causal
+medium.
+    The post-Unix claim of the paper is not that the operating system becomes graph-shaped. It is
+that the operating system becomes frontier-relative.
+    The relevant lineage is Unix’s process/file discipline, capability systems’ authority discipline,
+and Plan 9’s namespace discipline; warp shifts the centre of gravity from container, descriptor, or
+address space to witnessed causal admission over shared history [RT74, DVH66, Lev84, PPD+ 95].
+    A tempting but inadequate shorthand would be to say that a process is a divergent worldline.
+That collapses history, live realisation, and working-set materialisation into one object. The sharper
+formulation is that a process is a strand whose live realisation appears as a shadow working set over
+shared machine history. The process is the active frontier-relative manifestation of one strand over
+that history.
+    This changes the meaning of ownership, isolation, deletion, debugging, and restart. Safety
+is no longer a byproduct of process opacity. It becomes a property of lawful admission over
+semantically closed sites. If shared history is primary, the privacy problem becomes explicit as
+well: the system must provide a protected interval in which exploratory work does not immediately
+become collaborative fact.
+
+6.1 Application Boundary
+The same post-Unix shift also changes how applications should meet the runtime. The relevant
+question is no longer how to add handwritten app methods to a host. It is how to compile app-
+authored optic surfaces into lawful set-side intents and lawful get-side observer plans over one generic
+holographic runtime. In that arrangement, the application authors its own nouns, result families, and
+reading families; a compiler lowers those surfaces into intent envelopes, observer plans, and shared
+codecs; and the runtime remains generic, admitting intents, emitting outcome/receipt/hologram
+boundaries, and later serving bounded readings through hosted observers. We do not formalise that
+compiler boundary here. The architecture developed here places it at a clear engineering seam.
+    Figure 5 sketches that seam.
+
+  authored SDL               schema compiler                generic runtime           retained shell
+ optic boundary         intent and observer plans        lower / admit / pack        and hosted read
+
+  Figure 5: Authored optic boundaries compile into generic admission and observer machinery.
+
+6.2 Example: An Authored Hot-Text Optic
+We make that application boundary concrete by looking at a small developer-authored hot-text
+boundary. The full SDL declares the hot nouns of one text layer—BufferWorldline, RopeHead,
+RopeBranch, RopeLeaf, TextBlob, Anchor, Tick, TickReceipt, and Checkpoint—together with a
+
+
+                                                    23
+small family of read and write surfaces over them. The paper prints one representative rewrite and
+omits the full schema. Although this boundary is written in GraphQL SDL, it is not a claim that a
+canonical graph object sits underneath the editor. It is a convenient authoring syntax for an optic
+boundary: a typed aperture over one hot layer and its admissible rewrite surfaces.
+    GraphQL was selected here for deliberate reasons. It lets application authors declare the hot
+nouns of a layer and the admissible rewrite surfaces over them in one typed schema. That in turn
+allows a schema compiler—in the current toolchain—to check footprint obligations, slot bindings,
+and forbidden reachability at compile time, before arbitrary host code has run. Just as importantly,
+the SDL narrows the authoring surface: the developer is declaring shapes, closures, and mutations,
+not smuggling in ambient non-determinism through random sources, wall-clock reads, or hidden
+side effects. GraphQL is also easy to version, so new nouns, rewrites, and migrations can be staged
+as explicit schema evolution, avoiding silent runtime drift. We treat GraphQL here as an authoring
+surface; its use as an API and query language is standard [Gra21].
+    The central rewrite in that family is replaceRangeAsTick, because it shows the optic shape
+with minimal extra machinery:
+
+  1   replaceRangeAsTick(
+  2     input: ReplaceRangeAsTickInput!
+  3   ): ReplaceRangeAsTickResult!
+  4       @wes_op(name: "replaceRangeAsTick")
+  5       @wes_footprint(
+  6       reads: [
+  7         "BufferWorldline"
+  8         "RopeHead"
+  9         "RopeBranch"
+ 10         "RopeLeaf"
+ 11         "TextBlob"
+ 12         "Anchor"
+ 13       ]
+ 14       writes: ["BufferWorldline"]
+ 15       creates: [
+ 16         "TextBlob"
+ 17         "RopeLeaf"
+ 18         "RopeBranch"
+ 19         "RopeHead"
+ 20         "Tick"
+ 21         "TickReceipt"
+ 22       ]
+ 23       slots: [
+ 24         {
+ 25           slot: "worldline"
+ 26           kind: "BufferWorldline"
+ 27           bindFromArg: "input.worldlineId"
+ 28           access: [READ, WRITE]
+ 29         }
+ 30         {
+ 31           slot: "baseHead"
+ 32           kind: "RopeHead"
+ 33           bindFromArg: "input.baseHeadId"
+ 34           access: [READ]
+ 35         }
+ 36       ]
+
+
+                                                24
+ 37      closures: [
+ 38        {
+ 39          slot: "touchedRope"
+ 40          fromSlot: "baseHead"
+ 41          operator: "ropeRangeClosure"
+ 42          argBindings: ["input.startByte", "input.endByte"]
+ 43          reads: ["RopeBranch", "RopeLeaf", "TextBlob"]
+ 44          cardinality: MANY
+ 45        }
+ 46        {
+ 47          slot: "affectedAnchors"
+ 48          fromSlot: "worldline"
+ 49          operator: "anchorsIntersectingEditWindow"
+ 50          argBindings: ["baseHead", "input.startByte", "input.endByte"]
+ 51          reads: ["Anchor"]
+ 52          cardinality: MANY
+ 53        }
+ 54      ]
+ 55      createSlots: [
+ 56        { slot: "newBlob", kind: "TextBlob", cardinality: OPTIONAL }
+ 57        { slot: "newLeaves", kind: "RopeLeaf", cardinality: MANY }
+ 58        { slot: "newBranches", kind: "RopeBranch", cardinality: MANY }
+ 59        { slot: "nextHead", kind: "RopeHead" }
+ 60        { slot: "tick", kind: "Tick" }
+ 61        { slot: "receipt", kind: "TickReceipt" }
+ 62      ]
+ 63      updates: [{ slot: "worldline", fields: ["canonicalHead"] }]
+ 64      forbids: ["AstState", "Diagnostics", "GitWitness", "UiState"]
+ 65      )
+
+    This is exactly the developer-facing form of a warp optic. The authored surface names the
+hot nouns that matter, the closure operators that construct the optic slice, the created causal
+consequences that the runtime must retain, and the materialised reading that may change. The
+operation replaceRangeAsTick defines a bounded rewrite surface over a buffer worldline. The
+closures ropeRangeClosure and anchorsIntersectingEditWindow construct the local slice to be
+judged; the created Tick and TickReceipt make the witness-bearing consequences explicit; and
+the forbids clause makes the aperture explicit by ruling out silent dependence on AST state,
+diagnostics, Git witness history, or UI state.
+    We omit the full SDL. Our goal here is to show the authored pattern. Even this one excerpt is
+enough to expose it: the developer declares the nouns in scope, the closures that build the local
+slice, the causal consequences that must be retained, the materialised reading that may change,
+and the regions that remain outside the aperture. In ordinary software a developer might declare
+methods over mutable structures. In a warp-native system, the more faithful statement is that
+the developer authors optic boundaries and lets a schema compiler compile those boundaries into
+runtime-checkable footprint, witness, and retention obligations.
+
+6.3 The Three-Tier Thinking Room
+Continuum remains socially viable only if retention and revelation are decoupled. Shared history
+creates exposure pressure that a simple public/private split cannot absorb: users need room to
+think, to speculate, and only later to promote. We therefore distinguish a protected working interval
+
+
+                                                 25
+with three practical tiers:
+
+1. Ephemeral Scratch: local, weakly retained, and disposable.
+
+2. Author-Only Speculative Lane: durable, replayable, sealed to the author by default.
+
+3. Shared / Admitted Lane: collaboratively admitted causal truth.
+
+    This is the privacy-preserving answer to the exposure pressure created by shared causal history.
+The system may remember drafts, with revelation and retention governed by explicit policy and tier.
+Architecturally, Ephemeral Scratch is pre-admission or minimally retained local work; Author-Only
+lanes are durable and replayable prior to social transport; Shared lanes mark the moment private
+speculation crosses into collaborative truth.
+    This distinction matters immediately for debugger-driven counterfactual work. A reading, replay,
+or inspection act is revelation only. It does not by itself create new causal truth. If an operator
+explicitly asks to continue from an earlier coordinate or explore a counterfactual alternative, the
+system should emit an explicit fork rooted at an exact fork basis. Such debugger-created strands are
+real causal objects; they should default to Ephemeral Scratch or an Author-Only Speculative Lane
+until an explicit promotion moves them into shared history. When retained, their provenance should
+record the creating principal, tool or session origin, fork basis, and retention or revelation posture.
+
+
+
+
+                                                  26
+7 Privacy, Provenance, and Revelation
+
+Privacy and provenance are not mutually exclusive [Ros26b]. We do not re-derive that machinery
+here. The present point is to show how its privacy, revelation, and observer-rights discipline inhabits
+the generic hologram and retained-contract structure of the warp optic. Three components matter.
+
+7.1 Property Library
+Private speculative lanes can collaborate without exposing their full internal history. This is where
+proof-bearing evidence, proof-carrying certification, information-flow control, and zero-knowledge
+style selective disclosure touch the architecture [ML84, Nec97, Den76, GMR89]. They emit a
+certificate of lawfulness: property-bearing evidence that type/resource safety, admission integrity,
+provenance linkage, and policy conformance hold at the required tier. Such a certificate should
+minimally identify the shared basis to which it refers, the property set it attests, the witness or
+proof tier under which those properties were established, and the shell anchors needed for later
+replay, audit, or revocation. In that sense the certificate is a special case of the generic package θ: a
+carrier of witness-bearing consequences upon which others may lawfully rely. Some properties may
+survive fold-to-opaque as shell anchors or zero-knowledge proofs; others, such as full forensic traces,
+require later unsealing.
+    One compact lifecycle makes the point concrete. A private lane may first issue a certificate
+stating, for example, that a bounded build or data preparation step satisfies a declared policy at
+basis F∗ . The certificate then becomes active once the relevant principal, witness tier, and retention
+contract are all in force. A collaborator may subsequently rely on that certificate without receiving
+the sealed internal trace itself, because the relied-upon shell anchors and property set are already
+named. If later evidence shows that the attested condition no longer holds, the certificate may be
+revoked by a new witnessed status transition that changes future lawful reliance without deleting
+past history. Finally, the certificate may be archived, preserving its basis, attested properties, and
+revocation history for later audit even when it is no longer active for ordinary use.
+
+7.2 Reliance Status
+Once certificates exist, trust itself becomes a first-class object with a lifecycle, echoing the pressure
+visible in PKI and certificate revocation systems while generalising the object being trusted [CSF+ 08].
+A certificate can be issued, activated, superseded, suspended, revoked, expired, and archived.
+Revocation is not deletion. It is a new witnessed status transition about future lawful reliance. This
+creates a true reliance domain within warp and makes trust an internal witnessed object.
+    One concrete case is a collaborator relying on an active certificate that attests a sealed build,
+data preparation step, or model export at basis F∗ . While the certificate remains active, downstream
+admissions may rely on that shell and its property set without reopening the sealed internal trace.
+If the certificate is later suspended or revoked because an upstream witness is invalidated, future
+lawful reliance must stop immediately even though the earlier basis, reliance events, and revocation
+act remain replayable and auditable.
+
+7.3 Observer Rights
+The subject-side counterpart is an observer rights lattice governing who may discover, inspect, rely
+on, unseal, replay, export, delegate, or revoke access over proof-bearing artefacts. The right local
+noun here is not “lens” but “reading”: an observer, equipped with a bounded reading frame, obtains
+a lawful projection by decoding only the least required slice of a subject’s backward causal cone. In
+
+
+                                                   27
+this ontology, that reading is a coordinate chart over causal history. Different observers may therefore
+lawfully emit different charts over the same history, and revelation law must govern which transitions
+between such charts are permitted, what witness must travel with them, and what plurality or
+obstruction must remain explicit. This is where the architecture meets the observer classes, replay
+impact labels, and bounded warrants developed elsewhere in the series. High-impact revelation
+rights should be activated explicitly, often requiring threshold or role-separated co-authorisation.
+    A simple rights split makes the point concrete. The author of a private lane may hold replay
+and unseal rights over the full trace. A teammate may hold only the right to inspect the active
+certificate and summary shell. A release principal may be permitted to request wider revelation,
+but only under co-authorised unsealing. The architecture therefore does not ask one observer class
+to serve every use. It lets lawful readings differ by right, scope, and witness tier.
+
+
+
+
+                                                  28
+8 Open Frontier Questions
+
+The architectural centre is stable enough that the remaining work can be stated as extension rather
+than as hidden prerequisite. The next frontier laws likely fall into two clusters.
+
+Governance and reliance laws.
+
+• exposure ledger and contamination calculus,
+
+• collective sovereignty over co-owned traces,
+
+• mode-transition contamination and stale certificate handling,
+
+• revocation propagation over dependency graphs,
+
+• aperture decay as a witnessed act,
+
+• temporal-logic query languages over lawful transport, admission, and revelation paths.
+
+Engineering seams.
+
+• lawful compilation of app-authored optics into intent and observer plans,
+
+• settlement shells and idempotent import of already-adjudicated outcomes,
+
+• export semantics at the causal-medium boundary.
+
+    These points become visible once the foundations are coherent enough to support a real social-
+runtime theory. The final paper should therefore turn from the internal recurrence of the warp
+optic to the external consequence of that recurrence: there is no primary runtime. If graph-like state
+is an observer-relative reading and replica import is ordinary witnessed admission, then Continuum
+is not a runtime standing above any participant. It is the protocol-shaped causal medium defined
+by witnessed suffixes, transport, slicing, lowering, outcome algebra, and bounded revelation. Paper
+VIII develops that consequence directly: Continuum is a protocol of witnessed admission, not a
+privileged runtime.
+
+
+
+
+                                                 29
+9 Conclusion
+
+The central result of this paper is a clearer object. warp is an optic architecture in which state
+transitions, braid outcomes, certificate trust, historical folding, and observer revelation are treated
+as instances of the same witnessed act: project through an observer, bound an optic slice, lawfully
+lower a weave, and retain the result as a hologram. Because each recurrence emits such a hologram,
+replay, audit, transport, and counterfactual examination recur as well. Every retained slice contains
+the least sufficient history of its bounded admitted situation up to the governing retention contract.
+Tick replay is therefore only the first concrete instance of a more general property that also appears
+in braid lowering, distributed import, and later trust-bearing shells.
+    The distributed consequence is correspondingly precise. Transport constructs the comparable
+slice on which replica-scale lowering can occur; once that slice exists, the downstream optic is the
+same one already used locally. Distribution changes the slice boundary while leaving the downstream
+law unchanged.
+    That optic still requires judgement and interpretation. It does, however, make the terms of
+collaboration explicit: what plural situation was lowered, over what site, under what policy, with
+what retained witness, and under what revelation rights. In a warp-native system, when software
+executes, it commits, folds, and reveals truth under law.
+
+
+
+
+                                                  30
+A Adversarial Transport (Sketch)
+
+The main text treats replica transport as a normalisation step that constructs a comparable basis
+and re-expresses a remote suffix family as a weave suitable for lowering. This appendix records the
+minimal obligations we expect transport to satisfy under hostile distributed conditions. The goal
+is not a complete protocol or a full formalisation; it is to keep the architectural interface honest
+about what “transport” must supply so that the replica optic can either lower lawfully or return an
+explicit Conflict or Obstruction.
+
+A.1 Threat model
+We assume:
+
+• an untrusted network that may reorder, delay, duplicate, or drop messages;
+
+• remote replicas that may be faulty, partially connected, or actively adversarial (including
+  equivocation) [LSP82];
+
+• bounded local resources, so a receiver must remain able to refuse work that exceeds its admitted
+  slice and retention posture.
+
+We do not assume a global reliable broadcast or a synchronous network [Bra87]. We also do not
+assume that all participants share the same authority regime; trust and reliance are part of the
+witness-bearing objects, not ambient background.
+
+A.2 Transport obligations
+
+At replica scale, the lowering surface ρreplica uses Transport to construct a weave Ce at a receiving
+comparable frontier. Under hostile conditions, that construction must provide at least:
+
+• Authorship evidence: a proof-carrying identity for the claimed remote suffix family and its
+  basis anchors (for example signatures or certificate chains), sufficient for the receiver’s authority
+  regime to decide whether reliance is permitted at all.
+
+• Basis comparability: an explicit description of the basis anchors and transport path used to
+  re-express the remote claims at the receiver’s comparable frontier. If comparability cannot be
+  established, transport yields Obstruction.
+
+• Witness carriage: a witness tier sufficient for replay, audit, and later revocation or dispute.
+  Transport must not erase the ability to explain why a later import was admitted, blocked, or
+  obstructed.
+
+• Idempotence keys: stable identifiers for transported claim families and their derived settlement
+  shells, so that duplicate delivery can be treated as replay of an already witnessed object.
+
+   These obligations do not solve adversarial transport. They make its inputs and outputs explicit
+enough that downstream lowering remains lawful and auditable.
+
+
+
+
+                                                  31
+A.3 Failure modes and lawful outcomes
+Hostile and failure-path behaviour should surface as witnessed outcomes instead of being absorbed
+as silent heuristics:
+
+• Unauthenticated claims: transport returns Obstruction with a witness explaining the missing
+  or insufficient evidence.
+
+• Equivocation: when a principal authors incompatible remote suffix families over the same basis,
+  the receiver treats the situation as a lawful Conflict or a policy-driven Obstruction, and emits
+  a witness suitable for later revocation or quarantine.
+
+• Partial connectivity: missing dependencies, missing basis anchors, or incomplete transported
+  slices return Obstruction rather than speculative patch application.
+
+• Replay and duplication: duplicate delivery becomes idempotent re-introduction of the same
+  witnessed transport object, not a new authored intent.
+
+• Resource exhaustion: when a transported family would force a receiver beyond its bounded
+  slice χ, retention contract Λ, or authority regime α, the receiver may lawfully obstruct the import
+  at the boundary.
+
+A.4 Architectural consequence
+The replica-scale doctrine remains the same: transport constructs the comparable slice and produces
+a weave; lowering judges that weave under the governing optic and retention contract. Under
+hostile conditions, transport and authority decide whether the imported object is admissible for
+judgement at all. The outcome is therefore witnessed: Derived when import succeeds, Conflict
+when incompatibility is surfaced, and Obstruction when preconditions fail.
+
+
+
+
+                                                 32
+B WARP Glossary
+
+This glossary gathers the recurring nouns of this paper and the surrounding series. The entries are
+intentionally architectural and implementation-agnostic.
+
+B.1 Symbolic Vocabulary
+
+Symbol                        Meaning
+Ω = (π, β, M, U, E)           Observer plan: projection, basis, observer state, update discipline, and emission.
+Ψ = (Ω, χ, ρ, Π, Λ)           warp optic: observer plan, optic slice, set-side lowering surface, admissibility law,
+                              and retention contract.
+P                             Basis-relative weave. Depending on scale, this may be a candidate rewrite bundle, a
+                              braid, or a transported import family.
+ρ(F∗ , P; Ω) = (C, χ)         Set-side lowering surface presenting comparable claims C over bounded slice χ from
+                              weave P at frontier F∗ .
+LowerΨ (F∗ , P) = (R, W, θ)   Full optic act: lower weave P under optic Ψ at frontier F∗ , yielding outcome R,
+                              witness W , and hologram θ.
+O(X) =                        Outcome algebra for lawful lowering over scale-local carrier X.
+Derived(X) ⊔ Plural(X) ⊔
+Conflict ⊔ Obstruction
+θ ≃Λ θ ′                      Shell equivalence under retention contract Λ. Equivalent shells preserve the same
+                              optic-accurate bulk for the lawful uses demanded by Λ.
+Transport(F, Σ, F ′ )         Replica-scale basis construction: re-express remote suffix family Σ from frontier F at
+                              comparable frontier F ′ before lowering.
+CommitΨ (F∗ , P)              Commitment act: shorthand for optic lowering when the lowered result is being
+                              treated as admitted frontier-relative truth.
+FoldΛ (θ)                     Fold a shell into a Λ-equivalent retained carrier.
+RevealΩ,α (m, θ)              Revelation act under observer plan Ω, authority regime α, observer state m, and shell
+                              θ.
+
+
+B.2 History And Lane Nouns
+
+Term                          Meaning
+warp                          An optic architecture over shared causal history. The system’s primary object is
+                              witnessed causal history, with frontier-relative materialisations over it.
+Continuum                     The protocol-shaped causal medium formed by exchangeable witness-bearing artefacts
+                              (suffixes, shells, receipts, certificates) and the transport rules that make remote history
+                              comparable for lawful lowering.
+Causal lane                   A history-bearing computational object. The ontology-level noun for a causal line of
+                              development, whether canonical or speculative.
+Worldline                     A canonically admitted causal lane. Its history and frontier-relative materialisations
+                              count as shared causal reality for the relevant policy frame.
+Strand                        A speculative causal lane rooted at a parent worldline and fork anchor, carrying lawful
+                              local divergence over inherited history.
+Braid                         A lane-scale weave over multiple lanes sharing a common precursor or basis, presented
+                              for comparison and later collapse under policy.
+Weave                         A basis-relative carrier that holds multiple candidate claims in suspension without
+                              yet forcing one derived answer. Candidate rewrite bundles, braids, and transported
+                              import families are the primary cases in this paper.
+Frontier                      The coordinate at which a lane or materialisation is interpreted. A frontier-relative
+                              view changes with the chosen basis.
+Basis                         The comparison or reading coordinate relative to which claims, slices, or observers
+                              are made commensurable.
+Fork anchor                   The exact inherited basis at which a strand diverges from a parent worldline.
+Shared history                The admitted causal medium from which frontier-relative readings are materialised.
+
+
+
+
+                                                        33
+B.3 Admission And Replay Nouns
+
+Term                         Meaning
+Claim family C               The comparable claim presentation produced by an optic’s set-side lowering surface
+                             over a bounded slice.
+Policy Π                     The governing law under which a bounded site is judged.
+Optic slice χ                The least frontier-relative closure over which the optic can lawfully compare the claims
+                             and judge their coexistence, derivation, plurality, conflict, or obstruction.
+Lowering                     The set-side act by which an optic lawfully judges a weave over a bounded slice and
+                             emits outcome, witness, and hologram.
+Derived                      An outcome in which a lawful result is admitted as the derived local or imported
+                             result.
+Plural                       An outcome in which plurality itself is the lawful admitted result.
+Conflict                     An outcome in which the system surfaces genuine incompatibility as an explicit result.
+Obstruction                  An outcome in which lawful admission cannot proceed because the relevant precondi-
+                             tions or transport conditions are not satisfied.
+Witness W                    The semantic explanation of why a lowering outcome was lawful. It behaves as
+                             proof-bearing residue that supports replay, audit, and explanation.
+Shell θ                      The retained carrier packaging a lowered result together with witness-bearing conse-
+                             quences for replay, audit, transport, or revelation.
+WARP hologram                A retained shell preserving the least sufficient boundary needed to recover the optic-
+                             accurate bulk of a bounded admitted situation for the required contract.
+Boundary Transition Record   One concrete shell family, especially at tick scale, used to retain replayable local
+                             transition boundaries.
+Transport                    The replica-scale normalisation step that re-expresses a remote suffix at a comparable
+                             frontier before import judgement.
+Normaliser                   The basis-construction step inside an optic’s set-side lowering surface. At replica scale,
+                             the hard case is transport.
+Optic-accurate bulk          The retained causal content, together with the required witness structure, that must
+                             remain recoverable for the observations and obligations named by an optic and its
+                             retention contract.
+
+
+
+
+                                                       34
+B.4 Commitment, Revelation, And Governance Nouns
+
+Term                            Meaning
+Optic                        The composite act by which an observer bounds a site through an aperture, a weave is
+                             lawfully lowered there, and the resulting admitted situation is retained as a holographic
+                             witness in append-only history.
+Commitment                   The act by which the witnessed outcome of lawful lowering is admitted into frontier-
+                             relative truth, whether derivation, plurality, conflict, or obstruction.
+Folding                      Re-expression of already admitted history into a boundary-equivalent retained shell
+                             under an explicit contract.
+Revelation                   Lawful exposure of admitted or folded history to a bounded observer under an aperture
+                             and authority regime.
+Observer plan Ω              The revelation-side object specifying projection, basis, accumulation state, update
+                             discipline, and emission.
+Observer                     A positioned reading discipline that determines which readings may be lawfully emitted
+                             at a given aperture, basis, and authority tier.
+Reading                      A lawful emitted chart over causal history obtained through a bounded observer
+                             frame.
+Aperture                     The bounded observational scope within which a reading is lawful.
+Retention contract Λ         The obligations a retained shell must continue to satisfy for replay, audit, transport,
+                             revelation, or reliance review.
+Authority regime α           The active rights and reliance discipline governing revelation.
+Shell equivalence ≃Λ         Equivalence between shells relative to the retained contract Λ, defined by preservation
+                             of lawful replay, audit, transport, or revelation obligations, independent of byte
+                             identity.
+Property certificate         A proof-bearing shell attesting that specified properties hold relative to a shared basis
+                             and witness tier.
+Reliance status              The lifecycle state of a certificate or trust-bearing object: issued, active, superseded,
+                             suspended, revoked, expired, or archived.
+Observer rights              The rights lattice governing who may inspect, replay, export, delegate, unseal, or
+                             revoke access over retained artefacts.
+Ephemeral Scratch            Local, weakly retained, disposable work that has not yet crossed into durable collabo-
+                             rative history.
+Author-Only Speculative Lane Durable, replayable, but author-sealed speculative work that has not yet been socially
+                             transported.
+Shared / Admitted Lane       The portion of history that has crossed into collaboratively admitted causal truth.
+
+
+
+
+                                                         35
+References
+
+[Art47]     Emil Artin. Theory of braids. Annals of Mathematics, 48(1):101–126, 1947. doi:
+            10.2307/1969218.
+
+[BG18]      Guillaume Boisseau and Jeremy Gibbons. What you needa know about yoneda: Profunc-
+            tor optics and the yoneda lemma. Proceedings of the ACM on Programming Languages,
+            2(ICFP), 2018. doi:10.1145/3236779.
+
+[BKT01]    Peter Buneman, Sanjeev Khanna, and Wang-Chiew Tan. Why and where: A characteri-
+           zation of data provenance. In Proceedings of the International Conference on Database
+           Theory, pages 316–330. Springer, 2001. doi:10.1007/3-540-44503-X_20.
+
+[Bra87]    Gabriel Bracha. Asynchronous byzantine agreement protocols. Information and Compu-
+           tation, 75(2):130–143, 1987. doi:10.1016/0890-5401(87)90054-X.
+
+[CCT09]    James Cheney, Laura Chiticariu, and Wang-Chiew Tan. Provenance in databases:
+           Why, how, and where. Foundations and Trends in Databases, 1(4):379–474, 2009.
+           doi:10.1561/1900000006.
+
+[CEL+ 97] Andrea Corradini, Hartmut Ehrig, Michael Löwe, Ugo Montanari, and Francesca Rossi.
+          Algebraic approaches to graph transformation. In Grzegorz Rozenberg, editor, Handbook
+          of Graph Grammars and Computing by Graph Transformation, Volume 1, pages 163–246.
+          World Scientific, 1997. doi:10.1142/9789812384720_0003.
+
+[CSF+ 08] David Cooper, Stefan Santesson, Stephen Farrell, Sharon Boeyen, Russell Housley, and
+          William Polk. Internet x.509 public key infrastructure certificate and certificate revocation
+          list (CRL) profile. Technical Report RFC 5280, IETF, 2008. doi:10.17487/RFC5280.
+
+[Den76]    Dorothy E. Denning. A lattice model of secure information flow. Communications of
+           the ACM, 19(5):236–243, 1976. doi:10.1145/360051.360056.
+
+[DHJ+ 07] Giuseppe DeCandia, Deniz Hastorun, Madan Jampani, Gunavardhan Kakulapati,
+          Avinash Lakshman, Alex Pilchin, Swaminathan Sivasubramanian, Peter Vosshall, and
+          Werner Vogels. Dynamo: Amazon’s highly available key-value store. In Proceedings of
+          the 21st ACM Symposium on Operating Systems Principles, pages 205–220. ACM, 2007.
+          doi:10.1145/1294261.1294281.
+
+[DVH66]     Jack B. Dennis and Earl C. Van Horn. Programming semantics for multiprogrammed
+            computations. Communications of the ACM, 9(3):143–155, 1966. doi:10.1145/365230.
+            365252.
+
+[EEPT06] Hartmut Ehrig, Karsten Ehrig, Ugo Prange, and Gabriele Taentzer. Fundamentals of
+         Algebraic Graph Transformation. Springer, 2006. doi:10.1007/3-540-31188-2.
+
+[EG89]     Clarence A. Ellis and Simon J. Gibbs. Concurrency control in groupware systems. In
+           Proceedings of the ACM SIGMOD International Conference on Management of Data,
+           pages 399–407. ACM, 1989. doi:10.1145/67544.66963.
+
+[EH86]      E. Allen Emerson and Joseph Y. Halpern. “sometimes” and “not never” revisited: On
+            branching versus linear time temporal logic. Journal of the ACM, 33(1):151–178, 1986.
+            doi:10.1145/4904.4999.
+
+
+                                                  36
+[FGM+ 07] J. Nathan Foster, Michael B. Greenwald, Jonathan T. Moore, Benjamin C. Pierce,
+          and Alan Schmitt. Combinators for bidirectional tree transformations: A linguistic
+          approach to the view-update problem. ACM Transactions on Programming Languages
+          and Systems, 29(3), 2007. doi:10.1145/1232420.1232424.
+
+[GL02]     Seth Gilbert and Nancy Lynch. Brewer’s conjecture and the feasibility of consistent,
+           available, partition-tolerant web services. SIGACT News, 33(2):51–59, 2002. doi:
+           10.1145/564585.564601.
+
+[GMR89]    Shafi Goldwasser, Silvio Micali, and Charles Rackoff. The knowledge complexity of
+           interactive proof systems. SIAM Journal on Computing, 18(1):186–208, 1989. doi:
+           10.1137/0218012.
+
+[Gra21]    GraphQL Foundation. Graphql specification. Online specification, 2021. Accessed
+           2026-04-24. URL: https://spec.graphql.org/.
+
+[Hoa85]    C. A. R. Hoare. Communicating Sequential Processes. Prentice Hall, 1985.
+
+[Lam78]    Leslie Lamport. Time, clocks, and the ordering of events in a distributed system.
+           Communications of the ACM, 21(7):558–565, 1978. doi:10.1145/359545.359563.
+
+[Lev84]    Henry M. Levy. Capability-Based Computer Systems. Digital Press, 1984.
+
+[LSP82]    Leslie Lamport, Robert Shostak, and Marshall Pease. The byzantine generals problem.
+           ACM Transactions on Programming Languages and Systems, 4(3):382–401, 1982. doi:
+           10.1145/357172.357176.
+
+[MDG13]    Samuel Mimram and Cinzia Di Giusto. A categorical theory of patches. Electronic Notes
+           in Theoretical Computer Science, 298:283–307, 2013. doi:10.1016/j.entcs.2013.09.
+           018.
+
+[Mil89]    Robin Milner. Communication and Concurrency. Prentice Hall, 1989.
+
+[ML84]     Per Martin-Löf. Intuitionistic Type Theory. Bibliopolis, 1984.
+
+[Nec97]    George C. Necula. Proof-carrying code. In Proceedings of the 24th ACM SIGPLAN-
+           SIGACT Symposium on Principles of Programming Languages, pages 106–119. ACM,
+           1997. doi:10.1145/263699.263712.
+
+[Par81]    David Park. Concurrency and automata on infinite sequences. In Peter Deussen, editor,
+           Theoretical Computer Science, volume 104 of Lecture Notes in Computer Science, pages
+           167–183. Springer, 1981. doi:10.1007/BFb0017309.
+
+[PGW17] Matthew Pickering, Jeremy Gibbons, and Nicolas Wu. Profunctor optics: Modular
+        data accessors. The Art, Science, and Engineering of Programming, 1(2), 2017. doi:
+        10.22152/programming-journal.org/2017/1/7.
+
+[PPD+ 95] Rob Pike, Dave Presotto, Sean Dorward, Bob Flandrena, Ken Thompson, Howard
+          Trickey, and Phil Winterbottom. Plan 9 from bell labs. Computing Systems, 8(3):221–
+          254, 1995.
+
+[Ros25a]   James Ross. WARP graphs: A worldline algebra for recursive provenance. AIΩN
+           Foundations Series, Paper I, 2025. doi:10.5281/zenodo.17908005.
+
+                                               37
+[Ros25b]   James Ross. WARP graphs: Canonical state evolution and deterministic worldlines.
+           AIΩN Foundations Series, Paper II, 2025. doi:10.5281/zenodo.17934512.
+
+[Ros25c]   James Ross. WARP graphs: Computational holography & provenance payloads. AIΩN
+           Foundations Series, Paper III, 2025. doi:10.5281/zenodo.17963669.
+
+[Ros25d]   James Ross. WARP graphs: Rulial distance & observer geometry. AIΩN Foundations
+           Series, Paper IV, 2025. doi:10.5281/zenodo.18038297.
+
+[Ros26a]   James Ross. WARP graphs: Emergent dynamics from deterministic rewrite systems.
+           AIΩN Foundations Series, Paper V, 2026. doi:10.5281/zenodo.18146884.
+
+[Ros26b]   James Ross. WARP graphs: Ethics of deterministic replay & provenance sovereignty.
+           AIΩN Foundations Series, Paper VI, 2026. doi:10.5281/zenodo.18863648.
+
+[RT74]     Dennis M. Ritchie and Ken Thompson. The UNIX time-sharing system. Communications
+           of the ACM, 17(7):365–375, 1974. doi:10.1145/361011.361061.
+
+[SPBZ11] Marc Shapiro, Nuno Preguiça, Carlos Baquero, and Marek Zawirski. Conflict-free
+         replicated data types. In Xavier Défago, Franck Petit, and Vincent Villain, editors,
+         Stabilization, Safety, and Security of Distributed Systems, volume 6976 of Lecture Notes in
+         Computer Science, pages 386–400. Springer, 2011. doi:10.1007/978-3-642-24550-3_
+         29.
+
+[Wei81]    Mark Weiser. Program slicing. In Proceedings of the 5th International Conference on
+           Software Engineering, pages 439–449. IEEE Computer Society, 1981.
+
+[Win87]    Glynn Winskel. Event structures. In Wilfried Brauer, Wolfgang Reisig, and Grzegorz
+           Rozenberg, editors, Advances in Petri Nets 1986, Part II, volume 255 of Lecture Notes
+           in Computer Science, pages 325–392. Springer, 1987. doi:10.1007/3-540-17906-2_31.
+
+
+
+
+                                                38

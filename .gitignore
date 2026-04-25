@@ -1,0 +1,30 @@
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
+
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.lof
+*.lot
+*.log
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+
+# Local build directories (if created)
+_build/
+
+# Local PDF builds that sometimes land in the source tree
+paper/main.pdf
+
+# Dist folder accidents
+dist/*copy*.pdf
+dist/*_copy_*.pdf

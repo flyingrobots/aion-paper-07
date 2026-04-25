@@ -1,0 +1,109 @@
+% Macros for Paper VII
+\usepackage{eso-pic}
+\usepackage{listings}
+\usepackage{tabularx}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,fit,backgrounds}
+
+\newcommand{\AION}{\textrm{AI}\ensuremath{\Omega}\textrm{N}}
+\newcommand{\AIONProjectURL}{\url{https://github.com/flyingrobots/aion}}
+
+% WARP term: small caps in prose, italic in math.
+\DeclareRobustCommand{\WARP}{\ifmmode\mathit{WARP}\else{\upshape\scshape warp}\fi}
+
+\newenvironment{argument}{\begin{proof}[Argument sketch]}{\end{proof}}
+
+\definecolor{AIONCodeBg}{RGB}{248,249,251}
+\definecolor{AIONCodeRule}{RGB}{214,220,228}
+\definecolor{AIONCodeString}{RGB}{130,48,20}
+\definecolor{AIONCodeMeta}{RGB}{88,22,120}
+\definecolor{AIONCodeKey}{RGB}{24,82,132}
+\definecolor{AIONCodeComment}{RGB}{92,110,124}
+\definecolor{AIONCodeNumber}{RGB}{120,126,138}
+
+\lstdefinelanguage{AIONGraphQL}{
+  sensitive=true,
+  alsoletter={@,_},
+  morecomment=[l]{\#},
+  morestring=[b]",
+  morekeywords=[1]{
+    type,input,enum,interface,union,scalar,schema,directive,extend,on,
+    implements,Mutation,Query,true,false,null
+  },
+  morekeywords=[2]{
+    reads,writes,creates,slots,closures,createSlots,updates,forbids,
+    slot,fromSlot,operator,argBindings,fields,bindFromArg,bindFromSlot,
+    bindRelation,access,cardinality,kind
+  },
+  morekeywords=[3]{
+    @wes_op,@wes_footprint,READ,WRITE,OPTIONAL,MANY
+  }
+}
+
+\lstdefinestyle{aioncode}{
+  language=AIONGraphQL,
+  basicstyle=\ttfamily\small,
+  keywordstyle=[1]\color{AIONBlue!85!black}\bfseries,
+  keywordstyle=[2]\color{AIONCodeKey}\bfseries,
+  keywordstyle=[3]\color{AIONCodeMeta}\bfseries,
+  commentstyle=\color{AIONCodeComment}\itshape,
+  stringstyle=\color{AIONCodeString},
+  backgroundcolor=\color{AIONCodeBg},
+  frame=single,
+  rulecolor=\color{AIONCodeRule},
+  framesep=6pt,
+  framerule=0.6pt,
+  numbers=left,
+  numberstyle=\scriptsize\color{AIONCodeNumber},
+  numbersep=10pt,
+  stepnumber=1,
+  firstnumber=1,
+  xleftmargin=2.4em,
+  xrightmargin=0.5em,
+  breaklines=true,
+  breakatwhitespace=false,
+  columns=fullflexible,
+  keepspaces=true,
+  showstringspaces=false,
+  aboveskip=0.8em,
+  belowskip=0.8em
+}
+
+\tikzset{warp edge/.style={-{Latex[length=2.2mm,width=1.8mm]}, semithick}}
+\tikzset{warp dashed/.style={warp edge, dashed}}
+\tikzset{warp box/.style={draw=black, rounded corners=1.8pt, semithick, align=center, inner sep=4pt, fill=white, font=\small}}
+\tikzset{warp stage/.style={warp box, fill=black!2}}
+\tikzset{warp shell/.style={warp box, fill=black!4}}
+\tikzset{warp small/.style={warp box, inner sep=3pt, font=\small}}
+\tikzset{warp label/.style={font=\footnotesize, fill=white, inner sep=1.5pt, text=black!80}}
+\tikzset{warp band/.style={draw=black!55, fill=black!5, rounded corners=6pt, line width=0.6pt}}
+\tikzset{host node/.style={circle, draw=black, semithick, minimum size=8mm, inner sep=0pt, fill=white, font=\small}}
+\tikzset{host edge/.style={draw=black, semithick}}
+\tikzset{claim A/.style={draw=black!75, dashed, rounded corners=2pt, inner sep=4pt}}
+\tikzset{claim B/.style={draw=black!65, densely dotted, rounded corners=2pt, inner sep=4pt}}
+\tikzset{slice box/.style={draw=black!55, fill=black!6, rounded corners=2pt, inner sep=2pt}}
+
+% Compatibility aliases for existing figures in the draft.
+\tikzset{warpbox/.style={warp box}}
+\tikzset{warpsmall/.style={warp small}}
+\tikzset{warparrow/.style={warp edge}}
+\tikzset{warpblocked/.style={warp dashed}}
+\tikzset{warplabel/.style={warp label}}
+\tikzset{warpghost/.style={warp box, dashed, fill=white}}
+\tikzset{hostnode/.style={host node}}
+\tikzset{hostedge/.style={host edge}}
+\tikzset{matchboxA/.style={claim A}}
+\tikzset{matchboxB/.style={claim B}}
+
+\newcommand{\AIONDraftWatermark}{%
+  \AddToShipoutPictureBG{%
+    \AtPageLowerLeft{%
+      \raisebox{0.18\paperheight}[0pt][0pt]{%
+        \hspace*{0.16in}%
+        \rotatebox{90}{%
+          \textcolor{AIONAccent!35}{\fontsize{18}{22}\selectfont\bfseries ROUGH DRAFT \quad ROUGH DRAFT \quad ROUGH DRAFT}%
+        }%
+      }%
+    }%
+  }%
+}
