@@ -918,23 +918,25 @@ boundaries, and later serving bounded readings through hosted observers. We do n
 compiler boundary here. The architecture developed here places it at a clear engineering seam.
     Figure 4 sketches that seam.
 
-           authored SDL           schema compiler          generic runtime          retained shell
-          optic boundary         plans and bindings     lower / admit / pack       and hosted read
-                compile schema
-                                     emit intent/observer plans
-             compile                                              lower / admit / pack
-                                                                          serve hosted read
 
-               run
+
+
+                                                  22
+       authored SDL             schema compiler               generic runtime            retained shell
+      optic boundary            plans + bindings           lower / admit / pack           hosted read
+               compile schema
+                                    emit intent + observer plans
+       compile-time
+                                                                          retain shell
+                                                                            serve hosted read
+
+       run-time
 
 
 
 
   Figure 4: Authored optic boundaries compile into generic admission and observer machinery.
 
-
-
-                                                      22
 6.2 Example: An Authored Hot-Text Optic
 We make that application boundary concrete by looking at a small developer-authored hot-text
 boundary. The full SDL declares the hot nouns of one text layer—BufferWorldline, RopeHead,
@@ -961,74 +963,77 @@ generated host bindings that enforce those declarations. At runtime, the generic
 uses the declared closures to construct the bounded slice χ, applies the admissibility law Π over the
 presented claim family, and packs the declared receipt and retention obligations under Λ.
 
-  1   replaceRangeAsTick(
-  2     input: ReplaceRangeAsTickInput!
-  3   ): ReplaceRangeAsTickResult!
-  4       @wes_op(name: "replaceRangeAsTick")
-  5       @wes_footprint(
-  6       reads: [
-  7         "BufferWorldline"
-  8         "RopeHead"
-  9         "RopeBranch"
- 10         "RopeLeaf"
- 11         "TextBlob"
- 12         "Anchor"
- 13       ]
- 14       writes: ["BufferWorldline"]
- 15       creates: [
- 16         "TextBlob"
- 17         "RopeLeaf"
- 18         "RopeBranch"
- 19         "RopeHead"
- 20         "Tick"
- 21         "TickReceipt"
- 22       ]
- 23       slots: [
- 24         {
+  1 replaceRangeAsTick(
+  2   input: ReplaceRangeAsTickInput!
+  3 ): ReplaceRangeAsTickResult!
+  4     @wes_op(name: "replaceRangeAsTick")
+  5     @wes_footprint(
+  6     reads: [
+  7       "BufferWorldline"
+  8       "RopeHead"
+  9       "RopeBranch"
+ 10       "RopeLeaf"
 
 
-                                                 23
- 25            slot: "worldline"
- 26            kind: "BufferWorldline"
- 27            bindFromArg: "input.worldlineId"
- 28            access: [READ, WRITE]
- 29        }
- 30        {
- 31            slot: "baseHead"
- 32            kind: "RopeHead"
- 33            bindFromArg: "input.baseHeadId"
- 34            access: [READ]
- 35        }
- 36      ]
- 37      closures: [
- 38        {
- 39          slot: "touchedRope"
- 40          fromSlot: "baseHead"
- 41          operator: "ropeRangeClosure"
- 42          argBindings: ["input.startByte", "input.endByte"]
- 43          reads: ["RopeBranch", "RopeLeaf", "TextBlob"]
- 44          cardinality: MANY
- 45        }
- 46        {
- 47          slot: "affectedAnchors"
- 48          fromSlot: "worldline"
- 49          operator: "anchorsIntersectingEditWindow"
- 50          argBindings: ["baseHead", "input.startByte", "input.endByte"]
- 51          reads: ["Anchor"]
- 52          cardinality: MANY
- 53        }
- 54      ]
- 55      createSlots: [
- 56        { slot: "newBlob", kind: "TextBlob", cardinality: OPTIONAL }
- 57        { slot: "newLeaves", kind: "RopeLeaf", cardinality: MANY }
- 58        { slot: "newBranches", kind: "RopeBranch", cardinality: MANY }
- 59        { slot: "nextHead", kind: "RopeHead" }
- 60        { slot: "tick", kind: "Tick" }
- 61        { slot: "receipt", kind: "TickReceipt" }
- 62      ]
- 63      updates: [{ slot: "worldline", fields: ["canonicalHead"] }]
- 64      forbids: ["AstState", "Diagnostics", "GitWitness", "UiState"]
- 65      )
+                                                      23
+11     "TextBlob"
+12     "Anchor"
+13   ]
+14   writes: ["BufferWorldline"]
+15   creates: [
+16     "TextBlob"
+17     "RopeLeaf"
+18     "RopeBranch"
+19     "RopeHead"
+20     "Tick"
+21     "TickReceipt"
+22   ]
+23   slots: [
+24     {
+25       slot: "worldline"
+26       kind: "BufferWorldline"
+27       bindFromArg: "input.worldlineId"
+28       access: [READ, WRITE]
+29     }
+30     {
+31       slot: "baseHead"
+32       kind: "RopeHead"
+33       bindFromArg: "input.baseHeadId"
+34       access: [READ]
+35     }
+36   ]
+37   closures: [
+38     {
+39       slot: "touchedRope"
+40       fromSlot: "baseHead"
+41       operator: "ropeRangeClosure"
+42       argBindings: ["input.startByte", "input.endByte"]
+43       reads: ["RopeBranch", "RopeLeaf", "TextBlob"]
+44       cardinality: MANY
+45     }
+46     {
+47       slot: "affectedAnchors"
+48       fromSlot: "worldline"
+49       operator: "anchorsIntersectingEditWindow"
+50       argBindings: ["baseHead", "input.startByte", "input.endByte"]
+51       reads: ["Anchor"]
+52       cardinality: MANY
+53     }
+54   ]
+55   createSlots: [
+56     { slot: "newBlob", kind: "TextBlob", cardinality: OPTIONAL }
+57     { slot: "newLeaves", kind: "RopeLeaf", cardinality: MANY }
+58     { slot: "newBranches", kind: "RopeBranch", cardinality: MANY }
+59     { slot: "nextHead", kind: "RopeHead" }
+60     { slot: "tick", kind: "Tick" }
+61     { slot: "receipt", kind: "TickReceipt" }
+62   ]
+63   updates: [{ slot: "worldline", fields: ["canonicalHead"] }]
+64   forbids: ["AstState", "Diagnostics", "GitWitness", "UiState"]
+
+
+                                       24
+ 65       )
 
     This is exactly the developer-facing form of a warp optic. The authored surface names the
 hot nouns that matter, the closure operators that construct the optic slice, the created causal
@@ -1040,9 +1045,6 @@ the forbids clause makes the aperture explicit by ruling out silent dependence o
 diagnostics, Git witness history, or UI state.
     We omit the full SDL. Our goal here is to show the authored pattern. Even this one excerpt is
 enough to expose it: the developer declares the nouns in scope, the closures that build the local
-
-
-                                               24
 slice, the causal consequences that must be retained, the materialised reading that may change,
 and the regions that remain outside the aperture. In ordinary software a developer might declare
 methods over mutable structures. In a warp-native system, the more faithful statement is that
