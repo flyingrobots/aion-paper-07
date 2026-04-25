@@ -123,9 +123,6 @@ reuse across execution, replay, explanation, transport, and revelation. It is al
 the profunctor form in Section 3.1: the same declared optic should support multiple interpretations
 without changing its structural focus.
 
-Typography. The title writes WARP in capitals. In the body we typeset the same name as
-warp (small caps) for legibility. No semantic distinction is intended.
-
 Position in the series and neighbouring work. This paper extracts the invariant the earlier
 foundations papers approached in part. The present discussion therefore sits at the intersection
 of algebraic graph transformation [EEPT06, CEL+ 97], event structures and causal partial orders
@@ -135,17 +132,12 @@ the optic-shaped law that recurs across them and the architectural consequences 
 seriously.
 
 Contributions. The specific contributions are:
-
-
-
-
-                                                     5
 1. An optic-centered reframing of warp around four primary nouns: worldlines, weaves, optics, and
    holograms.
-
 2. A native definition of the warp optic, separating observer structure, bounded aperture, set-side
    lowering, admissibility law, and retention contract.
 
+                                                     5
 3. A clarification of why the optic form matters: the same declared warp act may lawfully support
    execution, footprint derivation, witness extraction, debugger explanation, translation analysis, and
    schema compilation—that is, compilation of app-authored optic surfaces into runtime-checkable
