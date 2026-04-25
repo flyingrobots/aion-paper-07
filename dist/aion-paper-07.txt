@@ -62,7 +62,7 @@ Contents
 6 Continuum and the Post-Unix Horizon                                                                 23
   6.1 Application Boundary . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .      23
   6.2 Example: An Authored Hot-Text Optic . . . . . . . . . . . . . . . . . . . . . . . . .           23
-  6.3 The Three-Tier Thinking Room . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .        25
+  6.3 The Three-Tier Thinking Room . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .        26
 
 7 Privacy, Provenance, and Revelation                                                                 27
   7.1 Property Library . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    27
@@ -989,6 +989,12 @@ surface; its use as an API and query language is standard [Gra21].
     The central rewrite in that family is replaceRangeAsTick, because it shows the optic shape
 with minimal extra machinery:
 
+From surface to runtime admission. Compilation of a surface like replaceRangeAsTick
+yields a typed intent envelope (carrying arguments plus declared reads/writes/creates/forbids) and
+generated host bindings that enforce those declarations. At runtime, the generic lowering kernel
+uses the declared closures to construct the bounded slice χ, applies the admissibility law Π over the
+presented claim family, and packs the declared receipt and retention obligations under Λ.
+
   1   replaceRangeAsTick(
   2     input: ReplaceRangeAsTickInput!
   3   ): ReplaceRangeAsTickResult!
@@ -1018,16 +1024,16 @@ with minimal extra machinery:
  27           bindFromArg: "input.worldlineId"
  28           access: [READ, WRITE]
  29         }
- 30         {
- 31           slot: "baseHead"
- 32           kind: "RopeHead"
- 33           bindFromArg: "input.baseHeadId"
- 34           access: [READ]
- 35         }
- 36       ]
 
 
-                                                24
+                                                 24
+ 30        {
+ 31            slot: "baseHead"
+ 32            kind: "RopeHead"
+ 33            bindFromArg: "input.baseHeadId"
+ 34            access: [READ]
+ 35        }
+ 36      ]
  37      closures: [
  38        {
  39          slot: "touchedRope"
@@ -1074,13 +1080,11 @@ methods over mutable structures. In a warp-native system, the more faithful stat
 the developer authors optic boundaries and lets a schema compiler compile those boundaries into
 runtime-checkable footprint, witness, and retention obligations.
 
+                                               25
 6.3 The Three-Tier Thinking Room
 Continuum remains socially viable only if retention and revelation are decoupled. Shared history
 creates exposure pressure that a simple public/private split cannot absorb: users need room to
 think, to speculate, and only later to promote. We therefore distinguish a protected working interval
-
-
-                                                 25
 with three practical tiers:
 
 1. Ephemeral Scratch: local, weakly retained, and disposable.

@@ -1257,6 +1257,14 @@ language is standard \cite{GraphQLSpec}.
 The central rewrite in that family is \texttt{replaceRangeAsTick}, because it
 shows the optic shape with minimal extra machinery:
 
+\paragraph{From surface to runtime admission.}
+Compilation of a surface like \texttt{replaceRangeAsTick} yields a typed intent
+envelope (carrying arguments plus declared reads/writes/creates/forbids) and
+generated host bindings that enforce those declarations. At runtime, the generic
+lowering kernel uses the declared closures to construct the bounded slice
+\(\chi\), applies the admissibility law \(\Pi\) over the presented claim family,
+and packs the declared receipt and retention obligations under \(\Lambda\).
+
 \begin{lstlisting}[style=aioncode]
 replaceRangeAsTick(
   input: ReplaceRangeAsTickInput!
