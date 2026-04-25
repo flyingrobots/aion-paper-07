@@ -835,7 +835,14 @@ separated from imported settlement over already-judged history. A runtime may
 	already-adjudicated historical facts.
 
 	The theorem in this section isolates one safe confluence zone. Hostile or failure-path
-	transport remains hard. The statement localises that difficulty in
+	transport remains hard. We do not claim here that transport is trivial or fully
+	formalised under hostile distributed conditions; Byzantine behaviour, partial
+	connectivity, replay attacks, and other failure-path complications remain part
+	of the normalisation frontier rather than being dissolved by the optic.
+	In such cases, the intended outcome is not silent inconsistency but a lawful
+	\emph{obstruction} with a retained witness explaining why import could not be
+	admitted (Appendix~A).
+	The statement localises that difficulty in
 	\(\operatorname{Transport}\) and in the replica optic's set-side lowering
 	surface, then states the strongest behavioural claim the retained shells can
 	support once those preconditions are satisfied.
