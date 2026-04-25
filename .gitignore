@@ -28,3 +28,6 @@ paper/main.pdf
 # Dist folder accidents
 dist/*copy*.pdf
 dist/*_copy_*.pdf
+
+# Review scratch / scorecards
+REVIEW_PASSES_MATRIX_*.md
