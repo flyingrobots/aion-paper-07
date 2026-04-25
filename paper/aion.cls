@@ -66,7 +66,19 @@
 \newtheorem{definition}{Definition}[section]
 \newtheorem{assumption}[definition]{Assumption}
 
-\theoremstyle{plain}
+% The theorem family keeps theorem-like headings but uses roman body text for
+% readability in long architectural statements and proof-facing prose.
+\newtheoremstyle{aionplain}
+  {6pt}
+  {6pt}
+  {\normalfont}
+  {}
+  {\bfseries}
+  {.}
+  {0.5em}
+  {}
+
+\theoremstyle{aionplain}
 \newtheorem{proposition}[definition]{Proposition}
 \newtheorem{theorem}[definition]{Theorem}
 \newtheorem{lemma}[definition]{Lemma}

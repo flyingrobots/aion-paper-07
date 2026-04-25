@@ -486,7 +486,6 @@ where Ω = (π, β, M, U, E) is an observer plan, α is the active authority re
 observer state, and y is the emitted reading. The observer plan is the revelation-side face of the
 optic: it fixes what may be projected and emitted, while commitment and holographic retention
 preserve the set-side history on which that reading depends.
-
 Proposition 3.7 (Folding preserves lawful readings). If θ′ = FoldΛ (θ) and the retained contract Λ
 is sufficient for observer plan Ω under authority regime α, then
 
@@ -531,17 +530,15 @@ replica scale, it is a remote suffix family presented for import at a receiving 
 the same optical shape applies: a positioned observer and bounded aperture, a set-side lowering
 surface producing comparable claims, a lawful judgement under policy, and a retained hologram for
 later use.
-
-Corollary 4.2 (Basis construction and slicing). For each primary scale, the set-side lowering
-surface ρs begins by constructing a comparable bounded slice. At tick scale, ρtick is the identity
-on already local candidate rewrites. At braid scale, ρbraid presents validated strand claims over a
-common basis. At replica scale, ρreplica transports remote suffixes to a comparable frontier before
-any import judgement is attempted.
+Corollary 4.2 (Basis construction and slicing). For each primary scale, the set-side lowering surface
+ρs begins by constructing a comparable bounded slice. At tick scale, ρtick is the identity on already
+local candidate rewrites. At braid scale, ρbraid presents validated strand claims over a common
+basis. At replica scale, ρreplica transports remote suffixes to a comparable frontier before any import
+judgement is attempted.
 Argument sketch. The optic never judges the whole world at once. It only judges the bounded,
 comparable closure required for the act at hand. At replica scale that makes transport the principal
 burden, because the comparable slice must first be constructed. At tick and braid scale the relevant
 slice is already closer to hand.
-
     This is the operational sense in which warp is a slicing architecture. At tick scale, χ is the
 footprint closure: the local neighbourhood needed to judge coexistence. At braid scale, χ is the
 refined comparison slice over a common lane basis. At replica scale, χ is the imported-region slice
@@ -556,7 +553,6 @@ into explicit structure and then reuses the same witnessed optic. Distribution s
 boundary while leaving the downstream law unchanged. The principal normalisation burden
 therefore receives a precise address: transport and ρreplica absorb the work of bringing remote claims
 to a comparable frontier.
-
 Scale         Weave                    Slice                Basis construction          Shell
 Tick          rewrite bundle           footprint closure    already local projection    tick receipt
 Braid         strand braid             comparison cells     common-basis refinement     braid shell
@@ -649,7 +645,9 @@ be their transports to F recv . Let χ1 and χ2 be the imported sites of Ce1 and
 common refinement. Assume:
 
 1. there exist individual commitments
+
                                   (Ri , Wi , θi ) := CommitΨrep (F recv , Cei )
+
    over sites χi , with derived outcomes Ri ∈ Derived(Ximp ), and let Fi be the derived frontier
    exposed by θi ;
 2. slice independence: the imported sites χ1 and χ2 are either disjoint or satisfy the replica overlap
@@ -665,23 +663,23 @@ common refinement. Assume:
    other yields a lawful follow-on claim family equivalent on the refined site to the corresponding
    joint transport.
 
-      Define the re-normalised follow-on families
-                   (1)                                         (2)
-                 Ce2 := Transport(F2src , Cb2 , F1 ),        Ce1 := Transport(F1src , Cb1 , F2 ).
+   Define the re-normalised follow-on families
+                  (1)                                         (2)
+                Ce2 := Transport(F2src , Cb2 , F1 ),        Ce1 := Transport(F1src , Cb1 , F2 ).
 
-      Write
-                             (R12 , W12 , θ12 ) := CommitΨrep (F recv , Ce1 ⊔ Ce2 )
+   Write
+                            (R12 , W12 , θ12 ) := CommitΨrep (F recv , Ce1 ⊔ Ce2 )
 for one-shot combined import. Write
                                                                              (1)
-                                (R1;2 , W1;2 , ϑ1;2 ) := CommitΨrep (F1 , Ce2 )
+                               (R1;2 , W1;2 , ϑ1;2 ) := CommitΨrep (F1 , Ce2 )
 
 and
-                                                                             (2)
-                               (R2;1 , W2;1 , ϑ2;1 ) := CommitΨrep (F2 , Ce1 ).
-Let Θ1;2 and Θ2;1 denote the Λ-retained shells for the two-step paths (θ1 , ϑ1;2 ) and (θ2 , ϑ2;1 ), respec-
-tively. Then for any retained contract Λ covering replay and audit of the imported region,
+                                                                            (2)
+                              (R2;1 , W2;1 , ϑ2;1 ) := CommitΨrep (F2 , Ce1 ).
+Let Θ1;2 and Θ2;1 denote the Λ-retained shells for the two-step paths (θ1 , ϑ1;2 ) and (θ2 , ϑ2;1 ),
+respectively. Then for any retained contract Λ covering replay and audit of the imported region,
 
-                                            θ12 ≃Λ Θ1;2 ≃Λ Θ2;1 .
+                                          θ12 ≃Λ Θ1;2 ≃Λ Θ2;1 .
 
 Proof sketch. The individual commitments provide the two frontier advances F1 and F2 . Slice
 independence supplies a lawful common refinement χ12 on which the combined import may be
@@ -709,7 +707,7 @@ state equality alone.
     One immediate consequence is that replication state becomes a queryable temporal causal
 structure once remote suffixes are represented as witnessed transport objects. One should therefore
 
-                                                        17
+                                                       17
 expect a CTL*-like family of queries over lawful transport and lowering paths: what imports were
 possible, what conflicts were inevitable, what acknowledgements must arise under policy, and what
 an observer at a bounded aperture was entitled to see or rely on along a branch [EH86]. We do not
