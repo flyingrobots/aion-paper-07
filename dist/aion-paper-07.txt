@@ -613,7 +613,7 @@ import judgement, and the witness needed for replayable catch-up, audited settle
                                                         15
 revelation at the receiving runtime. Transport constructs the basis on which the replica-scale optic
 can lower the imported situation using the same downstream law already trusted locally.
-     The same distributed case can be read more geometrically as strand braiding under lag. Each
+    The same distributed case can be read more geometrically as strand braiding under lag. Each
 participant advances along a local strand whose frontier may be ahead of what the other participant
 can yet lawfully treat as shared. For the bounded act at hand, the common basis is therefore a
 lagging frontier: the latest frontier both sides can still treat as mutually comparable. An incoming
@@ -621,18 +621,19 @@ network message carries a transported strand fragment from that lagging basis to
 frontier. The receiver transports that fragment to the comparable basis, braids it with its own
 locally advanced strand over the bounded site, and lowers that braid under the governing optic. If
 the lowering is admitted, the mutually relied-upon basis can advance.
-     This distinction becomes especially important once imported gameplay history is separated from
-imported settlement over already-judged history. A runtime may lawfully compile a transported
-first-order intent into the same downstream tick path it uses locally, provided transport has already
-reconstructed the authored basis and attached the required provenance and witness conditions.
-But an outcome-bearing import can be treated as settlement over already-judged history. In a
-networked racing simulation, for example, a finish-line crossing authored at time Ts may be received
-only at Ts + L. The crossing must be judged at basis Ts . Receive time only determines when that
-judgement becomes mutually visible. Once lowered, the resulting imported shell asserts a settlement
-fact: the earlier crossing at Ts is now mutually relied upon. Such a settlement shell may update
-standings, UI state, or bounded present repair; it should enter the settlement path with idempotent
-semantics over already-adjudicated historical facts.
-     The theorem in this section isolates one safe confluence zone. Hostile or failure-path transport
+
+Latency and settlement. This distinction becomes especially important once imported first-order
+history is separated from imported settlement over already-judged history. A runtime may lawfully
+compile a transported first-order intent into the same downstream tick path it uses locally, provided
+transport has already reconstructed the authored basis and attached the required provenance and
+witness conditions. But an outcome-bearing import can be treated as settlement over already-judged
+history. In a networked racing simulation, for example, a finish-line crossing authored at time Ts may
+be received only at Ts + L. The crossing must be judged at basis Ts . Receive time only determines
+when that judgement becomes mutually visible. Once lowered, the resulting imported shell asserts a
+settlement fact: the earlier crossing at Ts is now mutually relied upon. Such a settlement shell may
+update standings, UI state, or bounded present repair; it should enter the settlement path with
+idempotent semantics over already-adjudicated historical facts.
+    The theorem in this section isolates one safe confluence zone. Hostile or failure-path transport
 remains hard. We do not claim here that transport is trivial or fully formalised under hostile
 distributed conditions; Byzantine behaviour, partial connectivity, replay attacks, and other failure-
 path complications remain part of the normalisation frontier rather than being dissolved by the
@@ -640,7 +641,6 @@ optic. In such cases, the intended outcome is not silent inconsistency but a law
 a retained witness explaining why import could not be admitted (Appendix A). The statement
 localises that difficulty in Transport and in the replica optic’s set-side lowering surface, then states
 the strongest behavioural claim the retained shells can support once those preconditions are satisfied.
-
 Theorem 4.3 (Derived independent suffix confluence up to shell equivalence). Let Cb1 and Cb2 be
 two remote suffix claim families authored at source frontiers F1src and F2src . Let F recv be a receiving
 comparable frontier. Let
@@ -649,15 +649,11 @@ be their transports to F recv . Let χ1 and χ2 be the imported sites of Ce1 and
 common refinement. Assume:
 
 1. there exist individual commitments
-
                                   (Ri , Wi , θi ) := CommitΨrep (F recv , Cei )
-
    over sites χi , with derived outcomes Ri ∈ Derived(Ximp ), and let Fi be the derived frontier
    exposed by θi ;
-
 2. slice independence: the imported sites χ1 and χ2 are either disjoint or satisfy the replica overlap
    law required for lawful joint lowering over χ12 ;
-
 3. witness monotonicity: admitting either transported family preserves, up to shell equivalence, the
    basis and witness conditions required to admit the other;
 
