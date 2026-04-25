@@ -1257,68 +1257,38 @@ observer plans, and shared codecs; and the runtime remains generic, admitting
 	\label{fig:sdl-compiler-runtime}
 \end{figure}
 
-\begin{figure}[H]
+\begin{table}[H]
 	\centering
-	\resizebox{\textwidth}{!}{%
-		\begin{tikzpicture}[x=1cm,y=1cm]
-			\tikzset{
-				fish spine/.style={-{Latex[length=3.0mm,width=2.2mm]}, line width=0.95pt, draw=black!75},
-				fish bone/.style={line width=0.85pt, draw=black!75},
-				fish label/.style={font=\Large, text=black!80},
-				fish head/.style={warp box, minimum width=6.2cm, minimum height=1.25cm, font=\Large},
-				fish cause/.style={warp box, minimum width=4.8cm, minimum height=1.15cm, font=\Large, fill=black!2},
-			}
-
-			% Spine and head (the "problem" we avoid by constraining the seam).
-			\coordinate (tail) at (-7.6,0);
-			\coordinate (head) at (7.6,0);
-			\draw[fish spine] (tail) -- (head);
-			\node[fish head, anchor=west] (problem) at (7.65,-0.05) {%
-				Unlawful lowering\\across the seam};
-
-			% Bones (causes) with requirement IDs.
-			% Upper bones
-			\coordinate (u1) at (-4.8,0);
-			\draw[fish bone] (u1) -- ++(-2.3,2.0);
-			\node[fish cause, anchor=south east] at ($(u1)+(-2.35,2.05)$) {%
-				\texttt{REQ-SDL-1}\\
-				Non-determinism};
-
-			\coordinate (u2) at (-1.8,0);
-			\draw[fish bone] (u2) -- ++(-2.3,2.0);
-			\node[fish cause, anchor=south east] at ($(u2)+(-2.35,2.05)$) {%
-				\texttt{REQ-COMP-1}\\
-				Unchecked boundary};
-
-			\coordinate (u3) at (1.2,0);
-			\draw[fish bone] (u3) -- ++(-2.3,2.0);
-			\node[fish cause, anchor=south east] at ($(u3)+(-2.35,2.05)$) {%
-				\texttt{REQ-READ-1}\\
-				Unbounded reveal};
-
-			% Lower bones
-			\coordinate (d1) at (-3.3,0);
-			\draw[fish bone] (d1) -- ++(-2.3,-2.0);
-			\node[fish cause, anchor=north east] at ($(d1)+(-2.35,-2.05)$) {%
-				\texttt{REQ-SDL-2}\\
-				Unbounded footprint};
-
-			\coordinate (d2) at (-0.3,0);
-			\draw[fish bone] (d2) -- ++(-2.3,-2.0);
-			\node[fish cause, anchor=north east] at ($(d2)+(-2.35,-2.05)$) {%
-				\texttt{REQ-RT-1}\\
-				No runtime gate};
-
-			\coordinate (d3) at (2.7,0);
-			\draw[fish bone] (d3) -- ++(-2.3,-2.0);
-			\node[fish cause, anchor=north east] at ($(d3)+(-2.35,-2.05)$) {%
-				\texttt{REQ-RT-2}\\
-				Missing witness};
-		\end{tikzpicture}%
-	}
-	\caption{A cause-and-effect view of the compiler seam. The boundary is constrained so that admission remains deterministic (\texttt{REQ-SDL-1}), bounded (\texttt{REQ-SDL-2}), checkable (\texttt{REQ-COMP-1}, \texttt{REQ-RT-1}), witness-bearing (\texttt{REQ-RT-2}), and revealable only under rights (\texttt{REQ-READ-1}).}
-	\label{fig:seam-reqs}
-\end{figure}
+	\small
+	\setlength{\tabcolsep}{5pt}
+	\renewcommand{\arraystretch}{1.18}
+	\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.17\textwidth}>{\raggedright\arraybackslash}p{0.23\textwidth}X@{}}
+		\toprule
+		Requirement & Prevents & Why the seam needs it \\
+		\midrule
+		\texttt{REQ-SDL-1}\\deterministic authored boundary
+		& Ambient non-determinism
+		& The runtime cannot replay, audit, or compare lowerings if authored surfaces may depend on wall-clock reads, random sources, or hidden side effects. \\
+		\texttt{REQ-SDL-2}\\bounded footprint
+		& Unbounded reachability
+		& The seam must expose which nouns and closures are in play so the slice \(\chi\) is finite, checkable, and lawfully lowerable. \\
+		\texttt{REQ-COMP-1}\\checked compilation boundary
+		& Unchecked surface-to-runtime drift
+		& The compiler must verify slot bindings, closure obligations, and forbidden reachability before arbitrary host code runs. \\
+		\texttt{REQ-RT-1}\\runtime gate
+		& Bypassing admission
+		& Runtime enforcement is required so host code cannot mutate state outside the declared optic surface. \\
+		\texttt{REQ-RT-2}\\witness-bearing retention
+		& Missing receipt or shell evidence
+		& Outcomes must produce retained evidence for replay, audit, transport, and later revelation. \\
+		\texttt{REQ-READ-1}\\rights-governed revelation
+		& Unbounded reveal
+		& Observer plans and authority checks must bound what a hosted read may lawfully emit from a retained shell. \\
+		\bottomrule
+	\end{tabularx}
+	\caption{Compiler seam requirements at the authored-boundary/runtime interface.}
+	\label{tab:seam-reqs}
+\end{table}
 
 \subsection{Example: An Authored Hot-Text Optic}
 We make that application boundary concrete by looking at a small
