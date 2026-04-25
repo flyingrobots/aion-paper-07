@@ -395,18 +395,12 @@ part from \(a\) to \(b\) inside some lawful context \(p\), the optic lifts that
 into a transformation of the whole from \(s\) to \(t\).
 
 For \WARP{}, the important consequence is that the same declared optic can be
-interpreted multiple ways without changing its structural focus. The same act
-may therefore be reused to:
-\begin{itemize}[leftmargin=*]
-	\item execute the local lowering,
-	\item derive the optic slice or footprint,
-	\item derive or validate the witness,
-	\item render a debugger explanation,
-	\item estimate conflict or translation cost,
-	\item or emit a compiler-produced runtime artefact.
-\end{itemize}
-That reuse is one of the main reasons the paper needs optic language in addition
-to reducer language.
+interpreted multiple ways without changing its structural focus: the same act
+may be executed as a lowering, read as a slice or footprint derivation, used to
+extract or validate witness structure, rendered as a debugger explanation,
+analysed for conflict or translation cost, or compiled into runtime artefacts.
+That reuse is one of the main reasons the paper needs optic language in
+addition to reducer language.
 
 \subsection{Residual, Witness, and Hologram}
 \label{subsec:residual-witness-hologram}

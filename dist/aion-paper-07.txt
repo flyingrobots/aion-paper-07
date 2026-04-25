@@ -329,8 +329,10 @@ Three immediate specialisations. The definition is intentionally generic, but it
 read concretely in the three primary cases:
 • at tick scale, P = Crw is the candidate rewrite bundle and ρ returns the local footprint slice over
   one current frontier;
+
 • at braid scale, P = B is the braid and ρ returns the common-basis comparison slice over the
   participating strands;
+
 • at replica scale, P = Ce is the transported remote suffix family and ρ returns the imported-region
   slice at the receiver’s comparable frontier.
 The optic law is the same in all three cases. What changes is the weave and the work needed to
@@ -343,7 +345,9 @@ transport, or bounded revelation. This generalises the spirit of program slicing
 relevant to a criterion—from program statements to witnessed causal history [Wei81].
     We make the outcome space explicit with one typing. Let X be the scale-local carrier of derived
 results. Then
+
                   O(X) := Derived(X) ⊔ Plural(X) ⊔ Conflict ⊔ Obstruction .
+
 Optic lowering returns a witnessed member of an outcome algebra.
     Truth should be read operationally here. In warp, “truth” names what may be lawfully admitted
 relative to a frontier, an optic, and a witness. Lowering therefore supports more than binary accept
@@ -361,35 +365,27 @@ PGW17, BG18]. warp uses the optic discipline architecturally. We separate focus 
 lawful judgement, witness, and observer-relative emission, so that execution, replay, explanation,
 and revelation can share one declared structure.
     In profunctor notation, the core optic idea is:
+
                                          Opt : p a b → p s t
+
 where s and t are the whole before and after the act, a and b are the focused part before and after
 the act, and p is an abstract transformation context. Read operationally: if one can transform the
 focused part from a to b inside some lawful context p, the optic lifts that into a transformation of
 the whole from s to t.
-    For warp, the important consequence is that the same declared optic can be interpreted multiple
-ways without changing its structural focus. The same act may therefore be reused to:
 
                                                  10
-• execute the local lowering,
-
-• derive the optic slice or footprint,
-
-• derive or validate the witness,
-
-• render a debugger explanation,
-
-• estimate conflict or translation cost,
-
-• or emit a compiler-produced runtime artefact.
-
-That reuse is one of the main reasons the paper needs optic language in addition to reducer language.
+    For warp, the important consequence is that the same declared optic can be interpreted multiple
+ways without changing its structural focus: the same act may be executed as a lowering, read as a
+slice or footprint derivation, used to extract or validate witness structure, rendered as a debugger
+explanation, analysed for conflict or translation cost, or compiled into runtime artefacts. That reuse
+is one of the main reasons the paper needs optic language in addition to reducer language.
 
 3.2 Residual, Witness, and Hologram
 The optic story includes a hidden residual. For a lens-like optic, one standard representation is
 [PGW17, BG18]
-                                             Z M
-                        Lens(S, T, A, B) ∼
-                                         =         C(S, M × A) × C(M × B, T ).
+                                              Z M
+                         Lens(S, T, A, B) ∼
+                                          =         C(S, M × A) × C(M × B, T ).
 
 This says that the whole S can be decomposed into a focused part A and a hidden residual M ,
 then reassembled from the updated focus B and that same residual. The coend matters because
@@ -413,7 +409,7 @@ revelation, or reliance uses permitted at that aperture.
 
 Definition 3.4 (WARP hologram). For optic Ψ and lowering result
 
-                                     LowerΨ (F∗ , P) = (R, W, θ),
+                                       LowerΨ (F∗ , P) = (R, W, θ),
 
 a warp hologram is the retained shell θ, together with any referenced basis anchors, such that θ is
 sufficient to recover the optic-accurate bulk of the bounded admitted situation, as determined by Ψ,
@@ -421,10 +417,6 @@ up to the equivalence demanded by the retention contract Λ. The contract is exp
 least sufficient boundary from which the admitted outcome and its witness-bearing consequences
 can be reconstructed, replayed, audited, transported, or revealed as Λ requires.
 
-
-
-
-                                                    11
 Proposition 3.5 (Closure over witness-bearing outputs). warp is closed over its own witness-
 bearing outputs. For each primary scale s ∈ {tick, braid, replica}, there exists a scale-local optic Ψs
 and a scale-local weave Ps such that
@@ -434,6 +426,7 @@ and a scale-local weave Ps such that
 and the resulting hologram θs is itself a first-class object of later folding, revelation, certification, or
 further lawful comparison.
 
+                                                     11
 Argument sketch. At tick scale, the weave is the local candidate rewrite bundle; the hologram
 preserves the frontier coordinate, the admitted result, and the witness explaining coexistence or
 blockage for one lawful step. At braid scale, the weave is the braid over a common basis; the
@@ -465,19 +458,13 @@ of lawful judgement: derivation, preserved plurality, conflict, or obstruction.
     The equivalence relation is intentionally behavioural: it preserves the lawful observations and
 replay obligations promised by a retained contract. In that sense it is closer to bisimulation and
 observational equivalence than to storage equality [Par81, Mil89].
-
 Definition 3.6 (Shell equivalence). Let Λ be a retained contract specifying which replay, audit,
 transport, or revelation obligations must remain lawful. Two shells θ and θ′ satisfy
 
-                                                  θ ≃Λ θ′
+                                               θ ≃Λ θ′
 
 iff they are both sufficient to recover the same optic-accurate bulk of the same admitted local
 situation for the lawful uses demanded by Λ.
-
-
-
-
-                                                     12
     We give one small example. A tick receipt that stores an inverse fragment inline and a folded
 shell that stores only digest-plus-pointer references may still be Λ-equivalent for replay and audit if
 both reconstruct the same local rewrite, witness anchors, and retained obligations. They cease to
@@ -485,12 +472,12 @@ be equivalent once Λ demands a lawful use—for example immediate plaintext rev
 one of them can satisfy.
     For later use, the three moments can be written as typed acts:
 
-                                       CommitΨ (F∗ , P) := (R, W, θ)
+                                    CommitΨ (F∗ , P) := (R, W, θ)
 
 where
-                                        (R, W, θ) = LowerΨ (F∗ , P).
+                                     (R, W, θ) = LowerΨ (F∗ , P).
 
-
+                                                  12
                                    FoldΛ (θ) = θ′     with         θ′ ≃Λ θ.
 
 
