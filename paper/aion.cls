@@ -11,7 +11,7 @@
 \RequirePackage{amsmath, amssymb, amsfonts, amsthm}
 \RequirePackage{microtype}
 \RequirePackage{geometry}
-\RequirePackage{xcolor}
+\RequirePackage[table]{xcolor}
 \RequirePackage{graphicx}
 \RequirePackage{titlesec}
 \RequirePackage{tocloft}

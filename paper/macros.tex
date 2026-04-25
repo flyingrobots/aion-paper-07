@@ -32,6 +32,16 @@
 \definecolor{AIONCodeKey}{RGB}{24,82,132}
 \definecolor{AIONCodeComment}{RGB}{92,110,124}
 \definecolor{AIONCodeNumber}{RGB}{120,126,138}
+\definecolor{AIONTableStripe}{RGB}{246,247,249}
+\definecolor{AIONTableHeader}{RGB}{236,239,243}
+
+\newcommand{\AIONTableStyleOn}{%
+  \rowcolors{2}{AIONTableStripe}{white}%
+}
+\newcommand{\AIONTableStyleOff}{%
+  \relax
+}
+\newcommand{\AIONTableHead}{\rowcolor{AIONTableHeader}}
 
 \lstdefinelanguage{AIONGraphQL}{
   sensitive=true,

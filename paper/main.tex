@@ -227,8 +227,10 @@ control shape that those compilations implement.
 	\small
 	\setlength{\tabcolsep}{4pt}
 	\renewcommand{\arraystretch}{1.05}
+	\AIONTableStyleOn
 	\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.18\textwidth}X>{\raggedright\arraybackslash}p{0.30\textwidth}@{}}
 		\toprule
+		\AIONTableHead
 		Terminology & Definition & Remarks \\
 		\midrule
 		Causal lane & Replayable carrier of causal history with frontier-relative materialisation. & May be canonical or speculative. \\
@@ -239,6 +241,7 @@ control shape that those compilations implement.
 		Hologram    & Retained boundary sufficient to recover the optic-accurate bulk under a retention contract. & Shell \(\theta\) is a concrete carrier of a hologram. \\
 		\bottomrule
 	\end{tabularx}
+	\AIONTableStyleOff
 \end{center}
 
 \clearpage
@@ -693,8 +696,10 @@ comparable frontier.
 \begin{center}
 	\scriptsize
 	\setlength{\tabcolsep}{3pt}
+	\AIONTableStyleOn
 	\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.12\textwidth} >{\raggedright\arraybackslash}p{0.22\textwidth} >{\raggedright\arraybackslash}p{0.18\textwidth} >{\raggedright\arraybackslash}p{0.24\textwidth} X@{}}
 		\toprule
+		\AIONTableHead
 		Scale   & Weave                & Slice             & Basis construction               & Shell        \\
 		\midrule
 		Tick    & rewrite bundle       & footprint closure & already local projection         & tick receipt \\
@@ -702,6 +707,7 @@ comparable frontier.
 		Replica & remote suffix family & imported region   & transport to comparable frontier & import shell \\
 		\bottomrule
 	\end{tabularx}
+	\AIONTableStyleOff
 \end{center}
 
 All three return an element of
@@ -1249,8 +1255,10 @@ observer plans, and shared codecs; and the runtime remains generic, admitting
 	\small
 	\setlength{\tabcolsep}{5pt}
 	\renewcommand{\arraystretch}{1.18}
+	\AIONTableStyleOn
 	\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.17\textwidth}>{\raggedright\arraybackslash}p{0.23\textwidth}X@{}}
 		\toprule
+		\AIONTableHead
 		Requirement & Prevents & Why the seam needs it \\
 		\midrule
 		\texttt{REQ-SDL-1}\\deterministic authored boundary
@@ -1273,6 +1281,7 @@ observer plans, and shared codecs; and the runtime remains generic, admitting
 		& Observer plans and authority checks must bound what a hosted read may lawfully emit from a retained shell. \\
 		\bottomrule
 	\end{tabularx}
+	\AIONTableStyleOff
 
 	\smallskip
 	\small\emph{Compiler seam requirements at the authored-boundary/runtime interface.}
@@ -1688,8 +1697,10 @@ series. The entries are intentionally architectural and implementation-agnostic.
 \subsection{Symbolic Vocabulary}
 
 \begin{center}
+	\AIONTableStyleOn
 	\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.26\textwidth}X@{}}
 		\toprule
+		\AIONTableHead
 		Symbol                                                                                                                                          & Meaning                                                                                                                                                      \\
 		\midrule
 		\(\Omega = (\pi,\beta,M,U,E)\)                                                                                                                  & Observer plan: projection, basis, observer state, update discipline, and emission.                                                                           \\
@@ -1705,13 +1716,16 @@ series. The entries are intentionally architectural and implementation-agnostic.
 		\(\operatorname{Reveal}_{\Omega,\alpha}(m,\theta)\)                                                                                             & Revelation act under observer plan \(\Omega\), authority regime \(\alpha\), observer state \(m\), and shell \(\theta\).                                      \\
 		\bottomrule
 	\end{tabularx}
+	\AIONTableStyleOff
 \end{center}
 
 \subsection{History And Lane Nouns}
 
 \begin{center}
+		\AIONTableStyleOn
 		\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.26\textwidth}X@{}}
 			\toprule
+			\AIONTableHead
 			Term           & Meaning                                                                                                                                                                                                                     \\
 			\midrule
 	\WARP{}        & An optic architecture over shared causal history. The system's primary object is witnessed causal history, with frontier-relative materialisations over it.                                                                        \\
@@ -1724,16 +1738,19 @@ series. The entries are intentionally architectural and implementation-agnostic.
 		Frontier       & The coordinate at which a lane or materialisation is interpreted. A frontier-relative view changes with the chosen basis.                                                                                                   \\
 		Basis          & The comparison or reading coordinate relative to which claims, slices, or observers are made commensurable.                                                                                                                 \\
 		Fork anchor    & The exact inherited basis at which a strand diverges from a parent worldline.                                                                                                                                               \\
-		Shared history & The admitted causal medium from which frontier-relative readings are materialised.                                                                                                                                          \\
-		\bottomrule
-	\end{tabularx}
+			Shared history & The admitted causal medium from which frontier-relative readings are materialised.                                                                                                                                          \\
+			\bottomrule
+		\end{tabularx}
+		\AIONTableStyleOff
 \end{center}
 
 \subsection{Admission And Replay Nouns}
 
 \begin{center}
+	\AIONTableStyleOn
 	\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.26\textwidth}X@{}}
 		\toprule
+		\AIONTableHead
 		Term                       & Meaning                                                                                                                                                                                    \\
 		\midrule
 		Claim family \(C\)         & The comparable claim presentation produced by an optic's set-side lowering surface over a bounded slice.                                                                                   \\
@@ -1753,13 +1770,16 @@ Witness \(W\)              & The semantic explanation of why a lowering outcome 
 		Optic-accurate bulk        & The retained causal content, together with the required witness structure, that must remain recoverable for the observations and obligations named by an optic and its retention contract. \\
 		\bottomrule
 	\end{tabularx}
+	\AIONTableStyleOff
 \end{center}
 
 \subsection{Commitment, Revelation, And Governance Nouns}
 
 \begin{center}
+	\AIONTableStyleOn
 	\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.26\textwidth}X@{}}
 		\toprule
+		\AIONTableHead
 		Term                                   & Meaning                                                                                                                                                                                                        \\
 		\midrule
 		Optic                                  & The composite act by which an observer bounds a site through an aperture, a weave is lawfully lowered there, and the resulting admitted situation is retained as a holographic witness in append-only history. \\
@@ -1778,10 +1798,11 @@ Witness \(W\)              & The semantic explanation of why a lowering outcome 
 		Observer rights                        & The rights lattice governing who may inspect, replay, export, delegate, unseal, or revoke access over retained artefacts.                                                                                      \\
 		Ephemeral Scratch                      & Local, weakly retained, disposable work that has not yet crossed into durable collaborative history.                                                                                                           \\
 		Author-Only Speculative Lane           & Durable, replayable, but author-sealed speculative work that has not yet been socially transported.                                                                                                            \\
-		Shared / Admitted Lane                 & The portion of history that has crossed into collaboratively admitted causal truth.                                                                                                                            \\
-		\bottomrule
-	\end{tabularx}
-\end{center}
+			Shared / Admitted Lane                 & The portion of history that has crossed into collaboratively admitted causal truth.                                                                                                                            \\
+			\bottomrule
+		\end{tabularx}
+		\AIONTableStyleOff
+	\end{center}
 
 \endgroup
 
