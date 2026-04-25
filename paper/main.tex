@@ -1188,14 +1188,36 @@ observer plans, and shared codecs; and the runtime remains generic, admitting
 
 \begin{figure}[H]
 	\centering
-	\begin{tikzpicture}[node distance=9mm]
-		\node[warp stage, minimum width=2.8cm, minimum height=1.0cm] (sdl) {authored SDL\\optic boundary};
-		\node[warp stage, minimum width=3.1cm, minimum height=1.0cm, right=of sdl] (compiler) {schema compiler\\intent and observer plans};
-		\node[warp stage, minimum width=3.0cm, minimum height=1.0cm, right=of compiler] (runtime) {generic runtime\\lower / admit / pack};
-		\node[warp shell, minimum width=3.0cm, minimum height=1.0cm, right=of runtime] (shell2) {retained shell\\and hosted read};
-		\draw[warp edge] (sdl) -- (compiler);
-		\draw[warp edge] (compiler) -- (runtime);
-		\draw[warp edge] (runtime) -- (shell2);
+	\begin{tikzpicture}[x=1cm,y=1cm]
+		% Participants (sequence-style)
+		\node[warp stage, minimum width=2.6cm, minimum height=0.9cm] (sdl) at (0,0)
+		{authored SDL\\optic boundary};
+		\node[warp stage, minimum width=2.8cm, minimum height=0.9cm] (compiler) at (3.6,0)
+		{schema compiler\\plans and bindings};
+		\node[warp stage, minimum width=2.7cm, minimum height=0.9cm] (runtime) at (7.2,0)
+		{generic runtime\\lower / admit / pack};
+		\node[warp shell, minimum width=2.7cm, minimum height=0.9cm] (shell) at (10.8,0)
+		{retained shell\\and hosted read};
+
+		% Lifelines
+		\foreach \p in {sdl,compiler,runtime,shell} {
+				\draw[black!40, dashed] (\p.south) -- ++(0,-2.6);
+			}
+
+		% Phase bands (compile-time vs run-time)
+		\begin{scope}[on background layer]
+			\node[warp band, minimum width=12.0cm, minimum height=0.70cm] (compileBand) at (5.4,-0.85) {};
+			\node[warp band, minimum width=12.0cm, minimum height=1.55cm] (runBand) at (5.4,-2.05) {};
+		\end{scope}
+		\node[warp label] at (-0.05,-0.85) {compile};
+		\node[warp label] at (-0.05,-2.05) {run};
+
+		% Messages
+		\draw[warp edge] (sdl) ++(0,-0.85) -- node[warp label, above] {compile schema} (compiler) ++(0,-0.85);
+		\draw[warp edge] (compiler) ++(0,-1.30) -- node[warp label, above] {emit intent/observer plans} (runtime) ++(0,-1.30);
+
+		\draw[warp edge] (runtime) ++(0,-1.85) -- node[warp label, above] {lower / admit / pack} (shell) ++(0,-1.85);
+		\draw[warp edge] (shell) ++(0,-2.30) -- node[warp label, above] {serve hosted read} (runtime) ++(0,-2.30);
 	\end{tikzpicture}
 	\caption{Authored optic boundaries compile into generic admission and observer machinery.}
 	\label{fig:sdl-compiler-runtime}

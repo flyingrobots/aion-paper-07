@@ -61,7 +61,7 @@ Contents
 
 6 Continuum and the Post-Unix Horizon                                                                 22
   6.1 Application Boundary . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .      22
-  6.2 Example: An Authored Hot-Text Optic . . . . . . . . . . . . . . . . . . . . . . . . .           22
+  6.2 Example: An Authored Hot-Text Optic . . . . . . . . . . . . . . . . . . . . . . . . .           23
   6.3 The Three-Tier Thinking Room . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .        25
 
 7 Privacy, Provenance, and Revelation                                                                 26
@@ -918,18 +918,27 @@ boundaries, and later serving bounded readings through hosted observers. We do n
 compiler boundary here. The architecture developed here places it at a clear engineering seam.
     Figure 4 sketches that seam.
 
-  authored SDL               schema compiler                generic runtime           retained shell
- optic boundary         intent and observer plans        lower / admit / pack        and hosted read
+           authored SDL           schema compiler          generic runtime          retained shell
+          optic boundary         plans and bindings     lower / admit / pack       and hosted read
+                compile schema
+                                     emit intent/observer plans
+             compile                                              lower / admit / pack
+                                                                          serve hosted read
+
+               run
+
+
+
 
   Figure 4: Authored optic boundaries compile into generic admission and observer machinery.
 
+
+
+                                                      22
 6.2 Example: An Authored Hot-Text Optic
 We make that application boundary concrete by looking at a small developer-authored hot-text
 boundary. The full SDL declares the hot nouns of one text layer—BufferWorldline, RopeHead,
 RopeBranch, RopeLeaf, TextBlob, Anchor, Tick, TickReceipt, and Checkpoint—together with a
-
-
-                                                    22
 small family of read and write surfaces over them. The paper prints one representative rewrite and
 omits the full schema. Although this boundary is written in GraphQL SDL, it is not a claim that a
 canonical graph object sits underneath the editor. It is a convenient authoring syntax for an optic
@@ -976,14 +985,14 @@ presented claim family, and packs the declared receipt and retention obligations
  22       ]
  23       slots: [
  24         {
- 25           slot: "worldline"
- 26           kind: "BufferWorldline"
- 27           bindFromArg: "input.worldlineId"
- 28           access: [READ, WRITE]
- 29         }
 
 
                                                  23
+ 25            slot: "worldline"
+ 26            kind: "BufferWorldline"
+ 27            bindFromArg: "input.worldlineId"
+ 28            access: [READ, WRITE]
+ 29        }
  30        {
  31            slot: "baseHead"
  32            kind: "RopeHead"
@@ -1031,13 +1040,15 @@ the forbids clause makes the aperture explicit by ruling out silent dependence o
 diagnostics, Git witness history, or UI state.
     We omit the full SDL. Our goal here is to show the authored pattern. Even this one excerpt is
 enough to expose it: the developer declares the nouns in scope, the closures that build the local
+
+
+                                               24
 slice, the causal consequences that must be retained, the materialised reading that may change,
 and the regions that remain outside the aperture. In ordinary software a developer might declare
 methods over mutable structures. In a warp-native system, the more faithful statement is that
 the developer authors optic boundaries and lets a schema compiler compile those boundaries into
 runtime-checkable footprint, witness, and retention obligations.
 
-                                               24
 6.3 The Three-Tier Thinking Room
 Continuum remains socially viable only if retention and revelation are decoupled. Shared history
 creates exposure pressure that a simple public/private split cannot absorb: users need room to
