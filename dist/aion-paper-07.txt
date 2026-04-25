@@ -896,53 +896,52 @@ compiler boundary here. The architecture developed here places it at a clear eng
 
 
                                                   22
-                                                                compiler outputs                generic runtime
+                                                           compiler outputs              generic runtime
 
 
-                                                               Write-side intents
-                                                                                present / enforce
-                                                                                                Generic lowering
-                                                               + host bindings                      LowerΨ
+                                                         Write-side intents             Generic lowering
+                                                         + host bindings                    LowerΨ
 
-                                                                                                      pack / retain
+                                                                                               pack / retain
 
      Authored optic
+                                   Schema                                              Retained shell
        boundary
-                          compile                                                            Retained shell
-                                    Schema compiler
-         (SDL)                                                                                     θ
+                                   compiler                                                  θ
+         (SDL)
+                                                                                               serve
 
-                                                                                                      serve
-
-                                                                Observer plans      govern       Hosted read
-                                                                  + codecs                   (bounded revelation)
-
+                                                                                          Hosted read
+                                                           Observer plans     govern
+                                                                                           (bounded
+                                                             + codecs
+                                                                                          revelation)
 
 
 Figure 4: Authored optic boundaries compile into two runtime-facing artefacts. Write-side intents
 drive generic lowering. Read-side observer plans govern bounded revelation over the retained shell.
 
-Requirement          Prevents                    Why the seam needs it
+Requirement          Prevents                   Why the seam needs it
 REQ-SDL-1
-deterministic        Ambient                     The runtime cannot replay, audit, or compare lowerings if
-authored             non-determinism             authored surfaces may depend on wall-clock reads, random
-boundary                                         sources, or hidden side effects.
+deterministic        Ambient                    The runtime cannot replay, audit, or compare lowerings if
+authored             non-determinism            authored surfaces may depend on wall-clock reads, random
+boundary                                        sources, or hidden side effects.
 REQ-SDL-2
-bounded footprint    Unbounded reachability      The seam must expose which nouns and closures are in play
-                                                 so the slice χ is finite, checkable, and lawfully lowerable.
+bounded footprint    Unbounded reachability     The seam must expose which nouns and closures are in play
+                                                so the slice χ is finite, checkable, and lawfully lowerable.
 REQ-COMP-1
-checked              Unchecked                   The compiler must verify slot bindings, closure obligations,
-compilation          surface-to-runtime drift    and forbidden reachability before arbitrary host code runs.
+checked              Unchecked                  The compiler must verify slot bindings, closure obligations,
+compilation          surface-to-runtime drift   and forbidden reachability before arbitrary host code runs.
 boundary
 REQ-RT-1
-runtime gate         Bypassing admission         Runtime enforcement is required so host code cannot mutate
-                                                 state outside the declared optic surface.
+runtime gate         Bypassing admission        Runtime enforcement is required so host code cannot mutate
+                                                state outside the declared optic surface.
 REQ-RT-2
-witness-bearing      Missing receipt or shell    Outcomes must produce retained evidence for replay, audit,
-retention            evidence                    transport, and later revelation.
+witness-bearing      Missing receipt or shell   Outcomes must produce retained evidence for replay, audit,
+retention            evidence                   transport, and later revelation.
 REQ-READ-1
-rights-governed      Unbounded reveal            Observer plans and authority checks must bound what a
-revelation                                       hosted read may lawfully emit from a retained shell.
+rights-governed      Unbounded reveal           Observer plans and authority checks must bound what a
+revelation                                      hosted read may lawfully emit from a retained shell.
                   Compiler seam requirements at the authored-boundary/runtime interface.
 
 6.2 Example: An Authored Hot-Text Optic
@@ -952,7 +951,8 @@ RopeBranch, RopeLeaf, TextBlob, Anchor, Tick, TickReceipt, and Checkpoint—toge
 small family of read and write surfaces over them. The paper prints one representative rewrite and
 omits the full schema. Although this boundary is written in GraphQL SDL, it does not posit a
 
-                                                      23
+
+                                                    23
 canonical graph object beneath the editor; it serves instead as a convenient authoring syntax for an
 optic boundary: a typed aperture over one hot layer and its admissible rewrite surfaces.
     GraphQL was selected here for several reasons. It provides one versionable schema in which
