@@ -17,6 +17,7 @@
 \crefname{corollary}{Corollary}{Corollaries}
 \crefname{remark}{Remark}{Remarks}
 \crefname{figure}{Figure}{Figures}
+\crefname{lstlisting}{Listing}{Listings}
 
 % Use global figure numbering (Figure 1, 2, 3, ...) rather than per-section
 % numbering. Paper VII reads better with a single figure sequence.
@@ -1363,7 +1364,12 @@ lowering kernel uses the declared closures to construct the bounded slice
 \(\chi\), applies the admissibility law \(\Pi\) over the presented claim family,
 and packs the declared receipt and retention obligations under \(\Lambda\).
 
-\begin{lstlisting}[style=aioncode]
+\begin{lstlisting}[
+	style=aioncode,
+	caption={An authored hot-text optic surface (\texttt{replaceRangeAsTick}) with an explicit footprint, slice closures, and forbidden reachability.},
+	label={lst:replace-range-as-tick},
+	captionpos=b
+]
 replaceRangeAsTick(
   input: ReplaceRangeAsTickInput!
 ): ReplaceRangeAsTickResult!

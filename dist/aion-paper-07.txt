@@ -1066,6 +1066,9 @@ presented claim family, and packs the declared receipt and retention obligations
  64      forbids: ["AstState", "Diagnostics", "GitWitness", "UiState"]
  65      )
 
+Listing 1: An authored hot-text optic surface (replaceRangeAsTick) with an explicit footprint,
+slice closures, and forbidden reachability.
+
     This is exactly the developer-facing form of a warp optic. The authored surface names the
 hot nouns that matter, the closure operators that construct the optic slice, the created causal
 consequences that the runtime must retain, and the materialised reading that may change. The
@@ -1074,11 +1077,11 @@ closures ropeRangeClosure and anchorsIntersectingEditWindow construct the local 
 judged; the created Tick and TickReceipt make the witness-bearing consequences explicit; and
 the forbids clause makes the aperture explicit by ruling out silent dependence on AST state,
 diagnostics, Git witness history, or UI state.
+
+
+                                              25
     We omit the full SDL. Our goal here is to show the authored pattern. Even this one excerpt is
 enough to expose it: the developer declares the nouns in scope, the closures that build the local
-
-
-                                               25
 slice, the causal consequences that must be retained, the materialised reading that may change,
 and the regions that remain outside the aperture. In ordinary software a developer might declare
 methods over mutable structures. In a warp-native system, the more faithful statement is that
