@@ -13,6 +13,18 @@
 
 \newenvironment{argument}{\begin{proof}[Argument sketch]}{\end{proof}}
 
+% Worked-example headings are authored as numbered subsections, but we keep their
+% numbering stable and linkable as "Example 1/2/3" (independent of subsection
+% numbering) so prose can cite "Example 3" directly.
+\newcounter{workedexample}
+\renewcommand{\theworkedexample}{\arabic{workedexample}}
+\newcommand{\WorkedExample}[2]{%
+  \refstepcounter{workedexample}%
+  \subsection*{Example \theworkedexample: #1}%
+  \phantomsection\label{#2}%
+}
+\newcommand{\Exref}[1]{\hyperref[#1]{Example~\ref*{#1}}}
+
 \definecolor{AIONCodeBg}{RGB}{248,249,251}
 \definecolor{AIONCodeRule}{RGB}{214,220,228}
 \definecolor{AIONCodeString}{RGB}{130,48,20}

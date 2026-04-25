@@ -7,6 +7,17 @@
 \usepackage{float}
 \usepackage{needspace}
 
+% Clickable cross-references (make the whole "Section 3", "Definition 3.1", etc. a link).
+\usepackage[nameinlink,noabbrev]{cleveref}
+\crefname{section}{Section}{Sections}
+\crefname{subsection}{Section}{Sections}
+\crefname{definition}{Definition}{Definitions}
+\crefname{proposition}{Proposition}{Propositions}
+\crefname{theorem}{Theorem}{Theorems}
+\crefname{corollary}{Corollary}{Corollaries}
+\crefname{remark}{Remark}{Remarks}
+\crefname{figure}{Figure}{Figures}
+
 % Use global figure numbering (Figure 1, 2, 3, ...) rather than per-section
 % numbering. Paper VII reads better with a single figure sequence.
 \counterwithout{figure}{section}
@@ -59,6 +70,7 @@
 }
 
 \section{Introduction}
+\label{sec:intro}
 
 The preceding \AION{} papers \cite{Ross2025I,Ross2025II,Ross2025III,Ross2025IV,Ross2026V,Ross2026VI}
 established the mechanisms that make \WARP{} distinctive: deterministic execution,
@@ -66,14 +78,14 @@ provenance-complete boundary artefacts, observer-relative revelation, executable
 branching over shared prefixes, and the sovereignty pressure created by replayable
 shared history. This paper does not add another mechanism. It names the control
 shape that makes those mechanisms one architecture. That object is the \WARP{} optic
-(Definition~3.1).
+(\Cref{def:warp-optic}).
 
 The optic is a composite act. It begins with a positioned observer and a weave of
 plural claims, constructs a bounded slice on which judgement is lawful, admits a
 witnessed outcome under policy, and retains a holographic boundary for later replay,
-audit, transport, or bounded revelation (Section~3). The same act recurs at tick,
-braid, and replica scale (Section~4), and we ground each scale in a worked example
-(Section~5).
+audit, transport, or bounded revelation (\Cref{sec:warp-optic}). The same act recurs at tick,
+braid, and replica scale (\Cref{sec:scales}), and we ground each scale in a worked example
+(\Cref{sec:examples}).
 
 We use a direct noun map and then enforce it. A worldline carries admitted causal
 history. A weave holds basis-relative claims in suspension. An optic lowers that weave
@@ -90,16 +102,16 @@ and aperture. This makes \WARP{} graph-expressive without committing the archite
 to a privileged materialised graph object underneath it.
 
 Two consequences are derived and then reused throughout. First, \WARP{} is closed over
-its own witness-bearing outputs (Proposition \emph{Closure over witness-bearing outputs} in
-Section~3): receipts, braid shells, import shells, and certificates are first-class objects
+its own witness-bearing outputs (\Cref{prop:closure-witness}): receipts, braid shells,
+import shells, and certificates are first-class objects
 for later folding, revelation, comparison, or certification. Secondly, distribution changes
 what must be normalised to become comparable before judgement; it does not introduce a
-second admission law (Section~4 and Example~5.3).
+second admission law (\Cref{sec:scales} and \Exref{ex:transport-before-import}).
 
 Reducer or rewrite language explains a local transformation. The optic form explains the
 larger control law around that transformation: bounded focus, lawful judgement, retained
 residual, and reuse across execution, replay, explanation, transport, and revelation. It is
-also the reason we adopt the profunctor form in Section~3.1: the same declared optic should
+also the reason we adopt the profunctor form in \Cref{subsec:optic-form}: the same declared optic should
 support multiple interpretations without changing its structural focus.
 
 \paragraph{Position in the series and neighbouring work.}
@@ -132,13 +144,14 @@ The specific contributions are:
 This paper is architectural, with a small amount of formal structure. Its goal is to extract the common optic shape that recurs across the \WARP{} stack and to show how that shape supports both strong provenance and bounded revelation. The remaining frontier laws opened by this view---including contamination calculus, collective sovereignty, export semantics, and hostile transport conditions---remain follow-on work. The present paper fixes the architectural centre with sufficient precision that those later laws can be treated as extensions. Accordingly, most formal statements in this paper are propositions with argument sketches about recurrent structure; only the replica-scale confluence result is stated as a theorem because it makes a specific behavioural claim about retained shells.
 
 \paragraph{Reading guide.}
-Section~2 stabilises the noun map. Section~3 gives the core optic definition and
-the local laws needed to read it. Section~4 then states the recurrent
+\Cref{sec:nouns} stabilises the noun map. \Cref{sec:warp-optic} gives the core optic definition and
+the local laws needed to read it. \Cref{sec:scales} then states the recurrent
 scale-local claims. The remaining sections draw distributed, systems, and
 governance consequences from that control shape.
 
 \clearpage
 \section{Causal Lanes, Strands, and Braids}
+\label{sec:nouns}
 
 Before defining the optic, we need the basic ontology. The earlier papers developed deterministic execution, branching, and replay, but they did not need to stabilise the noun map at this level of explicitness. Here we do, because the same optic acts over different kinds of objects, and those objects must not be allowed to collapse into one another.
 
@@ -229,6 +242,7 @@ control shape that those compilations implement.
 
 \clearpage
 \section{The WARP Optic}
+\label{sec:warp-optic}
 
 Our main object is the \WARP{} optic. It names the composite act from which
 local execution, braid collapse, replica import, replay, debugger explanation,
@@ -238,6 +252,7 @@ boundary that later makes that act replayable, auditable, transportable, or
 revealable.
 
 \begin{definition}[WARP optic]
+\label{def:warp-optic}
 	Fix an observer plan \(\Omega = (\pi,\beta,M,U,E)\). A
 	\emph{\WARP{} optic} is a tuple
 	\[
@@ -319,6 +334,7 @@ The optic law is the same in all three cases. What changes is the weave and the
 work needed to present a comparable slice for lawful judgement.
 
 \begin{definition}[Optic slice]
+\label{def:optic-slice}
 	The bounded site \(\chi\) is the \emph{optic slice}: the least
 	frontier-relative closure over which the governing law can lawfully compare the
 	claims in the weave and judge their coexistence, derivation, plurality, conflict, or
@@ -350,6 +366,7 @@ therefore supports more than binary accept or reject: lawful outcomes may also
 preserve plurality, surface conflict, or return obstruction.
 
 \subsection{Why The Optic Form Matters}
+\label{subsec:optic-form}
 
 The optic form matters because the same declared optic should support more than
 one interpretation. In profunctor form,
@@ -391,6 +408,7 @@ That reuse is one of the main reasons the paper needs optic language in addition
 to reducer language.
 
 \subsection{Residual, Witness, and Hologram}
+\label{subsec:residual-witness-hologram}
 
 The optic story includes a hidden residual. For a lens-like optic, one standard
 representation is \cite{Pickering2017,Boisseau2018}
@@ -422,9 +440,10 @@ residual is made explicit and split: \(\theta\) is the retained carrier, \(W\)
 is the witness-bearing residue explaining lawfulness, and \(\Lambda\) names the
 future obligations that equivalence must preserve.
 
-	\begin{definition}[Optic-accurate bulk]
-		For optic \(\Psi\) and retention contract \(\Lambda\), the
-		\emph{optic-accurate bulk} of a bounded admitted situation is the portion of
+		\begin{definition}[Optic-accurate bulk]
+			\label{def:optic-accurate-bulk}
+			For optic \(\Psi\) and retention contract \(\Lambda\), the
+			\emph{optic-accurate bulk} of a bounded admitted situation is the portion of
 		that situation, together with the witness structure it requires, that must
 		remain recoverable for the lawful observations and obligations named by
 		\(\Psi\) and \(\Lambda\). It is a bounded notion: the retained causal content
@@ -433,6 +452,7 @@ future obligations that equivalence must preserve.
 	\end{definition}
 
 \begin{definition}[WARP hologram]
+\label{def:warp-hologram}
 	For optic \(\Psi\) and lowering result
 	\[
 		\operatorname{Lower}_{\Psi}(F_*, \mathcal{P}) = (R,W,\theta),
@@ -448,6 +468,7 @@ future obligations that equivalence must preserve.
 	\end{definition}
 
 \begin{proposition}[Closure over witness-bearing outputs]
+\label{prop:closure-witness}
 	\WARP{} is closed over its own witness-bearing outputs. For each primary scale
 	\(s \in \{\mathrm{tick}, \mathrm{braid}, \mathrm{replica}\}\), there exists a
 	scale-local optic \(\Psi_s\) and a scale-local weave
@@ -484,6 +505,7 @@ future obligations that equivalence must preserve.
 	bounded local situation.
 
 \subsection{Commitment, Folding, Revelation}
+\label{subsec:commit-fold-reveal}
 
 The optic architecture becomes easier to navigate once the stack is divided
 into three moments:
@@ -509,6 +531,7 @@ into three moments:
 	storage equality \cite{Park1981,Milner1989}.
 
 \begin{definition}[Shell equivalence]
+\label{def:shell-equivalence}
 	Let \(\Lambda\) be a retained contract specifying which replay, audit,
 	transport, or revelation obligations must remain lawful. Two shells
 	\(\theta\) and \(\theta'\) satisfy
@@ -600,6 +623,7 @@ instead of collapsing them into one undifferentiated record.
 
 \clearpage
 \section{Tick, Braid, and Replica}
+\label{sec:scales}
 
 This section turns from the core definition to the recurrent formal claims. The
 propositions in this section state the control shape shared across scale; the later
@@ -634,6 +658,7 @@ The optic recurs most cleanly in three primary instantiations.
 \end{argument}
 
 \begin{corollary}[Basis construction and slicing]
+\label{cor:slicing-boundary}
 	For each primary scale, the set-side lowering surface \(\rho_s\) begins by
 	constructing a comparable bounded slice. At tick scale, \(\rho_{\mathrm{tick}}\)
 	is the identity on already local candidate rewrites. At braid scale,
@@ -815,6 +840,7 @@ separated from imported settlement over already-judged history. A runtime may
 	support once those preconditions are satisfied.
 
 \begin{theorem}[Derived independent suffix confluence up to shell equivalence]
+\label{thm:derived-independent-suffix-confluence}
 	Let \(\widehat{C}_1\) and \(\widehat{C}_2\) be two remote suffix claim
 	families authored at source frontiers \(F^{\mathrm{src}}_1\) and
 	\(F^{\mathrm{src}}_2\). Let \(F^{\mathrm{recv}}\) be a receiving comparable
@@ -920,6 +946,7 @@ separated from imported settlement over already-judged history. A runtime may
 \end{proof}
 
 \begin{corollary}[Non-independent suffixes]
+\label{cor:non-independent-suffixes}
 	If the transported suffix families are not independent, we do not
 	assert commutativity or confluence. The receiving runtime still evaluates the
 	bounded imported site under the same optic law and returns a witnessed member
@@ -951,14 +978,15 @@ structure.
 
 \clearpage
 \section{Illustrative Examples}
+\label{sec:examples}
 
 The preceding three optic instantiations are easier to retain when each case is grounded in one concrete example. We therefore record three minimal worked examples, one for each primary scale.
 
-\subsection{Example 1: Local Overlap In One Tick}
+\WorkedExample{Local Overlap In One Tick}{ex:tick-overlap}
 
 Let the current frontier \(F_*\) materialise a local reading containing a node \(n\) with status \texttt{draft}. Suppose the candidate bundle \(C = \{c_1, c_2\}\) contains two local rewrites: \(c_1\) changes \(n\) to \texttt{published}, while \(c_2\) changes the same node to \texttt{archived}. The bounded site \(\chi\) is the semantic footprint containing \(n\) together with whatever neighbourhood is required for the scheduler to judge the update lawfully. The governing policy \(\Pi\) requires exclusive mutation over that footprint within a single tick.
 
-Figure~\ref{fig:tick-overlap} shows the overlapping-site geometry.
+\Cref{fig:tick-overlap} shows the overlapping-site geometry.
 
 \begin{figure}[H]
 	\centering
@@ -1009,11 +1037,11 @@ over the shared slice \(\chi\):
 	\(R\), while the overlap and blocked coexistence story are preserved in
 	\(W\) and retained in \(\theta\), avoiding silent discard.
 
-\subsection{Example 2: A Braid That Remains Plural}
+\WorkedExample{A Braid That Remains Plural}{ex:braid-plural}
 
 Let two strands \(S_1\) and \(S_2\) share a common parent frontier \(F_*\). Each strand carries a valid claim over the same inherited object, but the claims are incompatible: \(S_1\) records one lawful update to the object, while \(S_2\) records another lawful update that cannot be jointly derived under the braid collapse policy \(\Pi\). The refined braid cells \(\chi\) isolate the shared site together with the local reintegration seams needed for comparison.
 
-Figure~\ref{fig:braid-plural} shows the braid geometry and the preserved plural outcome.
+\Cref{fig:braid-plural} shows the braid geometry and the preserved plural outcome.
 
 \begin{figure}[H]
 	\centering
@@ -1076,7 +1104,7 @@ The display shows that \(R\) may remain plural. Plurality is itself a lawful
 lowered result, with the witness and retained hologram explaining why further
 collapse lacked justification over that bounded comparison slice.
 
-\subsection{Example 3: Transport Before Import}
+\WorkedExample{Transport Before Import}{ex:transport-before-import}
 
 Let replicas \(R_A\) and \(R_B\) share a common prefix \(F_*\). Replica \(R_A\)
 has admitted a suffix \(\sigma_A\) beyond that prefix, and replica \(R_B\) wishes
@@ -1086,7 +1114,7 @@ relevant weave is the family of transported remote claims derived from
 local context needed to decide whether the import remains lawful at \(R_B\)'s
 present basis.
 
-Figure~\ref{fig:transport-before-import} makes the transport-before-import order explicit.
+\Cref{fig:transport-before-import} makes the transport-before-import order explicit.
 
 \begin{figure}[H]
 	\centering
@@ -1146,6 +1174,7 @@ derivation, conflict, or obstruction.
 
 \clearpage
 \section{Continuum and the Post-Unix Horizon}
+\label{sec:continuum}
 
 We use \emph{Continuum} to name the protocol-shaped causal medium induced by
 witnessed admission. Continuum is not a privileged runtime standing above any
@@ -1184,7 +1213,7 @@ observer plans, and shared codecs; and the runtime remains generic, admitting
 	compiler boundary here. The architecture developed here places it at a clear
 	engineering seam.
 
-	Figure~\ref{fig:sdl-compiler-runtime} sketches that seam.
+	\Cref{fig:sdl-compiler-runtime} sketches that seam.
 
 \begin{figure}[H]
 	\centering
@@ -1454,6 +1483,7 @@ tool or session origin, fork basis, and retention or revelation posture.
 
 \clearpage
 \section{Privacy, Provenance, and Revelation}
+\label{sec:privacy}
 
 Privacy and provenance are not mutually exclusive \cite{Ross2026VI}. We do not
 re-derive that machinery here. The present point
@@ -1537,6 +1567,7 @@ every use. It lets lawful readings differ by right, scope, and witness tier.
 
 \clearpage
 \section{Open Frontier Questions}
+\label{sec:frontier}
 
 The architectural centre is stable enough that the remaining work can be stated
 as extension rather than as hidden prerequisite. The next frontier laws likely
@@ -1572,6 +1603,7 @@ witnessed admission, not a privileged runtime.
 
 \clearpage
 \section{Conclusion}
+\label{sec:conclusion}
 
 The central result of this paper is a clearer object. \WARP{} is an optic
 architecture in which state transitions, braid outcomes, certificate trust,
@@ -1600,6 +1632,7 @@ commits, folds, and reveals truth under law.
 \appendix
 
 \section{Adversarial Transport (Sketch)}
+\label{sec:adversarial-transport}
 
 The main text treats replica transport as a normalisation step that constructs a
 comparable basis and re-expresses a remote suffix family as a weave suitable for
@@ -1686,6 +1719,7 @@ fail.
 
 \clearpage
 \section{WARP Glossary}
+\label{sec:glossary}
 
 This glossary gathers the recurring nouns of this paper and the surrounding
 series. The entries are intentionally architectural and implementation-agnostic.

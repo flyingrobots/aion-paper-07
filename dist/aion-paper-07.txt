@@ -55,9 +55,6 @@ Contents
   4.3 The Replica Optic . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .     15
 
 5 Illustrative Examples                                                                               19
-  5.1 Example 1: Local Overlap In One Tick . . . . . . . . . . . . . . . . . . . . . . . . . .        19
-  5.2 Example 2: A Braid That Remains Plural . . . . . . . . . . . . . . . . . . . . . . . .          19
-  5.3 Example 3: Transport Before Import . . . . . . . . . . . . . . . . . . . . . . . . . . .        20
 
 6 Continuum and the Post-Unix Horizon                                                                 22
   6.1 Application Boundary . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .      22
@@ -113,10 +110,10 @@ artefacts are the primitive objects. “The graph” then names a frontier-relat
 emitted by an observer under a lawful basis and aperture. This makes warp graph-expressive
 without committing the architecture to a privileged materialised graph object underneath it.
     Two consequences are derived and then reused throughout. First, warp is closed over its own
-witness-bearing outputs (Proposition Closure over witness-bearing outputs in Section 3): receipts,
-braid shells, import shells, and certificates are first-class objects for later folding, revelation, compari-
-son, or certification. Secondly, distribution changes what must be normalised to become comparable
-before judgement; it does not introduce a second admission law (Section 4 and Example 5.3).
+witness-bearing outputs (Definition 3.5): receipts, braid shells, import shells, and certificates are
+first-class objects for later folding, revelation, comparison, or certification. Secondly, distribution
+changes what must be normalised to become comparable before judgement; it does not introduce a
+second admission law (Section 4 and Example 3).
     Reducer or rewrite language explains a local transformation. The optic form explains the larger
 control law around that transformation: bounded focus, lawful judgement, retained residual, and
 reuse across execution, replay, explanation, transport, and revelation. It is also the reason we adopt
@@ -137,7 +134,7 @@ Contributions. The specific contributions are:
 2. A native definition of the warp optic, separating observer structure, bounded aperture, set-side
    lowering, admissibility law, and retention contract.
 
-                                                     5
+                                                   5
 3. A clarification of why the optic form matters: the same declared warp act may lawfully support
    execution, footprint derivation, witness extraction, debugger explanation, translation analysis, and
    schema compilation—that is, compilation of app-authored optic surfaces into runtime-checkable
@@ -748,7 +745,7 @@ witnessed causal structure.
 The preceding three optic instantiations are easier to retain when each case is grounded in one
 concrete example. We therefore record three minimal worked examples, one for each primary scale.
 
-5.1 Example 1: Local Overlap In One Tick
+Example 1: Local Overlap In One Tick
 Let the current frontier F∗ materialise a local reading containing a node n with status draft.
 Suppose the candidate bundle C = {c1 , c2 } contains two local rewrites: c1 changes n to published,
 while c2 changes the same node to archived. The bounded site χ is the semantic footprint containing
@@ -783,7 +780,7 @@ slice χ:
    The display says exactly that: one candidate becomes the derived result in R, while the overlap
 and blocked coexistence story are preserved in W and retained in θ, avoiding silent discard.
 
-5.2 Example 2: A Braid That Remains Plural
+Example 2: A Braid That Remains Plural
 Let two strands S1 and S2 share a common parent frontier F∗ . Each strand carries a valid claim
 over the same inherited object, but the claims are incompatible: S1 records one lawful update
 to the object, while S2 records another lawful update that cannot be jointly derived under the
@@ -826,7 +823,7 @@ a premature merge.
 the witness and retained hologram explaining why further collapse lacked justification over that
 bounded comparison slice.
 
-5.3 Example 3: Transport Before Import
+Example 3: Transport Before Import
 Let replicas RA and RB share a common prefix F∗ . Replica RA has admitted a suffix σA beyond
 that prefix, and replica RB wishes to import it. Let FB denote RB ’s present comparable frontier.
 The relevant weave is the family of transported remote claims derived from σA . The bounded site χ
