@@ -1188,31 +1188,112 @@ observer plans, and shared codecs; and the runtime remains generic, admitting
 
 \begin{figure}[H]
 	\centering
-	\begin{tikzpicture}[x=1cm,y=1cm, every node/.style={font=\small}]
-		% ER-style: show stable objects and relations at the seam.
-		\node[warp stage, minimum width=4.2cm] (sdl) at (0,0)
-		{Authored optic boundary\\(SDL)};
+	% Diagram is forced to full width for print legibility.
+	\resizebox{\textwidth}{!}{%
+		\begin{tikzpicture}[x=1cm,y=1cm]
+			\tikzset{
+				warp er node/.style={warp box, minimum width=3.2cm, minimum height=1.05cm, font=\small},
+				warp er entity/.style={warp er node},
+				warp er result/.style={warp shell, minimum width=3.2cm, minimum height=1.05cm, font=\small},
+				warp er rel/.style={draw=black!70, line width=0.8pt},
+				warp er label/.style={warp label, font=\small}
+			}
 
-		\node[warp stage, minimum width=4.4cm, right=17mm of sdl] (plans)
-		{Compiled plans\\\(\rho,\Pi,\Lambda,\Omega\)\\+ host bindings};
+			% Pentagonal layout: ring-like ER diagram with curved relations.
+			\def\R{4.2}
+			\node[warp er entity] (kernel) at (90:\R) {Generic lowering kernel\\\(\operatorname{Lower}_\Psi\)};
+			\node[warp er entity] (plans) at (162:\R) {Compiled plans\\\(\rho,\Pi,\Lambda,\Omega\)\\+ host bindings};
+			\node[warp er entity] (sdl) at (234:\R) {Authored optic boundary\\(SDL)};
+			\node[warp er result] (read) at (306:\R) {Hosted read\\(bounded reveal)};
+			\node[warp er result] (shell) at (18:\R) {Retained shell\\\(\theta\) (hologram carrier)};
 
-		\node[warp stage, minimum width=4.4cm, right=17mm of plans] (kernel)
-		{Generic lowering kernel\\\(\operatorname{Lower}_\Psi\)};
+			% Relations along the ring.
+			\draw[warp er rel] (sdl) to[bend left=20]
+			node[warp er label, above] {compile}
+			(plans);
 
-		\node[warp shell, minimum width=4.0cm, below=14mm of kernel] (shell)
-		{Retained shell\\\(\theta\) (hologram carrier)};
+			\draw[warp er rel] (plans) to[bend left=20]
+			node[warp er label, above] {enforce + present}
+			(kernel);
 
-		\node[warp shell, minimum width=4.0cm, below=12mm of plans] (read)
-		{Hosted read\\(bounded reveal)};
+			\draw[warp er rel] (kernel) to[bend left=20]
+			node[warp er label, above] {pack / retain}
+			(shell);
 
-		\draw[warp edge] (sdl) -- node[warp label, above] {compile} (plans);
-		\draw[warp edge] (plans) -- node[warp label, above] {enforce + present} (kernel);
-		\draw[warp edge] (kernel) -- node[warp label, right] {pack / retain} (shell);
-		\draw[warp edge] (shell.west) -- ++(-1.0,0) |- node[warp label, left] {serve} (read.west);
-		\draw[warp edge] (read.east) -- ++(1.0,0) |- node[warp label, right] {observe} (kernel.south);
-	\end{tikzpicture}
+			\draw[warp er rel] (shell) to[bend left=20]
+			node[warp er label, below] {serve}
+			(read);
+
+			\draw[warp er rel] (read) to[bend left=20]
+			node[warp er label, below] {observe}
+			(kernel);
+		\end{tikzpicture}%
+	}
 	\caption{Authored optic boundaries compile into generic admission and observer machinery.}
 	\label{fig:sdl-compiler-runtime}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance=8mm and 9mm]
+		\tikzset{
+			req box/.style={
+					draw=black,
+					rounded corners=1.8pt,
+					semithick,
+					fill=black!2,
+					align=left,
+					font=\small,
+					inner sep=6pt,
+					text width=0.43\textwidth
+				},
+			req wide/.style={
+					req box,
+					text width=0.90\textwidth
+				},
+			req edge/.style={-{Latex[length=2.2mm,width=1.8mm]}, semithick},
+			req trace/.style={req edge, dashed},
+			req label/.style={warp label, font=\small}
+		}
+
+		\node[req box] (reqDet) {%
+			\textbf{«requirement»} \texttt{REQ-SDL-1}\\
+			\textbf{Determinism surface.}\\
+			The authored boundary must not depend on ambient non-determinism (wallclock, randomness, hidden I/O).};
+
+		\node[req box, below=of reqDet] (reqFoot) {%
+			\textbf{«requirement»} \texttt{REQ-SDL-2}\\
+			\textbf{Footprint closure.}\\
+			Each rewrite declares reads/writes/creates/forbids and the closures needed to construct its bounded slice \(\chi\).};
+
+		\node[req box, right=of reqDet] (reqComp) {%
+			\textbf{«requirement»} \texttt{REQ-COMP-1}\\
+			\textbf{Compile-time enforcement.}\\
+			The compiler rejects boundaries whose declared footprints and closures cannot be checked.};
+
+		\node[req box, below=of reqComp] (reqRt) {%
+			\textbf{«requirement»} \texttt{REQ-RT-1}\\
+			\textbf{Runtime footprint gate.}\\
+			The lowering kernel enforces the declared footprint during admission.};
+
+		\node[req box, below=of reqRt] (reqWit) {%
+			\textbf{«requirement»} \texttt{REQ-RT-2}\\
+			\textbf{Witness obligation.}\\
+			Admitted acts pack a receipt/shell meeting \(\Lambda\)'s replay and audit obligations.};
+
+		\node[req wide, below=11mm of reqWit, xshift=-0.225\textwidth] (reqRead) {%
+			\textbf{«requirement»} \texttt{REQ-READ-1}\\
+			\textbf{Bounded revelation.}\\
+			Hosted reads are mediated by observer plans and rights, not by direct state access.};
+
+		% Relationships (SysML-ish labels; kept sparse for print legibility).
+		\draw[req edge] (reqFoot.east) -- node[req label, above] {deriveReqt} (reqComp.west);
+		\draw[req edge] (reqFoot.east) -- ++(6mm,0) |- node[req label, right] {satisfy} (reqRt.west);
+		\draw[req edge] (reqRt.south) -- node[req label, right] {satisfy} (reqWit.north);
+		\draw[req trace] (reqWit.south) -- node[req label, right] {trace} (reqRead.north);
+	\end{tikzpicture}
+	\caption{A requirement view of the compiler seam: authored boundaries are constrained so that admission remains deterministic, checkable, and witness-bearing.}
+	\label{fig:seam-reqs}
 \end{figure}
 
 \subsection{Example: An Authored Hot-Text Optic}
