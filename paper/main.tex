@@ -231,8 +231,9 @@ Figure~\ref{fig:nouns-roles} summarises the nouns and how the optic acts between
 \end{figure}
 
 % Keep the specification note and terminology summary from being split by a page
-% break, without creating large blank regions.
-\Needspace{14\baselineskip}
+% break, but avoid pushing the entire block onto a fresh page and leaving an
+% awkward blank region under Figure 1.
+\Needspace{10\baselineskip}
 \paragraph{Specification note.}
 We keep the runtime interface out of line. The noun map is
 implementation-bearing, but the concrete interface depends on the host language
