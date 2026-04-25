@@ -40,50 +40,50 @@ the slice boundary; it does not change the downstream law.
 
                                                     3
 Contents
-1 Introduction                                                                                        5
+1 Introduction                                                                                         5
 
 2 Causal Lanes, Strands, and Braids                                                                    7
 
-3 The WARP Optic                                                                                      11
-  3.1 Why The Optic Form Matters . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .        12
-  3.2 Residual, Witness, and Hologram . . . . . . . . . . . . . . . . . . . . . . . . . . . . .       13
-  3.3 Commitment, Folding, Revelation . . . . . . . . . . . . . . . . . . . . . . . . . . . . .       14
+3 The WARP Optic                                                                                 9
+  3.1 Why The Optic Form Matters . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 10
+  3.2 Residual, Witness, and Hologram . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 11
+  3.3 Commitment, Folding, Revelation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 12
 
-4 Tick, Braid, and Replica                                                                            16
-  4.1 The Local Tick Optic . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .      17
-  4.2 The Braid Optic . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .     17
-  4.3 The Replica Optic . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .     17
+4 Tick, Braid, and Replica                                                                            14
+  4.1 The Local Tick Optic . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .      15
+  4.2 The Braid Optic . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .     15
+  4.3 The Replica Optic . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .     15
 
-5 Illustrative Examples                                                                        21
-  5.1 Example 1: Local Overlap In One Tick . . . . . . . . . . . . . . . . . . . . . . . . . . 21
-  5.2 Example 2: A Braid That Remains Plural . . . . . . . . . . . . . . . . . . . . . . . . 21
-  5.3 Example 3: Transport Before Import . . . . . . . . . . . . . . . . . . . . . . . . . . . 22
+5 Illustrative Examples                                                                               19
+  5.1 Example 1: Local Overlap In One Tick . . . . . . . . . . . . . . . . . . . . . . . . . .        19
+  5.2 Example 2: A Braid That Remains Plural . . . . . . . . . . . . . . . . . . . . . . . .          19
+  5.3 Example 3: Transport Before Import . . . . . . . . . . . . . . . . . . . . . . . . . . .        20
 
-6 Continuum and the Post-Unix Horizon                                                                 24
-  6.1 Application Boundary . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .      24
-  6.2 Example: An Authored Hot-Text Optic . . . . . . . . . . . . . . . . . . . . . . . . .           24
-  6.3 The Three-Tier Thinking Room . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .        27
+6 Continuum and the Post-Unix Horizon                                                                 22
+  6.1 Application Boundary . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .      22
+  6.2 Example: An Authored Hot-Text Optic . . . . . . . . . . . . . . . . . . . . . . . . .           22
+  6.3 The Three-Tier Thinking Room . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .        25
 
-7 Privacy, Provenance, and Revelation                                                                 28
-  7.1 Property Library . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    28
-  7.2 Reliance Status . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   28
-  7.3 Observer Rights . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   28
+7 Privacy, Provenance, and Revelation                                                                 26
+  7.1 Property Library . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    26
+  7.2 Reliance Status . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   26
+  7.3 Observer Rights . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   26
 
-8 Open Frontier Questions                                                                             30
+8 Open Frontier Questions                                                                             28
 
-9 Conclusion                                                                                          31
+9 Conclusion                                                                                          29
 
-A Adversarial Transport (Sketch)                                                                      32
-  A.1 Threat model . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    32
-  A.2 Transport obligations . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   32
-  A.3 Failure modes and lawful outcomes . . . . . . . . . . . . . . . . . . . . . . . . . . . .       33
-  A.4 Architectural consequence . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .     33
+A Adversarial Transport (Sketch)                                                                    30
+  A.1 Threat model . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 30
+  A.2 Transport obligations . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 30
+  A.3 Failure modes and lawful outcomes . . . . . . . . . . . . . . . . . . . . . . . . . . . . 31
+  A.4 Architectural consequence . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 31
 
-B WARP Glossary                                                                                       34
-  B.1 Symbolic Vocabulary . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .     34
-  B.2 History And Lane Nouns . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .      34
-  B.3 Admission And Replay Nouns . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .        35
-  B.4 Commitment, Revelation, And Governance Nouns . . . . . . . . . . . . . . . . . . .              36
+B WARP Glossary                                                                                       32
+  B.1 Symbolic Vocabulary . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .     32
+  B.2 History And Lane Nouns . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .      32
+  B.3 Admission And Replay Nouns . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .        33
+  B.4 Commitment, Revelation, And Governance Nouns . . . . . . . . . . . . . . . . . . .              34
 
 
 
@@ -250,50 +250,6 @@ speculative lane in which counterfactual or author-local work may proceed withou
 becoming shared fact. A braid is the object that appears when several such lanes must be compared
 over one basis without yet pretending they have collapsed into a single answer. The optic introduced
 next acts over all three scales, but it acts over a different weave at each scale.
-   Figure 1 summarises the nouns and how the optic acts between them.
-
-
-
-
-                                                  8
-                                            causal lane
-                                          history carrier
-
-
-
-                 worldline                                               strand
-               admitted lane                                         speculative lane
-
-
-
-                                               braid
-                                         lane-scale weave
-
-
-
-                                             weave
-                                        comparison carrier
-
-
-
-                                              optic
-                                           lowering act
-
-
-
-                                             hologram
-                                        retained boundary
-
-
-
-                                               shell
-                                     concrete retained carrier
-
-Figure 1: Nouns and roles. Lanes carry history; worldlines and strands are admitted and speculative
-lane forms. A braid is the lane-scale special case of a weave. The optic lowers a weave over a
-bounded site, the hologram names the retained boundary of that act, and the shell is its concrete
-carrier.
-
 
 Specification note. We keep the runtime interface out of line. The noun map is implementation-
 bearing, but the concrete interface depends on the host language and toolchain. In the current
@@ -303,30 +259,26 @@ invariant control shape that those compilations implement.
 
 Terminology summary.
 
-
-
-
-                                                 9
-Terminology   Definition                                           Remarks
-Causal lane   Replayable carrier of causal history with frontier- May be canonical or speculative.
-              relative materialisation.
-Worldline     Canonically admitted causal lane.                     Counts as shared causal reality
-                                                                    under the governing policy
-                                                                    frame.
-Strand        Speculative causal lane rooted at a parent worldline Resolves divergence against a
-              and fork anchor.                                      chosen basis.
-Braid         Lane-scale weave over multiple lanes sharing a com- Comparison carrier presented for
-              mon precursor or basis.                               later collapse or admission.
-Weave         Basis-relative carrier of suspended candidate claims. Tick bundles, braids, and
-                                                                    transported import families are
-                                                                    the primary cases.
-Hologram      Retained boundary sufficient to recover the optic- Shell θ is a concrete carrier of a
-              accurate bulk under a retention contract.             hologram.
+Terminology         Definition                                           Remarks
+Causal lane         Replayable carrier of causal history with frontier- May be canonical or speculative.
+                    relative materialisation.
+Worldline           Canonically admitted causal lane.                     Counts as shared causal reality
+                                                                          under the governing policy
+                                                                          frame.
+Strand              Speculative causal lane rooted at a parent worldline Resolves divergence against a
+                    and fork anchor.                                      chosen basis.
+Braid               Lane-scale weave over multiple lanes sharing a com- Comparison carrier presented for
+                    mon precursor or basis.                               later collapse or admission.
+Weave               Basis-relative carrier of suspended candidate claims. Tick bundles, braids, and
+                                                                          transported import families are
+                                                                          the primary cases.
+Hologram            Retained boundary sufficient to recover the optic- Shell θ is a concrete carrier of a
+                    accurate bulk under a retention contract.             hologram.
 
 
 
 
-                                            10
+                                                   8
 3 The WARP Optic
 
 Our main object is the warp optic. It names the composite act from which local execution, braid
@@ -375,7 +327,7 @@ then retention.
 DPO graph rewriting; another may realise it by CRDT-style set semantics over an append-only
 history. We name the invariant role and leave the specific calculus open.
 
-                                                      11
+                                                      9
 Three immediate specialisations. The definition is intentionally generic, but it should already
 read concretely in the three primary cases:
 • at tick scale, P = Crw is the candidate rewrite bundle and ρ returns the local footprint slice over
@@ -420,7 +372,7 @@ the whole from s to t.
     For warp, the important consequence is that the same declared optic can be interpreted multiple
 ways without changing its structural focus. The same act may therefore be reused to:
 
-                                                 12
+                                                 10
 • execute the local lowering,
 
 • derive the optic slice or footprint,
@@ -475,7 +427,7 @@ can be reconstructed, replayed, audited, transported, or revealed as Λ requires
 
 
 
-                                                    13
+                                                    11
 Proposition 3.5 (Closure over witness-bearing outputs). warp is closed over its own witness-
 bearing outputs. For each primary scale s ∈ {tick, braid, replica}, there exists a scale-local optic Ψs
 and a scale-local weave Ps such that
@@ -528,7 +480,7 @@ situation for the lawful uses demanded by Λ.
 
 
 
-                                                     14
+                                                     12
     We give one small example. A tick receipt that stores an inverse fragment inline and a folded
 shell that stores only digest-plus-pointer references may still be Λ-equivalent for replay and audit if
 both reconstruct the same local rewrite, witness anchors, and retained obligations. They cease to
@@ -578,7 +530,7 @@ undifferentiated record.
 
 
 
-                                                    15
+                                                    13
 4 Tick, Braid, and Replica
 
 This section turns from the core definition to the recurrent formal claims. The propositions in this
@@ -632,7 +584,7 @@ Replica       remote suffix family     imported region      transport to compara
 
     All three return an element of O(X) = Derived(X) ⊔ Plural(X) ⊔ Conflict ⊔ Obstruction.
 
-                                                       16
+                                                       14
 4.1 The Local Tick Optic
 At engine scale, the frontier is the current state, the weave object is the candidate rewrite bundle, the
 optic slice is the local footprint closure, and the governing policy is the scheduler or local coexistence
@@ -677,7 +629,7 @@ Only after that basis construction can the optic be lowered:
    The transport/import hologram θrep preserves the comparable basis established by transport, the
 import judgement, and the witness needed for replayable catch-up, audited settlement, or bounded
 
-                                                        17
+                                                        15
 revelation at the receiving runtime. Transport constructs the basis on which the replica-scale optic
 can lower the imported situation using the same downstream law already trusted locally.
      The same distributed case can be read more geometrically as strand braiding under lag. Each
@@ -728,7 +680,7 @@ common refinement. Assume:
 3. witness monotonicity: admitting either transported family preserves, up to shell equivalence, the
    basis and witness conditions required to admit the other;
 
-                                                     18
+                                                     16
 4. retention stability: composing retained shells along either sequential path preserves the retained
    replay and audit obligations for the imported region;
 
@@ -780,7 +732,7 @@ state equality alone.
     One immediate consequence is that replication state becomes a queryable temporal causal
 structure once remote suffixes are represented as witnessed transport objects. One should therefore
 
-                                                        19
+                                                        17
 expect a CTL*-like family of queries over lawful transport and lowering paths: what imports were
 possible, what conflicts were inevitable, what acknowledgements must arise under policy, and what
 an observer at a bounded aperture was entitled to see or rely on along a branch [EH86]. We do not
@@ -790,7 +742,7 @@ witnessed causal structure.
 
 
 
-                                                20
+                                                18
 5 Illustrative Examples
 
 The preceding three optic instantiations are easier to retain when each case is grounded in one
@@ -802,7 +754,7 @@ Suppose the candidate bundle C = {c1 , c2 } contains two local rewrites: c1 chan
 while c2 changes the same node to archived. The bounded site χ is the semantic footprint containing
 n together with whatever neighbourhood is required for the scheduler to judge the update lawfully.
 The governing policy Π requires exclusive mutation over that footprint within a single tick.
-   Figure 2 shows the overlapping-site geometry.
+   Figure 1 shows the overlapping-site geometry.
 
                                                  host at F∗
                               c1 : publish                         c2 : archive
@@ -815,7 +767,7 @@ The governing policy Π requires exclusive mutation over that footprint within a
                                                    R, W
                                              admit c1 , block c2
 
-Figure 2: DPO-style overlapping matches over a shared host site [EEPT06, CEL+ 97]. The two
+Figure 1: DPO-style overlapping matches over a shared host site [EEPT06, CEL+ 97]. The two
 candidates overlap on n, so admission preserves the admitted rewrite together with a witness of the
 blocked alternative.
 
@@ -837,12 +789,12 @@ over the same inherited object, but the claims are incompatible: S1 records one 
 to the object, while S2 records another lawful update that cannot be jointly derived under the
 braid collapse policy Π. The refined braid cells χ isolate the shared site together with the local
 reintegration seams needed for comparison.
-    Figure 3 shows the braid geometry and the preserved plural outcome.
+    Figure 2 shows the braid geometry and the preserved plural outcome.
 
 
 
 
-                                                      21
+                                                      19
                                           F∗
                                      shared basis
                                 S1                  S2
@@ -858,7 +810,7 @@ reintegration seams needed for comparison.
                                   R = Plural(B)
 
 
-Figure 3: Two strands literally braid over a shared basis. The resulting claims remain plural when
+Figure 2: Two strands literally braid over a shared basis. The resulting claims remain plural when
 no lawful collapse exists under the braid policy.
 
     The important point is that the lawful outcome may remain Plural. When collapse lacks lawful
@@ -880,12 +832,12 @@ that prefix, and replica RB wishes to import it. Let FB denote RB ’s present c
 The relevant weave is the family of transported remote claims derived from σA . The bounded site χ
 is the imported region together with the local context needed to decide whether the import remains
 lawful at RB ’s present basis.
-    Figure 4 makes the transport-before-import order explicit.
+    Figure 3 makes the transport-before-import order explicit.
 
 
 
 
-                                                     22
+                                                     20
                                         F∗
                                    shared prefix
 
@@ -907,7 +859,7 @@ lawful at RB ’s present basis.
                                      under Ψrep                     Derived / Conflict / Obstruction
 
 
-Figure 4: A remote suffix cannot be judged directly at the receiver’s tip; it must first be transported
+Figure 3: A remote suffix cannot be judged directly at the receiver’s tip; it must first be transported
 to a comparable basis.
 
    Transport first re-expresses the remote suffix at a comparable frontier. Once that transported
@@ -928,7 +880,7 @@ after successful normalisation, the lowered outcome may still be derivation, con
 
 
 
-                                                       23
+                                                       21
 6 Continuum and the Post-Unix Horizon
 
 We use Continuum to name the protocol-shaped causal medium induced by witnessed admission.
@@ -964,12 +916,12 @@ reading families; a compiler lowers those surfaces into intent envelopes, observ
 codecs; and the runtime remains generic, admitting intents, emitting outcome/receipt/hologram
 boundaries, and later serving bounded readings through hosted observers. We do not formalise that
 compiler boundary here. The architecture developed here places it at a clear engineering seam.
-    Figure 5 sketches that seam.
+    Figure 4 sketches that seam.
 
   authored SDL               schema compiler                generic runtime           retained shell
  optic boundary         intent and observer plans        lower / admit / pack        and hosted read
 
-  Figure 5: Authored optic boundaries compile into generic admission and observer machinery.
+  Figure 4: Authored optic boundaries compile into generic admission and observer machinery.
 
 6.2 Example: An Authored Hot-Text Optic
 We make that application boundary concrete by looking at a small developer-authored hot-text
@@ -977,7 +929,7 @@ boundary. The full SDL declares the hot nouns of one text layer—BufferWorldlin
 RopeBranch, RopeLeaf, TextBlob, Anchor, Tick, TickReceipt, and Checkpoint—together with a
 
 
-                                                    24
+                                                    22
 small family of read and write surfaces over them. The paper prints one representative rewrite and
 omits the full schema. Although this boundary is written in GraphQL SDL, it is not a claim that a
 canonical graph object sits underneath the editor. It is a convenient authoring syntax for an optic
@@ -1031,7 +983,7 @@ presented claim family, and packs the declared receipt and retention obligations
  29         }
 
 
-                                                 25
+                                                 23
  30        {
  31            slot: "baseHead"
  32            kind: "RopeHead"
@@ -1085,7 +1037,7 @@ methods over mutable structures. In a warp-native system, the more faithful stat
 the developer authors optic boundaries and lets a schema compiler compile those boundaries into
 runtime-checkable footprint, witness, and retention obligations.
 
-                                               26
+                                               24
 6.3 The Three-Tier Thinking Room
 Continuum remains socially viable only if retention and revelation are decoupled. Shared history
 creates exposure pressure that a simple public/private split cannot absorb: users need room to
@@ -1114,7 +1066,7 @@ record the creating principal, tool or session origin, fork basis, and retention
 
 
 
-                                                  27
+                                                  25
 7 Privacy, Provenance, and Revelation
 
 Privacy and provenance are not mutually exclusive [Ros26b]. We do not re-derive that machinery
@@ -1163,7 +1115,7 @@ noun here is not “lens” but “reading”: an observer, equipped with a boun
 a lawful projection by decoding only the least required slice of a subject’s backward causal cone. In
 
 
-                                                   28
+                                                   26
 this ontology, that reading is a coordinate chart over causal history. Different observers may therefore
 lawfully emit different charts over the same history, and revelation law must govern which transitions
 between such charts are permitted, what witness must travel with them, and what plurality or
@@ -1179,7 +1131,7 @@ to serve every use. It lets lawful readings differ by right, scope, and witness 
 
 
 
-                                                  29
+                                                  27
 8 Open Frontier Questions
 
 The architectural centre is stable enough that the remaining work can be stated as extension rather
@@ -1219,7 +1171,7 @@ privileged runtime.
 
 
 
-                                                 30
+                                                 28
 9 Conclusion
 
 The central result of this paper is a clearer object. warp is an optic architecture in which state
@@ -1242,7 +1194,7 @@ executes, it commits, folds, and reveals truth under law.
 
 
 
-                                                  31
+                                                  29
 A Adversarial Transport (Sketch)
 
 The main text treats replica transport as a normalisation step that constructs a comparable basis
@@ -1293,7 +1245,7 @@ enough that downstream lowering remains lawful and auditable.
 
 
 
-                                                  32
+                                                  30
 A.3 Failure modes and lawful outcomes
 Hostile and failure-path behaviour should surface as witnessed outcomes instead of being absorbed
 as silent heuristics:
@@ -1325,7 +1277,7 @@ when incompatibility is surfaced, and Obstruction when preconditions fail.
 
 
 
-                                                 33
+                                                 31
 B WARP Glossary
 
 This glossary gathers the recurring nouns of this paper and the surrounding series. The entries are
@@ -1386,7 +1338,7 @@ Shared history                The admitted causal medium from which frontier-rel
 
 
 
-                                                        34
+                                                        32
 B.3 Admission And Replay Nouns
 
 Term                         Meaning
@@ -1422,7 +1374,7 @@ Optic-accurate bulk          The retained causal content, together with the requ
 
 
 
-                                                       35
+                                                       33
 B.4 Commitment, Revelation, And Governance Nouns
 
 Term                            Meaning
@@ -1463,7 +1415,7 @@ Shared / Admitted Lane       The portion of history that has crossed into collab
 
 
 
-                                                         36
+                                                         34
 References
 
 [Art47]     Emil Artin. Theory of braids. Annals of Mathematics, 48(1):101–126, 1947. doi:
@@ -1518,7 +1470,7 @@ References
             doi:10.1145/4904.4999.
 
 
-                                                  37
+                                                  35
 [FGM+ 07] J. Nathan Foster, Michael B. Greenwald, Jonathan T. Moore, Benjamin C. Pierce,
           and Alan Schmitt. Combinators for bidirectional tree transformations: A linguistic
           approach to the view-update problem. ACM Transactions on Programming Languages
@@ -1573,7 +1525,7 @@ References
 [Ros25a]   James Ross. WARP graphs: A worldline algebra for recursive provenance. AIΩN
            Foundations Series, Paper I, 2025. doi:10.5281/zenodo.17908005.
 
-                                               38
+                                               36
 [Ros25b]   James Ross. WARP graphs: Canonical state evolution and deterministic worldlines.
            AIΩN Foundations Series, Paper II, 2025. doi:10.5281/zenodo.17934512.
 
@@ -1608,4 +1560,4 @@ References
 
 
 
-                                                39
+                                                37

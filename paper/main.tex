@@ -196,39 +196,9 @@ The same split also prevents admission from silently doing other jobs. Forking c
 \paragraph{Operational intuition.}
 A worldline is the shared lane others may rely on. A strand is the speculative lane in which counterfactual or author-local work may proceed without immediately becoming shared fact. A braid is the object that appears when several such lanes must be compared over one basis without yet pretending they have collapsed into a single answer. The optic introduced next acts over all three scales, but it acts over a different weave at each scale.
 
-Figure~\ref{fig:nouns-roles} summarises the nouns and how the optic acts between them.
-
-\begin{figure}[H]
-	\centering
-	% Slightly taller than strictly necessary: this reduces the tendency of the
-	% following non-splittable block to strand a large blank region.
-	\begin{tikzpicture}[node distance=10mm and 14mm, every node/.style={font=\small}]
-		\node[warp stage, minimum width=3.3cm] (lane) {causal lane\\history carrier};
-		\node[warp small, minimum width=3.1cm, below left=of lane] (worldline) {worldline\\admitted lane};
-		\node[warp small, minimum width=3.1cm, below right=of lane] (strand) {strand\\speculative lane};
-
-		\node[warp stage, minimum width=3.3cm, below=14mm of $(worldline)!0.5!(strand)$] (braid) {braid\\lane-scale weave};
-		\node[warp stage, minimum width=3.3cm, below=of braid] (weave) {weave\\comparison carrier};
-		\node[warp stage, minimum width=3.3cm, below=of weave] (optic) {optic\\lowering act};
-		\node[warp shell, minimum width=3.3cm, below=of optic] (hologram) {hologram\\retained boundary};
-		\node[warp shell, minimum width=3.3cm, below=of hologram] (shell) {shell\\concrete retained carrier};
-
-		\draw[warp edge] (lane) -- (worldline);
-		\draw[warp edge] (lane) -- (strand);
-		\draw[warp edge] (worldline.south) .. controls +(0,-7mm) and +(-7mm,7mm) .. (braid.west);
-		\draw[warp edge] (strand.south) .. controls +(0,-7mm) and +(7mm,7mm) .. (braid.east);
-		\draw[warp edge] (braid) -- (weave);
-		\draw[warp edge] (weave) -- (optic);
-		\draw[warp edge] (optic) -- (hologram);
-		\draw[warp edge] (hologram) -- (shell);
-	\end{tikzpicture}
-	\caption{Nouns and roles. Lanes carry history; worldlines and strands are admitted and speculative lane forms. A braid is the lane-scale special case of a weave. The optic lowers a weave over a bounded site, the hologram names the retained boundary of that act, and the shell is its concrete carrier.}
-	\label{fig:nouns-roles}
-\end{figure}
-
 % Keep the specification note and terminology summary from being split by a page
 % break, but avoid pushing the entire block onto a fresh page and leaving an
-% awkward blank region under Figure 1.
+% awkward blank region.
 \Needspace{10\baselineskip}
 \paragraph{Specification note.}
 We keep the runtime interface out of line. The noun map is
