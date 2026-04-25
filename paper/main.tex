@@ -132,7 +132,7 @@ The specific contributions are:
 
 		\item A recursive hologram result: each such lowering emits a boundary-complete shell for the bounded admitted situation, so downstream replay and counterfactual examination propagate beyond ticks to braid-local, replica-local, and later trust-bearing shells.
 
-	\item A normalisation thesis for distributed causality: network distance relocates the hard part into transport and normalisation to a comparable frontier.
+		\item A normalisation thesis for distributed causality: network distance relocates the principal burden into transport and normalisation to a comparable frontier.
 
 	\item A three-way architectural decomposition into commitment, folding, and revelation, separating what is true from how it is stored and who may lawfully inspect it.
 
@@ -671,7 +671,7 @@ The optic recurs most cleanly in three primary instantiations.
 \begin{argument}
 	The optic never judges the whole world at once. It only judges the bounded,
 	comparable closure required for the act at hand. At replica scale that makes
-	transport the hard part, because the comparable slice must first be
+	transport the principal burden, because the comparable slice must first be
 	constructed. At tick and braid scale the relevant slice is already closer to
 	hand.
 \end{argument}
@@ -687,12 +687,12 @@ and the hologram retains the least sufficient boundary from which that judged
 situation can later be replayed, audited, transported, or revealed.
 
 The practical consequence is that distance changes the basis construction
-required before the optic can lower the weave. It is easy to treat distribution
+required before the optic can lower the weave. Distribution is often treated
 as a distinct reconciliation regime when comparability, basis, and witness
 obligations remain implicit. \WARP{} promotes those preconditions into explicit
 structure and then reuses the same witnessed optic.
 Distribution shifts the slice boundary while leaving the downstream law
-unchanged. The hard part therefore receives a precise address: transport and
+unchanged. The principal normalisation burden therefore receives a precise address: transport and
 \(\rho_{\mathrm{replica}}\) absorb the work of bringing remote claims to a
 comparable frontier.
 
@@ -756,9 +756,9 @@ basis, the plural claim geometry relevant to the bounded cells, the admitted
 collapse outcome, and the witness that makes that outcome reviewable or
 transportable without forcing premature flattening.
 
-This is one of our most important corrections to ordinary branching
-language. Irreducible plurality is not a failed merge. It is often the lawful
-lowered result. This is the sharp contrast with convergence-first replicated
+This sharpens the paper's branching vocabulary. Irreducible plurality need not
+be treated as merge failure; under the governing law it may itself be the
+lawful lowered result. That contrasts with convergence-first replicated
 editing and CRDT presentations whose central obligation is to transform
 concurrent operations into one consistent visible state
 \cite{Ellis1989,Shapiro2011}.
@@ -1166,7 +1166,7 @@ queryable and auditable as lawful transport and lowering.
 	\end{aligned}
 \]
 
-The first line localises the hard part in transport: the remote suffix is
+The first line localises the principal burden in transport: the remote suffix is
 re-expressed at a comparable frontier before any import judgement is attempted.
 The second line then lowers the replica-scale weave under
 the same optic shape already trusted locally. The third line makes explicit
@@ -1178,8 +1178,7 @@ derivation, conflict, or obstruction.
 \label{sec:continuum}
 
 We use \emph{Continuum} to name the protocol-shaped causal medium induced by
-witnessed admission. Continuum is not a privileged runtime standing above any
-participant. It is the shared medium formed by exchangeable witness-bearing
+witnessed admission. It is formed by exchangeable witness-bearing
 artefacts---suffixes, shells, receipts, and certificates---together with the
 transport rules that re-express remote history at comparable bases so that the
 downstream optic can be lowered lawfully.
@@ -1188,7 +1187,7 @@ Because tick admission, braid collapse, and replica import share one optic law,
 it becomes natural to treat operating-system objects as frontier-relative
 materialisations over that same causal medium.
 
-The post-Unix claim of the paper is not that the operating system becomes graph-shaped. It is that the operating system becomes frontier-relative.
+The post-Unix claim therefore concerns frontier-relativity at the operating-system boundary rather than a graph-shaped operating system.
 
 The relevant lineage is Unix's process/file discipline, capability systems' authority discipline, and Plan 9's namespace discipline; \WARP{} shifts the centre of gravity from container, descriptor, or address space to witnessed causal admission over shared history \cite{RitchieThompson1974,DennisVanHorn1966,Levy1984,Pike1995}.
 
@@ -1334,8 +1333,8 @@ full SDL declares the hot nouns of one text layer---\texttt{BufferWorldline},
 \texttt{Anchor}, \texttt{Tick}, \texttt{TickReceipt}, and
 \texttt{Checkpoint}---together with a small family of read and write surfaces
 over them. The paper prints one representative rewrite and omits the full
-schema. Although this boundary is written in GraphQL SDL, it is not a claim
-that a canonical graph object sits underneath the editor. It is a convenient
+schema. Although this boundary is written in GraphQL SDL, it does not posit
+a canonical graph object beneath the editor; it serves instead as a convenient
 authoring syntax for an optic boundary: a typed aperture over one hot layer and
 its admissible rewrite surfaces.
 
@@ -1345,15 +1344,16 @@ in one typed schema. That in turn allows a schema compiler---in the current
 toolchain---to check footprint obligations, slot bindings, and forbidden
 reachability at compile time, before arbitrary host code has run.
 Just as importantly, the SDL narrows the authoring surface:
-the developer is declaring shapes, closures, and mutations, not smuggling in
+the developer is declaring shapes, closures, and mutations, rather than introducing
 ambient non-determinism through random sources, wall-clock reads, or hidden
-side effects. GraphQL is also easy to version, so new nouns, rewrites, and
+side effects. GraphQL is also readily versioned, so new nouns, rewrites, and
 migrations can be staged as explicit schema evolution, avoiding silent runtime
 drift.
 We treat GraphQL here as an authoring surface; its use as an API and query
 language is standard \cite{GraphQLSpec}.
 
-The central rewrite in that family is \texttt{replaceRangeAsTick}, because it
+The central rewrite in that family is \texttt{replaceRangeAsTick}, shown in
+\Cref{lst:replace-range-as-tick}, because it
 shows the optic shape with minimal extra machinery:
 
 \paragraph{From surface to runtime admission.}
@@ -1437,28 +1437,26 @@ replaceRangeAsTick(
     )
 \end{lstlisting}
 
-	This is exactly the developer-facing form of a \WARP{} optic. The authored
-	surface names the hot nouns that matter, the closure operators that construct
-	the optic slice, the created causal consequences that the runtime must retain,
-	and the materialised reading that may change. The operation
-	\texttt{replaceRangeAsTick} defines a bounded rewrite surface over a buffer
-	worldline.
-	The closures \texttt{ropeRangeClosure} and
-	\texttt{anchorsIntersectingEditWindow} construct the local slice to be judged;
-	the created \texttt{Tick} and \texttt{TickReceipt} make the witness-bearing
-	consequences explicit; and the \texttt{forbids} clause makes the aperture
-	explicit by ruling out silent dependence on AST state, diagnostics, Git witness
-	history, or UI state.
+This is exactly the developer-facing form of a \WARP{} optic. The authored
+surface names the hot nouns that matter, the closure operators that construct
+the optic slice, the created causal consequences that the runtime must retain,
+and the materialised reading that may change. The operation
+\texttt{replaceRangeAsTick} defines a bounded rewrite surface over a buffer
+worldline. The closures \texttt{ropeRangeClosure} and
+\texttt{anchorsIntersectingEditWindow} construct the local slice to be judged;
+the created \texttt{Tick} and \texttt{TickReceipt} make the witness-bearing
+consequences explicit; and the \texttt{forbids} clause makes the aperture
+explicit by ruling out silent dependence on AST state, diagnostics, Git witness
+history, or UI state.
 
-We omit the full SDL. Our goal here is to show the authored pattern.
-	Even this one excerpt is enough to expose it: the developer declares
-	the nouns in scope, the closures that build the local slice, the causal
-	consequences that must be retained, the materialised reading that may change,
-	and the regions that remain outside the aperture. In ordinary software a
-	developer might declare methods over mutable structures. In a \WARP{}-native
-	system, the more faithful statement is that the developer authors optic
-	boundaries and lets a schema compiler compile those boundaries
-	into runtime-checkable footprint, witness, and retention obligations.
+We omit the full SDL because this excerpt already exposes the authored pattern:
+the developer declares the nouns in scope, the closures that build the local
+slice, the causal consequences that must be retained, the materialised reading
+that may change, and the regions that remain outside the aperture. In ordinary
+software a developer might declare methods over mutable structures. In a
+\WARP{}-native system, the more faithful statement is that the developer authors
+optic boundaries and lets a schema compiler compile those boundaries into
+runtime-checkable footprint, witness, and retention obligations.
 
 \subsection{The Three-Tier Thinking Room}
 
@@ -1534,8 +1532,8 @@ Once certificates exist, trust itself becomes a first-class object with a
 lifecycle, echoing the pressure visible in PKI and certificate revocation
 systems while generalising the object being trusted \cite{RFC5280}. A
 certificate can be issued, activated, superseded, suspended, revoked, expired,
-and archived. Revocation is not deletion. It is a new witnessed status
-transition about future lawful reliance. This creates a true reliance domain
+and archived. Revocation is a new witnessed status transition about future
+lawful reliance, not deletion. This creates a true reliance domain
 within \WARP{} and makes trust an internal witnessed object.
 
 One concrete case is a collaborator relying on an active certificate that
@@ -1601,11 +1599,10 @@ a real social-runtime theory. The final paper should therefore turn from the
 internal recurrence of the \WARP{} optic to the external consequence of that
 recurrence: there is no primary runtime. If graph-like state is an
 observer-relative reading and replica import is ordinary witnessed admission,
-then Continuum is not a runtime standing above any participant. It is the
-protocol-shaped causal medium defined by witnessed suffixes, transport, slicing,
+Continuum is best understood as the protocol-shaped causal medium defined by witnessed suffixes, transport, slicing,
 lowering, outcome algebra, and bounded revelation.
-Paper VIII develops that consequence directly: Continuum is a protocol of
-witnessed admission, not a privileged runtime.
+Paper VIII develops that consequence directly by treating Continuum as a
+protocol of witnessed admission rather than as a privileged runtime.
 
 \clearpage
 \section{Conclusion}

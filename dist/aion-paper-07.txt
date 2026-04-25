@@ -148,8 +148,8 @@ Contributions. The specific contributions are:
    admitted situation, so downstream replay and counterfactual examination propagate beyond
    ticks to braid-local, replica-local, and later trust-bearing shells.
 
-6. A normalisation thesis for distributed causality: network distance relocates the hard part into
-   transport and normalisation to a comparable frontier.
+6. A normalisation thesis for distributed causality: network distance relocates the principal burden
+   into transport and normalisation to a comparable frontier.
 
 7. A three-way architectural decomposition into commitment, folding, and revelation, separating
    what is true from how it is stored and who may lawfully inspect it.
@@ -534,12 +534,10 @@ This section turns from the core definition to the recurrent formal claims. The 
 section state the control shape shared across scale; the later sections derive distributed, systems,
 and governance consequences from that shape.
     The optic recurs most cleanly in three primary instantiations.
-
 Proposition 4.1 (Optic-shape invariance). For each primary scale s ∈ {tick, braid, replica}, there
 exist a scale-local optic Ψs , a scale-local frontier Fs , a scale-local weave Ps , and a scale-local carrier
 Xs such that
                            LowerΨs (Fs , Ps ) = (Rs , Ws , θs ),     Rs ∈ O(Xs ).
-
 Argument sketch. At tick scale, the weave is a candidate rewrite bundle over one current frontier.
 At braid scale, it is a braid presenting multiple valid strand claims over one common basis. At
 replica scale, it is a remote suffix family presented for import at a receiving frontier. In each case
@@ -552,10 +550,9 @@ surface ρs begins by constructing a comparable bounded slice. At tick scale, ρ
 on already local candidate rewrites. At braid scale, ρbraid presents validated strand claims over a
 common basis. At replica scale, ρreplica transports remote suffixes to a comparable frontier before
 any import judgement is attempted.
-
 Argument sketch. The optic never judges the whole world at once. It only judges the bounded,
-comparable closure required for the act at hand. At replica scale that makes transport the hard
-part, because the comparable slice must first be constructed. At tick and braid scale the relevant
+comparable closure required for the act at hand. At replica scale that makes transport the principal
+burden, because the comparable slice must first be constructed. At tick and braid scale the relevant
 slice is already closer to hand.
 
     This is the operational sense in which warp is a slicing architecture. At tick scale, χ is the
@@ -566,18 +563,18 @@ optic therefore takes slices in and emits slices out: the set-side surface const
 on which judgement is lawful, and the hologram retains the least sufficient boundary from which
 that judged situation can later be replayed, audited, transported, or revealed.
     The practical consequence is that distance changes the basis construction required before the
-optic can lower the weave. It is easy to treat distribution as a distinct reconciliation regime when
+optic can lower the weave. Distribution is often treated as a distinct reconciliation regime when
 comparability, basis, and witness obligations remain implicit. warp promotes those preconditions
 into explicit structure and then reuses the same witnessed optic. Distribution shifts the slice
-boundary while leaving the downstream law unchanged. The hard part therefore receives a precise
-address: transport and ρreplica absorb the work of bringing remote claims to a comparable frontier.
+boundary while leaving the downstream law unchanged. The principal normalisation burden
+therefore receives a precise address: transport and ρreplica absorb the work of bringing remote claims
+to a comparable frontier.
 
 Scale         Weave                    Slice                Basis construction          Shell
 Tick          rewrite bundle           footprint closure    already local projection    tick receipt
 Braid         strand braid             comparison cells     common-basis refinement     braid shell
 Replica       remote suffix family     imported region      transport to comparable     import shell
                                                             frontier
-
 
     All three return an element of O(X) = Derived(X) ⊔ Plural(X) ⊔ Conflict ⊔ Obstruction.
 
@@ -603,8 +600,8 @@ Conflict, or Obstruction.
     The braid-level hologram θbraid preserves the comparison basis, the plural claim geometry relevant
 to the bounded cells, the admitted collapse outcome, and the witness that makes that outcome
 reviewable or transportable without forcing premature flattening.
-    This is one of our most important corrections to ordinary branching language. Irreducible
-plurality is not a failed merge. It is often the lawful lowered result. This is the sharp contrast
+    This sharpens the paper’s branching vocabulary. Irreducible plurality need not be treated as
+merge failure; under the governing law it may itself be the lawful lowered result. That contrasts
 with convergence-first replicated editing and CRDT presentations whose central obligation is to
 transform concurrent operations into one consistent visible state [EG89, SPBZ11].
 
@@ -834,25 +831,25 @@ lawful at RB ’s present basis.
 
 
                                                      20
-                                        F∗
-                                   shared prefix
+                                       F∗
+                                  shared prefix
 
 
-                               direct import forbidden
-            RA                                                          RB
-         suffix σA                 transport to                     frontier FB
-                                 comparable basis
+                              direct import forbidden
+            RA                                                         RB
+         suffix σA                transport to                     frontier FB
+                                comparable basis
 
-                                          re-express
+                                         re-express
 
-                                     e at FB
-                                     C                                            retained
-                                   import weave                                     shell
+                                    e at FB
+                                    C                                            retained
+                                  import weave                                     shell
 
-                                                                                      retain
+                                                                                     retain
 
-                                   lower / admit                           witnessed outcome
-                                     under Ψrep                     Derived / Conflict / Obstruction
+                                  lower / admit                           witnessed outcome
+                                    under Ψrep                     Derived / Conflict / Obstruction
 
 
 Figure 3: A remote suffix cannot be judged directly at the receiver’s tip; it must first be transported
@@ -864,31 +861,31 @@ conflict or obstruction with an explicit witness. Engineering implication. Repli
 queryable and auditable as lawful transport and lowering.
    At replica scale, the order of acts matters:
 
-                                   Ce = Transport(F∗ , σA , FB ),
-                           (R, W, θ) = LowerΨrep (FB , C),
-                                                       e
-                                   R ∈ {Derived(x), Conflict, Obstruction}.
-    The first line localises the hard part in transport: the remote suffix is re-expressed at a comparable
-frontier before any import judgement is attempted. The second line then lowers the replica-scale
-weave under the same optic shape already trusted locally. The third line makes explicit that even
-after successful normalisation, the lowered outcome may still be derivation, conflict, or obstruction.
+                                  Ce = Transport(F∗ , σA , FB ),
+                          (R, W, θ) = LowerΨrep (FB , C),
+                                                      e
+                                  R ∈ {Derived(x), Conflict, Obstruction}.
+    The first line localises the principal burden in transport: the remote suffix is re-expressed at a
+comparable frontier before any import judgement is attempted. The second line then lowers the
+replica-scale weave under the same optic shape already trusted locally. The third line makes explicit
+that even after successful normalisation, the lowered outcome may still be derivation, conflict, or
+obstruction.
 
 
 
 
-                                                       21
+                                                      21
 6 Continuum and the Post-Unix Horizon
 
 We use Continuum to name the protocol-shaped causal medium induced by witnessed admission.
-Continuum is not a privileged runtime standing above any participant. It is the shared medium
-formed by exchangeable witness-bearing artefacts—suffixes, shells, receipts, and certificates—together
-with the transport rules that re-express remote history at comparable bases so that the downstream
-optic can be lowered lawfully.
+It is formed by exchangeable witness-bearing artefacts—suffixes, shells, receipts, and certificates—
+together with the transport rules that re-express remote history at comparable bases so that the
+downstream optic can be lowered lawfully.
     Because tick admission, braid collapse, and replica import share one optic law, it becomes
 natural to treat operating-system objects as frontier-relative materialisations over that same causal
 medium.
-    The post-Unix claim of the paper is not that the operating system becomes graph-shaped. It is
-that the operating system becomes frontier-relative.
+    The post-Unix claim therefore concerns frontier-relativity at the operating-system boundary
+rather than a graph-shaped operating system.
     The relevant lineage is Unix’s process/file discipline, capability systems’ authority discipline,
 and Plan 9’s namespace discipline; warp shifts the centre of gravity from container, descriptor, or
 address space to witnessed causal admission over shared history [RT74, DVH66, Lev84, PPD+ 95].
@@ -976,20 +973,20 @@ We make that application boundary concrete by looking at a small developer-autho
 boundary. The full SDL declares the hot nouns of one text layer—BufferWorldline, RopeHead,
 RopeBranch, RopeLeaf, TextBlob, Anchor, Tick, TickReceipt, and Checkpoint—together with a
 small family of read and write surfaces over them. The paper prints one representative rewrite and
-omits the full schema. Although this boundary is written in GraphQL SDL, it is not a claim that a
-canonical graph object sits underneath the editor. It is a convenient authoring syntax for an optic
-boundary: a typed aperture over one hot layer and its admissible rewrite surfaces.
+omits the full schema. Although this boundary is written in GraphQL SDL, it does not posit a
+canonical graph object beneath the editor; it serves instead as a convenient authoring syntax for an
+optic boundary: a typed aperture over one hot layer and its admissible rewrite surfaces.
     GraphQL was selected here for deliberate reasons. It lets application authors declare the hot
 nouns of a layer and the admissible rewrite surfaces over them in one typed schema. That in turn
 allows a schema compiler—in the current toolchain—to check footprint obligations, slot bindings,
 and forbidden reachability at compile time, before arbitrary host code has run. Just as importantly,
 the SDL narrows the authoring surface: the developer is declaring shapes, closures, and mutations,
-not smuggling in ambient non-determinism through random sources, wall-clock reads, or hidden
-side effects. GraphQL is also easy to version, so new nouns, rewrites, and migrations can be staged
-as explicit schema evolution, avoiding silent runtime drift. We treat GraphQL here as an authoring
-surface; its use as an API and query language is standard [Gra21].
-    The central rewrite in that family is replaceRangeAsTick, because it shows the optic shape
-with minimal extra machinery:
+rather than introducing ambient non-determinism through random sources, wall-clock reads, or
+hidden side effects. GraphQL is also readily versioned, so new nouns, rewrites, and migrations can
+be staged as explicit schema evolution, avoiding silent runtime drift. We treat GraphQL here as an
+authoring surface; its use as an API and query language is standard [Gra21].
+    The central rewrite in that family is replaceRangeAsTick, shown in Listing 1, because it shows
+the optic shape with minimal extra machinery:
 
 From surface to runtime admission. Compilation of a surface like replaceRangeAsTick
 yields a typed intent envelope (carrying arguments plus declared reads/writes/creates/forbids) and
@@ -1080,13 +1077,13 @@ diagnostics, Git witness history, or UI state.
 
 
                                               25
-    We omit the full SDL. Our goal here is to show the authored pattern. Even this one excerpt is
-enough to expose it: the developer declares the nouns in scope, the closures that build the local
-slice, the causal consequences that must be retained, the materialised reading that may change,
-and the regions that remain outside the aperture. In ordinary software a developer might declare
-methods over mutable structures. In a warp-native system, the more faithful statement is that
-the developer authors optic boundaries and lets a schema compiler compile those boundaries into
-runtime-checkable footprint, witness, and retention obligations.
+    We omit the full SDL because this excerpt already exposes the authored pattern: the developer
+declares the nouns in scope, the closures that build the local slice, the causal consequences that
+must be retained, the materialised reading that may change, and the regions that remain outside
+the aperture. In ordinary software a developer might declare methods over mutable structures. In a
+warp-native system, the more faithful statement is that the developer authors optic boundaries
+and lets a schema compiler compile those boundaries into runtime-checkable footprint, witness, and
+retention obligations.
 
 6.3 The Three-Tier Thinking Room
 Continuum remains socially viable only if retention and revelation are decoupled. Shared history
@@ -1149,7 +1146,7 @@ revocation history for later audit even when it is no longer active for ordinary
 Once certificates exist, trust itself becomes a first-class object with a lifecycle, echoing the pressure
 visible in PKI and certificate revocation systems while generalising the object being trusted [CSF+ 08].
 A certificate can be issued, activated, superseded, suspended, revoked, expired, and archived.
-Revocation is not deletion. It is a new witnessed status transition about future lawful reliance. This
+Revocation is a new witnessed status transition about future lawful reliance, not deletion. This
 creates a true reliance domain within warp and makes trust an internal witnessed object.
     One concrete case is a collaborator relying on an active certificate that attests a sealed build,
 data preparation step, or model export at basis F∗ . While the certificate remains active, downstream
@@ -1209,14 +1206,14 @@ Engineering seams.
 
 • export semantics at the causal-medium boundary.
 
-    These points become visible once the foundations are coherent enough to support a real social-
+     These points become visible once the foundations are coherent enough to support a real social-
 runtime theory. The final paper should therefore turn from the internal recurrence of the warp
-optic to the external consequence of that recurrence: there is no primary runtime. If graph-like state
-is an observer-relative reading and replica import is ordinary witnessed admission, then Continuum
-is not a runtime standing above any participant. It is the protocol-shaped causal medium defined
-by witnessed suffixes, transport, slicing, lowering, outcome algebra, and bounded revelation. Paper
-VIII develops that consequence directly: Continuum is a protocol of witnessed admission, not a
-privileged runtime.
+optic to the external consequence of that recurrence: there is no primary runtime. If graph-like
+state is an observer-relative reading and replica import is ordinary witnessed admission, Continuum
+is best understood as the protocol-shaped causal medium defined by witnessed suffixes, transport,
+slicing, lowering, outcome algebra, and bounded revelation. Paper VIII develops that consequence
+directly by treating Continuum as a protocol of witnessed admission rather than as a privileged
+runtime.
 
 
 
