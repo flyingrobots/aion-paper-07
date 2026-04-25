@@ -955,23 +955,30 @@ omits the full schema. Although this boundary is written in GraphQL SDL, it does
                                                       23
 canonical graph object beneath the editor; it serves instead as a convenient authoring syntax for an
 optic boundary: a typed aperture over one hot layer and its admissible rewrite surfaces.
-    GraphQL was selected here for deliberate reasons. It lets application authors declare the hot
-nouns of a layer and the admissible rewrite surfaces over them in one typed schema. That in turn
-allows a schema compiler—in the current toolchain—to check footprint obligations, slot bindings,
-and forbidden reachability at compile time, before arbitrary host code has run. Just as importantly,
-the SDL narrows the authoring surface: the developer is declaring shapes, closures, and mutations,
-rather than introducing ambient non-determinism through random sources, wall-clock reads, or
-hidden side effects. GraphQL is also readily versioned, so new nouns, rewrites, and migrations can
-be staged as explicit schema evolution, avoiding silent runtime drift. We treat GraphQL here as an
-authoring surface; its use as an API and query language is standard [Gra21].
+    GraphQL was selected here for deliberate reasons. It gives application authors one versionable
+schema in which to declare the typed nouns of a layer—its node/edge forms and attachments—
+together with the admissible rewrite surfaces over them as mutations. That in turn allows a schema
+compiler—in the current toolchain—to check footprint obligations, slot bindings, and forbidden
+reachability at compile time, before arbitrary host code has run. That check is not merely ergonomic:
+it rejects dishonest footprint widening before execution, because a rewrite surface cannot silently
+smuggle in undeclared reads, writes, creates, or closures while still claiming a narrower optic slice.
+Just as importantly, the SDL narrows the authoring surface: the developer is declaring shapes,
+closures, and mutations, rather than introducing ambient non-determinism through random sources,
+wall-clock reads, or hidden side effects. Because the host bindings are generated from the authored
+surface, they can also be checked for integrity against that surface as compiled artefacts and again
+when the runtime presents or enforces them. GraphQL is also readily versioned, so new nouns,
+rewrites, and migrations can be staged as explicit schema evolution, avoiding silent runtime drift.
+We treat GraphQL here as an authoring surface; its use as an API and query language is standard
+[Gra21].
     The central rewrite in that family is replaceRangeAsTick, shown in Listing 1, because it shows
 the optic shape with minimal extra machinery:
 
 From surface to runtime admission. Compilation of a surface like replaceRangeAsTick
 yields a typed intent envelope (carrying arguments plus declared reads/writes/creates/forbids) and
-generated host bindings that enforce those declarations. At runtime, the generic lowering kernel
-uses the declared closures to construct the bounded slice χ, applies the admissibility law Π over the
-presented claim family, and packs the declared receipt and retention obligations under Λ.
+generated host bindings that enforce those declarations and can be checked against the authored
+surface for integrity. At runtime, the generic lowering kernel uses the declared closures to construct
+the bounded slice χ, applies the admissibility law Π over the presented claim family, and packs the
+declared receipt and retention obligations under Λ.
 
   1   replaceRangeAsTick(
   2     input: ReplaceRangeAsTickInput!
@@ -996,20 +1003,20 @@ presented claim family, and packs the declared receipt and retention obligations
  21         "TickReceipt"
  22       ]
  23       slots: [
- 24         {
- 25           slot: "worldline"
- 26           kind: "BufferWorldline"
- 27           bindFromArg: "input.worldlineId"
- 28           access: [READ, WRITE]
- 29         }
- 30         {
- 31           slot: "baseHead"
 
 
                                                  24
- 32           kind: "RopeHead"
- 33           bindFromArg: "input.baseHeadId"
- 34           access: [READ]
+ 24        {
+ 25            slot: "worldline"
+ 26            kind: "BufferWorldline"
+ 27            bindFromArg: "input.worldlineId"
+ 28            access: [READ, WRITE]
+ 29        }
+ 30        {
+ 31            slot: "baseHead"
+ 32            kind: "RopeHead"
+ 33            bindFromArg: "input.baseHeadId"
+ 34            access: [READ]
  35        }
  36      ]
  37      closures: [
@@ -1052,6 +1059,9 @@ operation replaceRangeAsTick defines a bounded rewrite surface over a buffer wor
 closures ropeRangeClosure and anchorsIntersectingEditWindow construct the local slice to be
 judged; the created Tick and TickReceipt make the witness-bearing consequences explicit; and
 the forbids clause makes the aperture explicit by ruling out silent dependence on AST state,
+
+
+                                              25
 diagnostics, Git witness history, or UI state.
     We omit the full SDL because this excerpt already exposes the authored pattern: the developer
 declares the nouns in scope, the closures that build the local slice, the causal consequences that
@@ -1059,9 +1069,6 @@ must be retained, the materialised reading that may change, and the regions that
 the aperture. In ordinary software a developer might declare methods over mutable structures. In a
 warp-native system, the more faithful statement is that the developer authors optic boundaries
 and lets a schema compiler compile those boundaries into runtime-checkable footprint, witness, and
-
-
-                                               25
 retention obligations.
 
 6.3 The Three-Tier Thinking Room
