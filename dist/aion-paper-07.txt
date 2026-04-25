@@ -94,9 +94,9 @@ artefacts, observer-relative revelation, executable branching over shared prefix
 pressure created by replayable shared history. This paper does not add another mechanism. It
 names the control shape that makes those mechanisms one architecture. That object is the warp
 optic (Definition 3.1).
-    The optic is a composite act. It begins with a positioned observer and a weave of plural
-claims, constructs a bounded slice on which judgement is lawful, admits a witnessed outcome under
-policy, and retains a holographic boundary for later replay, audit, transport, or bounded revelation
+    The optic is a composite act. It begins with a positioned observer and a weave of plural claims,
+constructs a bounded slice on which judgement is lawful, admits a witnessed outcome under policy,
+and retains a holographic boundary for later replay, audit, replica transport, or bounded revelation
 (Section 3). The same act recurs at tick, braid, and replica scale (Section 4), and we ground each
 scale in a worked example (Section 5).
     We use a direct noun map and then enforce it. A worldline carries admitted causal history. A
@@ -145,7 +145,7 @@ Contributions. The specific contributions are:
    basis.
 
 5. A recursive hologram result: each such lowering emits a boundary-complete shell for the bounded
-   admitted situation, so replay, audit, transport, and counterfactual examination propagate beyond
+   admitted situation, so downstream replay and counterfactual examination propagate beyond
    ticks to braid-local, replica-local, and later trust-bearing shells.
 
 6. A normalisation thesis for distributed causality: network distance relocates the hard part into
@@ -336,11 +336,11 @@ read concretely in the three primary cases:
 The optic law is the same in all three cases. What changes is the weave and the work needed to
 present a comparable slice for lawful judgement.
 Definition 3.2 (Optic slice). The bounded site χ is the optic slice: the least frontier-relative
-closure over which the governing law can lawfully compare the claims in the weave and judge
-their coexistence, derivation, plurality, conflict, or obstruction. The lowering surface produces
-claims over such a slice; the hologram later preserves the result slice needed for replay, audit,
-transport, or revelation. This generalises the spirit of program slicing—isolating what is relevant to
-a criterion—from program statements to witnessed causal history [Wei81].
+closure over which the governing law can lawfully compare the claims in the weave and judge their
+coexistence, derivation, plurality, conflict, or obstruction. The lowering surface produces claims
+over such a slice; the hologram later preserves the result slice needed for later replay and audit,
+transport, or bounded revelation. This generalises the spirit of program slicing—isolating what is
+relevant to a criterion—from program statements to witnessed causal history [Wei81].
     We make the outcome space explicit with one typing. Let X be the scale-local carrier of derived
 results. Then
                   O(X) := Derived(X) ⊔ Plural(X) ⊔ Conflict ⊔ Obstruction .
@@ -773,8 +773,7 @@ candidate is admitted, the other is blocked, and the witness W records that the 
 on the same semantic site under an exclusivity policy. Engineering implication. The receipt
 is not merely a log of what happened, but a replayable explanation of why the blocked candidate
 could not lawfully coexist in that tick.
-    Written in optic form, the local scheduler lowers the candidate rewrite bundle over the shared
-slice χ:
+    In optic notation, the local scheduler lowers the candidate rewrite bundle over the shared slice χ:
 
              LowerΨtick (F∗ , {c1 , c2 }) = (R, W, θ),        R ∈ {Derived(c1 ), Derived(c2 )}.
    The display says exactly that: one candidate becomes the derived result in R, while the overlap
@@ -816,7 +815,7 @@ the governing policy. The witness then preserves both the fact of divergence and
 preserved plurality was the lawful outcome. Engineering implication. Branch structure can
 remain representationally honest: disagreement can persist as plurality instead of being forced into
 a premature merge.
-    Written in optic form, collapse over the braid looks like this:
+    As a lowering display, collapse over the braid looks like this:
 
                         LowerΨbraid (F∗ , B) = (R, W, θ),        R = Plural(B).
    The display shows that R may remain plural. Plurality is itself a lawful lowered result, with
@@ -863,7 +862,7 @@ to a comparable basis.
 weave exists, the replica optic can lawfully lower it. If transport or lowering fails, the result is
 conflict or obstruction with an explicit witness. Engineering implication. Replication becomes
 queryable and auditable as lawful transport and lowering.
-   Written in optic form, the order of acts matters:
+   At replica scale, the order of acts matters:
 
                                    Ce = Transport(F∗ , σA , FB ),
                            (R, W, θ) = LowerΨrep (FB , C),
@@ -1223,13 +1222,14 @@ privileged runtime.
 9 Conclusion
 
 The central result of this paper is a clearer object. warp is an optic architecture in which state
-transitions, braid outcomes, certificate trust, historical folding, and observer revelation are treated
-as instances of the same witnessed act: project through an observer, bound an optic slice, lawfully
-lower a weave, and retain the result as a hologram. Because each recurrence emits such a hologram,
-replay, audit, transport, and counterfactual examination recur as well. Every retained slice contains
-the least sufficient history of its bounded admitted situation up to the governing retention contract.
-Tick replay is therefore only the first concrete instance of a more general property that also appears
-in braid lowering, distributed import, and later trust-bearing shells.
+transitions, braid outcomes, certificate trust, historical folding, and observer revelation are treated as
+instances of the same witnessed act: project through an observer, bound an optic slice, lawfully lower
+a weave, and retain the result as a hologram. Because each recurrence emits such a hologram, the
+same downstream uses recur beyond ticks, including replay and audit, transport, and counterfactual
+examination. Every retained slice contains the least sufficient history of its bounded admitted
+situation up to the governing retention contract. Tick replay is therefore only the first concrete
+instance of a more general property that also appears in braid lowering, distributed import, and
+later trust-bearing shells.
     The distributed consequence is correspondingly precise. Transport constructs the comparable
 slice on which replica-scale lowering can occur; once that slice exists, the downstream optic is the
 same one already used locally. Distribution changes the slice boundary while leaving the downstream
@@ -1242,7 +1242,7 @@ executes, it commits, folds, and reveals truth under law.
 
 
 
-                                                  30
+                                                   30
 A Adversarial Transport (Sketch)
 
 The main text treats replica transport as a normalisation step that constructs a comparable basis
